@@ -174,6 +174,7 @@ Not in scope: 不计划在系统的第一个版本里包含此功能。
 * AngularJS v1.5.6 (https://angularjs.org/)
 * Angular Material v1.1.0-rc4 (https://material.angularjs.org/latest/)
 * Google Charts (https://developers.google.com/chart/)
+* Yeoman (https://github.com/yeoman/generator-angular#readme)
 
 
 #### UI/UX
