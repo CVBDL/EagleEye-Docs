@@ -175,6 +175,9 @@ Not in scope: 不计划在系统的第一个版本里包含此功能。
 * Angular Material v1.1.0-rc4 (https://material.angularjs.org/latest/)
 * Google Charts (https://developers.google.com/chart/)
 * Yeoman (https://github.com/yeoman/generator-angular#readme)
+* Grunt - The JavaScript Task Runner (http://gruntjs.com/)
+* Sass (http://sass-lang.com/)
+* AngularJS ui-router (https://github.com/angular-ui/ui-router)
 
 
 #### UI/UX
@@ -195,12 +198,20 @@ Not in scope: 不计划在系统的第一个版本里包含此功能。
 ### Backend
 
 * Express framework v4.13.4 (http://expressjs.com/)
-* Node.js v6.2.1 (https://nodejs.org/en/)
+* Node.js v4.4.5 (https://nodejs.org/dist/v4.4.5/node-v4.4.5-x64.msi)
 
 
 ## 部署架构
 
-TBD.
+
+### 平台
+
+Node.js + Express
+
+
+### 客户端
+
+Express for now.
 
 
 ## 其他说明
