@@ -100,40 +100,70 @@ Not in scope: 不计划在系统的第一个版本里包含此功能。
 
 #### Dashboard模块
 
+#/dashboard
+
 客户端主页
 
 
 #### 浏览单个图表模块
+
+#/charts/:id
 
 只查看单个图表。
 
 
 #### 浏览图表集合模块
 
+#/charts
+
 查看某个图表集合。
 
 
 #### 新建图表模块
+
+#/charts/new
 
 新建一个图表。
 
 
 #### 更新图表模块
 
+#/charts/:id/settings
+
 更新某个图表。
 
 
 #### 上传图表数据文件模块
 
+#/charts/:id/settings
+
 允许用户选择文件上传。
 
 
+#### 查看图表集合模块
+
+#/chart-sets
+
+查看图表集合。
+
+
+#### 查看单个图表集合模块
+
+#/chart-sets/id
+
+查看单个图表集合。
+
+
 #### 新建图表集合模块
+
+#/chart-sets/new
 
 新建一个图表集合。
 
 
 #### 更新图表集合模块
+
+#/chart-sets/:id/settings
 
 更新某个图表集合。
 
