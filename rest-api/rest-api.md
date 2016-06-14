@@ -1,7 +1,146 @@
 # EagleEye REST APIs
 
 
+## Table of Contents
+
+* [Charts](#charts)
+  * [List all charts](#list-all-charts)
+  * [Get one chart](#get-one-chart)
+  * [Create a new chart](#create-a-new-chart)
+  * [List one chart's datatable](#list-one-charts-datatable)
+  * [Edit one chart's datatable](#edit-one-charts-datatable)
+  * [List one chart's options](#list-one-charts-options)
+  * [Edit one chart's options](#edit-one-charts-options)
+
+
 ## Charts
+
+
+### List all charts
+
+```text
+GET /api/v1/charts
+```
+
+
+#### Response
+
+```json
+[{
+  "id": 1,
+  "timestamp": 1465891633478,
+  "lastUpdateTimestamp": 1465891842059,
+  "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+  "options": {
+    "title": "Fruits Overview",
+    "hAxis": {
+      "title": "Category"
+    },
+    "vAxis": {
+      "title": "Inventory"
+    }
+  },
+  "datatables": {
+    "cols": [
+      { "type": "string", "label": "Category" },
+      { "type": "number", "label": "Apple" },
+      { "type": "number", "label": "Orange" }
+    ],
+    "rows": [
+      { "c": [{ "v": "Apple" }, { "v": 5 }, { "v": 9 }] },
+      { "c": [{ "v": "Orange" }, { "v": 7 }, { "v": 3 }] }
+    ]
+  }
+}]
+```
+
+
+### Get one chart
+
+```text
+GET /api/v1/charts/:id
+```
+
+#### Response
+
+```json
+{
+  "id": 1,
+  "timestamp": 1465891633478,
+  "lastUpdateTimestamp": 1465891842059,
+  "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+  "options": {
+    "title": "Fruits Overview",
+    "hAxis": {
+      "title": "Category"
+    },
+    "vAxis": {
+      "title": "Inventory"
+    }
+  },
+  "datatables": {
+    "cols": [
+      { "type": "string", "label": "Category" },
+      { "type": "number", "label": "Apple" },
+      { "type": "number", "label": "Orange" }
+    ],
+    "rows": [
+      { "c": [{ "v": "Apple" }, { "v": 5 }, { "v": 9 }] },
+      { "c": [{ "v": "Orange" }, { "v": 7 }, { "v": 3 }] }
+    ]
+  }
+}
+```
+
+
+### Create a new chart
+
+```text
+POST /api/v1/charts
+```
+
+
+#### Input
+
+| Name        | Type   | Description                                              |
+| ----------- | ------ | -------------------------------------------------------- |
+| chartType   | string | Can be one of `LineChart`, `ColumnChart` and `BarChart`. |
+| description | string | Chart description content.                               |
+| options     | object | Optional. Chart options.                                 |
+| datatables  | object | Optional. Chart datatables.                              |
+
+
+#### Response
+
+```json
+[{
+  "id": 2,
+  "timestamp": 1465891633478,
+  "lastUpdateTimestamp": 1465891842059,
+  "chartType": "LineChart",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+  "options": {
+    "title": "Fruits Overview",
+    "hAxis": {
+      "title": "Category"
+    },
+    "vAxis": {
+      "title": "Inventory"
+    }
+  },
+  "datatables": {
+    "cols": [
+      { "type": "string", "label": "Category" },
+      { "type": "number", "label": "Apple" },
+      { "type": "number", "label": "Orange" }
+    ],
+    "rows": [
+      { "c": [{ "v": "Apple" }, { "v": 5 }, { "v": 9 }] },
+      { "c": [{ "v": "Orange" }, { "v": 7 }, { "v": 3 }] }
+    ]
+  }
+}]
+```
 
 
 ### List one chart's datatable
@@ -31,8 +170,7 @@ When `type` is `json`:
   ],
   "rows": [
     { "c": [{ "v": "Apple" }, { "v": 5 }, { "v": 9 }] },
-    { "c": [{ "v": "Orange" }, { "v": 7 }, { "v": 3 }] },
-    { "c": [{ "v": "Peach" }, { "v": 9 }, { "v": 13 }] }
+    { "c": [{ "v": "Orange" }, { "v": 7 }, { "v": 3 }] }
   ]
 }
 ```
@@ -71,8 +209,7 @@ POST /api/v1/charts/:id/datatables
   ],
   "rows": [
     { "c": [{ "v": "Apple" }, { "v": 5 }, { "v": 9 }] },
-    { "c": [{ "v": "Orange" }, { "v": 7 }, { "v": 3 }] },
-    { "c": [{ "v": "Peach" }, { "v": 9 }, { "v": 13 }] }
+    { "c": [{ "v": "Orange" }, { "v": 7 }, { "v": 3 }] }
   ]
 }
 ```
