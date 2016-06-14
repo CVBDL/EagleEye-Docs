@@ -170,21 +170,21 @@ Not in scope: 不计划在系统的第一个版本里包含此功能。
 
 ## 接口设计
 
-* GET /charts
-* POST /charts
-* GET /charts/:id
-* POST /charts/:id
-* GET /charts/:id/options
-* GET /charts/:id/datatables
-* DELETE /charts/:id
-* GET /charts/:id/file_templates
-* GET /chart_sets
-* POST /chart_sets
-* GET /chart_sets/:id
-* POST /chart_sets/:id
-* DELETE /chart_sets/:id
-* GET /search/charts?q=kw
-* GET /search/chart_sets?q=kw
+* GET /api/v1/charts
+* POST /api/v1/charts
+* GET /api/v1/charts/:id
+* POST /api/v1/charts/:id
+* GET /api/v1/charts/:id/options
+* GET /api/v1/charts/:id/datatables
+* DELETE /api/v1/charts/:id
+* GET /api/v1/charts/:id/file_templates
+* GET /api/v1/chart_sets
+* POST /api/v1/chart_sets
+* GET /api/v1/chart_sets/:id
+* POST /api/v1/chart_sets/:id
+* DELETE /api/v1/chart_sets/:id
+* GET /api/v1/search/charts?q=kw
+* GET /api/v1/search/chart_sets?q=kw
 
 
 ## 数据架构
