@@ -174,6 +174,8 @@ Not in scope: 不计划在系统的第一个版本里包含此功能。
 * POST /charts
 * GET /charts/:id
 * POST /charts/:id
+* GET /charts/:id/options
+* GET /charts/:id/datatables
 * DELETE /charts/:id
 * GET /charts/:id/file_templates
 * GET /chart_sets
