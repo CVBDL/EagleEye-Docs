@@ -30,6 +30,8 @@ GET /api/v1/charts
   "id": 1,
   "timestamp": 1465891633478,
   "lastUpdateTimestamp": 1465891842059,
+  "chartType": "LineChart",
+  "domainDataType": "string",
   "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
   "options": {
     "title": "Fruits Overview",
@@ -68,6 +70,8 @@ GET /api/v1/charts/:id
   "id": 1,
   "timestamp": 1465891633478,
   "lastUpdateTimestamp": 1465891842059,
+  "chartType": "LineChart",
+  "domainDataType": "string",
   "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
   "options": {
     "title": "Fruits Overview",
@@ -102,12 +106,13 @@ POST /api/v1/charts
 
 #### Input
 
-| Name        | Type   | Description                                              |
-| ----------- | ------ | -------------------------------------------------------- |
-| chartType   | string | Can be one of `LineChart`, `ColumnChart` and `BarChart`. |
-| description | string | Chart description content.                               |
-| options     | object | Optional. Chart options.                                 |
-| datatables  | object | Optional. Chart datatables.                              |
+| Name           | Type   | Description                                              |
+| -------------- | ------ | -------------------------------------------------------- |
+| chartType      | string | Can be one of `LineChart`, `ColumnChart` and `BarChart`. |
+| domainDataType | string | Can be one of `string`, `number`, `date` and `datetime`. |
+| description    | string | Chart description content.                               |
+| options        | object | Optional. Chart options.                                 |
+| datatables     | object | Optional. Chart datatables.                              |
 
 
 #### Response
@@ -118,6 +123,7 @@ POST /api/v1/charts
   "timestamp": 1465891633478,
   "lastUpdateTimestamp": 1465891842059,
   "chartType": "LineChart",
+  "domainDataType": "string",
   "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
   "options": {
     "title": "Fruits Overview",
