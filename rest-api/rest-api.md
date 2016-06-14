@@ -24,15 +24,15 @@ When `type` is `json`:
 
 ```json
 {
-  cols: [
-    { type: "string", label: "Category" },
-    { type: "number", label: "Apple" },
-    { type: "number", label: "Orange" }
+  "cols": [
+    { "type": "string", "label": "Category" },
+    { "type": "number", "label": "Apple" },
+    { "type": "number", "label": "Orange" }
   ],
-  rows: [
-    { c: [{ v: "Apple" }, { v: 5 }, { v: 9 }] },
-    { c: [{ v: "Orange" }, { v: 7 }, { v: 3 }] },
-    { c: [{ v: "Peach" }, { v: 9 }, { v: 13 }] }
+  "rows": [
+    { "c": [{ "v": "Apple" }, { "v": 5 }, { "v": 9 }] },
+    { "c": [{ "v": "Orange" }, { "v": 7 }, { "v": 3 }] },
+    { "c": [{ "v": "Peach" }, { "v": 9 }, { "v": 13 }] }
   ]
 }
 ```
@@ -64,15 +64,15 @@ POST /api/v1/charts/:id/datatables
 
 ```json
 {
-  cols: [
-    { type: "string", label: "Category" },
-    { type: "number", label: "Apple" },
-    { type: "number", label: "Orange" }
+  "cols": [
+    { "type": "string", "label": "Category" },
+    { "type": "number", "label": "Apple" },
+    { "type": "number", "label": "Orange" }
   ],
-  rows: [
-    { c: [{ v: "Apple" }, { v: 5 }, { v: 9 }] },
-    { c: [{ v: "Orange" }, { v: 7 }, { v: 3 }] },
-    { c: [{ v: "Peach" }, { v: 9 }, { v: 13 }] }
+  "rows": [
+    { "c": [{ "v": "Apple" }, { "v": 5 }, { "v": 9 }] },
+    { "c": [{ "v": "Orange" }, { "v": 7 }, { "v": 3 }] },
+    { "c": [{ "v": "Peach" }, { "v": 9 }, { "v": 13 }] }
   ]
 }
 ```
@@ -89,12 +89,12 @@ GET /api/v1/charts/:id/options
 
 ```json
 {
-  title: "Fruits Overview",
-  hAxis: {
-    title: "Category"
+  "title": "Fruits Overview",
+  "hAxis": {
+    "title": "Category"
   },
-  vAxis: {
-    title: "Inventory"
+  "vAxis": {
+    "title": "Inventory"
   }
 }
 ```
@@ -116,12 +116,12 @@ Chart options JSON string.
 
 ```json
 {
-  title: "Fruits Overview",
-  hAxis: {
-    title: "Category"
+  "title": "Fruits Overview",
+  "hAxis": {
+    "title": "Category"
   },
-  vAxis: {
-    title: "Inventory"
+  "vAxis": {
+    "title": "Inventory"
   }
 }
 ```
