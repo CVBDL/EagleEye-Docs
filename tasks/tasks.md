@@ -28,9 +28,9 @@
 | --- | ------------- | -------------------------------------------------------- |
 | 001 |               | Coding: /dashboard                                       |
 | 002 |               | Coding: /charts                                          |
-| 003 |               | Coding: /charts/new                                      |
+| 003 | Patrick       | Coding: /charts/new                                      |
 | 004 |               | Coding: /charts/:id                                      |
-| 005 |               | Coding: /charts/:id/settings                             |
+| 005 | Merlin        | Coding: /charts/:id/settings                             |
 | 006 |               | Coding: /chart-sets                                      |
 | 007 |               | Coding: /chart-set                                       |
 | 008 |               | Coding: /chart-sets/new                                  |
