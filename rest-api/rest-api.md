@@ -285,13 +285,13 @@ GET /api/v1/charts/:_id/options
   "vAxis": {
     "title": "Inventory"
   },
-  animation: {
-    duration: 500,
-    easing: 'out',
-    startup: true
+  "animation": {
+    "duration": 500,
+    "easing": "out",
+    "startup": true
   },
-  tooltip: {
-    showColorCode: true
+  "tooltip": {
+    "showColorCode": true
   }
 }
 ```
