@@ -13,13 +13,16 @@
 | 006 |               | REST API: Update one chart                               |
 | 007 |               | REST API: Get one chart's options                        |
 | 008 |               | REST API: Update one chart's options                     |
-| 009 |               | REST API: Get one chart's datatables                     |
-| 010 |               | REST API: Update one chart's datatables                  |
+| 009 |               | REST API: Get one chart's datatable                      |
+| 010 |               | REST API: Update one chart's datatable                   |
 | 011 |               | REST API: Get all chart sets                             |
 | 012 |               | REST API: Get one chart set                              |
 | 013 |               | REST API: Delete one chart set                           |
 | 014 |               | REST API: Update one chart set                           |
 | 015 |               | REST API: Create one chart set                           |
+| 016 |               | Chart friendly url support                               |
+| 017 |               | Chart set friendly url support                           |
+| 018 |               | Default options for different chart types                |
 
 
 ## EagleEye App Tasks

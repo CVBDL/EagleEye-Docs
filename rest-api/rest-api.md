@@ -42,7 +42,7 @@ GET /api/v1/charts
       "title": "Inventory"
     }
   },
-  "datatables": {
+  "datatable": {
     "cols": [
       { "type": "string", "label": "Category" },
       { "type": "number", "label": "Apple" },
@@ -82,7 +82,7 @@ GET /api/v1/charts/:id
       "title": "Inventory"
     }
   },
-  "datatables": {
+  "datatable": {
     "cols": [
       { "type": "string", "label": "Category" },
       { "type": "number", "label": "Apple" },
@@ -112,7 +112,7 @@ POST /api/v1/charts
 | domainDataType | string | Can be one of `string`, `number`, `date` and `datetime`. |
 | description    | string | Chart description content.                               |
 | options        | object | Optional. Chart options.                                 |
-| datatables     | object | Optional. Chart datatables.                              |
+| datatable     | object | Optional. Chart datatable.                              |
 
 
 #### Response
@@ -134,7 +134,7 @@ POST /api/v1/charts
       "title": "Inventory"
     }
   },
-  "datatables": {
+  "datatable": {
     "cols": [
       { "type": "string", "label": "Category" },
       { "type": "number", "label": "Apple" },
@@ -152,7 +152,7 @@ POST /api/v1/charts
 ### List one chart's datatable
 
 ```text
-GET /api/v1/charts/:id/datatables
+GET /api/v1/charts/:id/datatable
 ```
 
 
@@ -184,7 +184,7 @@ When `type` is `json`:
 When `type` is `file`:
 
 ```text
-Content-Disposition: attachment; filename="chart-datatables.xlsx"
+Content-Disposition: attachment; filename="chart-datatable.xlsx"
 Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 ```
 
@@ -192,7 +192,7 @@ Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 ### Edit one chart's datatable
 
 ```text
-POST /api/v1/charts/:id/datatables
+POST /api/v1/charts/:id/datatable
 ```
 
 
