@@ -5,7 +5,8 @@
 
 * [Charts](#charts)
   * [List all charts](#list-all-charts)
-  * [Get one chart](#get-one-chart)
+  * [Get one chart via chart id](#get-one-chart-via-chart-id)
+  * [Get one chart via chart friendly url](#get-one-chart-via-chart-friendly-url)
   * [Create a new chart](#create-a-new-chart)
   * [List one chart's datatable](#list-one-charts-datatable)
   * [Edit one chart's datatable](#edit-one-charts-datatable)
@@ -27,12 +28,13 @@ GET /api/v1/charts
 
 ```json
 [{
-  "id": 1,
+  "_id": "5768e6262999167c30946e7c",
   "timestamp": 1465891633478,
   "lastUpdateTimestamp": 1465891842059,
   "chartType": "LineChart",
   "domainDataType": "string",
   "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+  "friendlyUrl": "s-eagleeye-line-chart",
   "options": {
     "title": "Fruits Overview",
     "hAxis": {
@@ -57,22 +59,64 @@ GET /api/v1/charts
 ```
 
 
-### Get one chart
+### Get one chart via chart id
 
 ```text
-GET /api/v1/charts/:id
+GET /api/v1/charts/:_id
 ```
 
 #### Response
 
 ```json
 {
-  "id": 1,
+  "_id": "5768e6262999167c30946e7c",
   "timestamp": 1465891633478,
   "lastUpdateTimestamp": 1465891842059,
   "chartType": "LineChart",
   "domainDataType": "string",
   "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+  "friendlyUrl": "s-eagleeye-line-chart",
+  "options": {
+    "title": "Fruits Overview",
+    "hAxis": {
+      "title": "Category"
+    },
+    "vAxis": {
+      "title": "Inventory"
+    }
+  },
+  "datatables": {
+    "cols": [
+      { "type": "string", "label": "Category" },
+      { "type": "number", "label": "Apple" },
+      { "type": "number", "label": "Orange" }
+    ],
+    "rows": [
+      { "c": [{ "v": "Apple" }, { "v": 5 }, { "v": 9 }] },
+      { "c": [{ "v": "Orange" }, { "v": 7 }, { "v": 3 }] }
+    ]
+  }
+}
+```
+
+
+### Get one chart via chart friendly url
+
+```text
+GET /api/v1/charts/:friendlyUrl
+```
+
+#### Response
+
+```json
+{
+  "_id": "5768e6262999167c30946e7c",
+  "timestamp": 1465891633478,
+  "lastUpdateTimestamp": 1465891842059,
+  "chartType": "LineChart",
+  "domainDataType": "string",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+  "friendlyUrl": "s-eagleeye-line-chart",
   "options": {
     "title": "Fruits Overview",
     "hAxis": {
@@ -111,6 +155,7 @@ POST /api/v1/charts
 | chartType      | string | Can be one of `LineChart`, `ColumnChart` and `BarChart`. |
 | domainDataType | string | Can be one of `string`, `number`, `date` and `datetime`. |
 | description    | string | Chart description content.                               |
+| friendlyUrl    | string | Unique friendly url                                      |
 | options        | object | Optional. Chart options.                                 |
 | datatable     | object | Optional. Chart datatable.                              |
 
@@ -125,6 +170,7 @@ POST /api/v1/charts
   "chartType": "LineChart",
   "domainDataType": "string",
   "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+  "friendlyUrl": "s-eagleeye-line-chart",
   "options": {
     "title": "Fruits Overview",
     "hAxis": {
@@ -152,7 +198,7 @@ POST /api/v1/charts
 ### List one chart's datatable
 
 ```text
-GET /api/v1/charts/:id/datatable
+GET /api/v1/charts/:_id/datatable
 ```
 
 
@@ -192,7 +238,7 @@ Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 ### Edit one chart's datatable
 
 ```text
-POST /api/v1/charts/:id/datatable
+POST /api/v1/charts/:_id/datatable
 ```
 
 
@@ -224,7 +270,7 @@ POST /api/v1/charts/:id/datatable
 ### List one chart's options
 
 ```text
-GET /api/v1/charts/:id/options
+GET /api/v1/charts/:_id/options
 ```
 
 
@@ -238,6 +284,14 @@ GET /api/v1/charts/:id/options
   },
   "vAxis": {
     "title": "Inventory"
+  },
+  animation: {
+    duration: 500,
+    easing: 'out',
+    startup: true
+  },
+  tooltip: {
+    showColorCode: true
   }
 }
 ```
@@ -246,7 +300,7 @@ GET /api/v1/charts/:id/options
 ### Edit one chart's options
 
 ```text
-POST /api/v1/charts/:id/options
+POST /api/v1/charts/:_id/options
 ```
 
 
