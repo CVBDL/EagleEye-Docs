@@ -12,7 +12,9 @@
   * [Edit one chart's datatable](#edit-one-charts-datatable)
   * [List one chart's options](#list-one-charts-options)
   * [Edit one chart's options](#edit-one-charts-options)
-
+* [Chart Sets](#chart-sets)
+  * [List all chart sets](#list-all-chart-sets)
+  * [Get one chart set via chart set id](#get-one-chart-set-via-chart-set-id)
 
 ## Charts
 
@@ -44,15 +46,40 @@ GET /api/v1/charts
       "title": "Inventory"
     }
   },
-  "datatable": {
+  "datatables": {
     "cols": [
-      { "type": "string", "label": "Category" },
-      { "type": "number", "label": "Apple" },
-      { "type": "number", "label": "Orange" }
+      { "type": "string", "label": "Category", "p": {} },
+      { "type": "number", "label": "Apple", "p": {} },
+      { "type": "number", "label": "Orange", "p": {} }
     ],
     "rows": [
       { "c": [{ "v": "Apple" }, { "v": 5 }, { "v": 9 }] },
       { "c": [{ "v": "Orange" }, { "v": 7 }, { "v": 3 }] }
+    ]
+  }
+}, {
+  "_id": "576a4d56ae40178426a0feba",
+  "chartType": "ColumnChart",
+  "domainDataType": "date",
+  "friendlyUrl": "c-eagleeye-column-chart",
+  "options": {
+    "title": "Column Chart",
+    "hAxis": {
+      "title": "Date"
+    },
+    "vAxis": {
+      "title": "Number"
+    }
+  },
+  "datatable": {
+    "cols": [
+      { "type": "date", "label": "Date", "p": {} },
+      { "type": "number", "label": "Apple", "p": {} },
+      { "type": "number", "label": "Orange", "p": {} }
+    ],
+    "rows": [
+      { "c": [{ "v": "2016-06-11T16:00:00.000Z" }, { "v": 5 }, { "v": 9 }] },
+      { "c": [{ "v": "2016-06-12T16:00:00.000Z" }, { "v": 7 }, { "v": 3 }] }
     ]
   }
 }]
@@ -87,9 +114,9 @@ GET /api/v1/charts/:_id
   },
   "datatables": {
     "cols": [
-      { "type": "string", "label": "Category" },
-      { "type": "number", "label": "Apple" },
-      { "type": "number", "label": "Orange" }
+      { "type": "string", "label": "Category", "p": {} },
+      { "type": "number", "label": "Apple", "p": {} },
+      { "type": "number", "label": "Orange", "p": {} }
     ],
     "rows": [
       { "c": [{ "v": "Apple" }, { "v": 5 }, { "v": 9 }] },
@@ -126,11 +153,11 @@ GET /api/v1/charts/:friendlyUrl
       "title": "Inventory"
     }
   },
-  "datatable": {
+  "datatables": {
     "cols": [
-      { "type": "string", "label": "Category" },
-      { "type": "number", "label": "Apple" },
-      { "type": "number", "label": "Orange" }
+      { "type": "string", "label": "Category", "p": {} },
+      { "type": "number", "label": "Apple", "p": {} },
+      { "type": "number", "label": "Orange", "p": {} }
     ],
     "rows": [
       { "c": [{ "v": "Apple" }, { "v": 5 }, { "v": 9 }] },
@@ -164,7 +191,7 @@ POST /api/v1/charts
 
 ```json
 [{
-  "id": 2,
+  "id": "8371e6262999167c30946e3f",
   "timestamp": 1465891633478,
   "lastUpdateTimestamp": 1465891842059,
   "chartType": "LineChart",
@@ -182,9 +209,9 @@ POST /api/v1/charts
   },
   "datatable": {
     "cols": [
-      { "type": "string", "label": "Category" },
-      { "type": "number", "label": "Apple" },
-      { "type": "number", "label": "Orange" }
+      { "type": "string", "label": "Category", "p": {} },
+      { "type": "number", "label": "Apple", "p": {} },
+      { "type": "number", "label": "Orange", "p": {} }
     ],
     "rows": [
       { "c": [{ "v": "Apple" }, { "v": 5 }, { "v": 9 }] },
@@ -216,9 +243,9 @@ When `type` is `json`:
 ```json
 {
   "cols": [
-    { "type": "string", "label": "Category" },
-    { "type": "number", "label": "Apple" },
-    { "type": "number", "label": "Orange" }
+    { "type": "string", "label": "Category", "p": {} },
+    { "type": "number", "label": "Apple", "p": {} },
+    { "type": "number", "label": "Orange", "p": {} }
   ],
   "rows": [
     { "c": [{ "v": "Apple" }, { "v": 5 }, { "v": 9 }] },
@@ -255,9 +282,9 @@ POST /api/v1/charts/:_id/datatable
 ```json
 {
   "cols": [
-    { "type": "string", "label": "Category" },
-    { "type": "number", "label": "Apple" },
-    { "type": "number", "label": "Orange" }
+    { "type": "string", "label": "Category", "p": {} },
+    { "type": "number", "label": "Apple", "p": {} },
+    { "type": "number", "label": "Orange", "p": {} }
   ],
   "rows": [
     { "c": [{ "v": "Apple" }, { "v": 5 }, { "v": 9 }] },
@@ -320,5 +347,53 @@ Chart options JSON string.
   "vAxis": {
     "title": "Inventory"
   }
+}
+```
+
+
+## Chart Sets
+
+
+### List all chart sets
+
+
+```text
+GET /api/v1/chart-sets
+```
+
+
+#### Response
+
+```json
+[{
+  "title": "Chart set sample",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+  "friendlyUrl": "s-eagleeye-chart-set",
+  "charts": ["5768e6262999167c30946e7c"]
+}, {
+  "title": "Chart set sample two",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+  "friendlyUrl": "s-eagleeye-chart-set-two",
+  "charts": ["5768e6262999167c30946e7c", "576a4d56ae40178426a0feba"]
+}]
+```
+
+
+### Get one chart set via chart set id
+
+```text
+GET /api/v1/chart-sets/:_id
+```
+
+
+#### Response
+
+```json
+{
+  "_id": "576a512dae40178426a0febb",
+  "title": "Chart set sample",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+  "friendlyUrl": "s-eagleeye-chart-set",
+  "charts": ["5768e6262999167c30946e7c"]
 }
 ```
