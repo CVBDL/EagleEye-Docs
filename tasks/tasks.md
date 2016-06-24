@@ -29,15 +29,15 @@
 
 | No. | Owner         | Description                                              |
 | --- | ------------- | -------------------------------------------------------- |
-| 001 |               | Coding: /dashboard                                       |
-| 002 |               | Coding: /charts                                          |
+| 001 | Patrick       | Coding: /dashboard                                       |
+| 002 | Patrick       | Coding: /charts                                          |
 | 003 | Patrick       | Coding: /charts/new                                      |
-| 004 |               | Coding: /charts/:id                                      |
+| 004 | Patrick       | Coding: /charts/:id                                      |
 | 005 | Merlin        | Coding: /charts/:id/settings                             |
-| 006 |               | Coding: /chart-sets                                      |
-| 007 |               | Coding: /chart-set                                       |
-| 008 |               | Coding: /chart-sets/new                                  |
-| 009 |               | Coding: /chart-sets/:id/settings                         |
+| 006 | Patrick       | Coding: /chart-sets                                      |
+| 007 | Patrick       | Coding: /chart-set                                       |
+| 008 | Patrick       | Coding: /chart-sets/new                                  |
+| 009 | Patrick       | Coding: /chart-sets/:id/settings                         |
 | 010 |               | UI: /dashboard                                           |
 | 011 |               | UI: /charts                                              |
 | 012 |               | UI: /charts/new                                          |
