@@ -8,7 +8,7 @@
 | 001 | Merlin        | File parsing module                                      |
 | 002 |               | REST API: Get all charts                                 |
 | 003 |               | REST API: Get one chart                                  |
-| 004 |               | REST API: Delete one chart                               |
+| 004 | Jory          | REST API: Delete one chart                               |
 | 005 |               | REST API: Create a new chart                             |
 | 006 |               | REST API: Update one chart                               |
 | 007 |               | REST API: Get one chart's options                        |
