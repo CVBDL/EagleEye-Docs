@@ -20,9 +20,11 @@
 | 013 | Jory          | REST API: Delete one chart set                           |
 | 014 | Jory          | REST API: Update one chart set                           |
 | 015 | Merlin        | REST API: Create one chart set                           |
-| 016 |               | Chart friendly url support                               |
-| 017 |               | Chart set friendly url support                           |
+| 016 | Merlin & P    | Chart friendly url support                               |
+| 017 | Merlin & P    | Chart set friendly url support                           |
 | 018 |               | Default options for different chart types                |
+| 019 | Merlin        | Delete all charts                                        |
+| 030 | Patrick       | Delete all chart sets                                    |
 
 
 ## EagleEye App Tasks
