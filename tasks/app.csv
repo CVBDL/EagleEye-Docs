@@ -11,7 +11,7 @@ T-A-009,,Coding,Coding: /chart-sets/:id/settings,,,Patrick,
 T-A-010,1,UI,UI: /dashboard,,,Patrick,
 T-A-011,,UI,UI: /charts,,,,
 T-A-012,,UI,UI: /charts/new,,,,
-T-A-013,1,UI,UI: /charts/:id,,,,
+T-A-013,1,UI,UI: /charts/:id,,,,Jory
 T-A-014,,UI, UI: /charts/:id/settings,,,,
 T-A-015,,UI,UI: /chart-sets,,,,
 T-A-016,1,UI,UI: /chart-sets/:id,,,,
