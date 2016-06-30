@@ -1,26 +1,41 @@
-Task ID,Priority,Type,Description,Start Date,Due Date,Assignees,Comments
-T-P-001,,Coding,File parsing module,,,Merlin,
-T-P-002,,Coding,REST API: Get all charts,,,Merlin,
-T-P-003,,Coding,REST API: Get one chart,,,Merlin,
-T-P-004,,Coding,REST API: Delete one chart,,,Jory,
-T-P-005,,Coding,REST API: Create a new chart,,,Merlin,
-T-P-006,,Coding,REST API: Update one chart,,,Jory,
-T-P-007,,Coding,REST API: Get one chart's options,,,Owen,
-T-P-008,,Coding,REST API: Update one chart's options,,,Owen,
-T-P-009,,Coding,REST API: Get one chart's datatable,,,Owen,
-T-P-010,,Coding,REST API: Update one chart's datatable,,,Owen,
-T-P-011,,Coding,REST API: Get all chart sets,,,Merlin,
-T-P-012,,Coding,REST API: Get one chart set,,,Merlin,
-T-P-013,,Coding,REST API: Delete one chart set,,,Jory,
-T-P-014,,Coding,REST API: Update one chart set,,,Jory,
-T-P-015,,Coding, REST API: Create one chart set,,,Merlin,
-T-P-016,,Coding,Chart friendly url support,,,Merlin & Patrick,
-T-P-017,,Coding,Chart set friendly url support,,,Merlin & Patrick,
-T-P-018,,Coding,Default options for different chart types,,,,
-T-P-019,,Coding,Delete all charts,,,Merlin,
-T-P-020,,Coding,Delete all chart sets,,,Patrick,
-T-P-021,,,,,,,
-T-P-022,,,,,,,
-T-P-023,,,,,,,
-T-P-024,,,,,,,
-T-P-025,,,,,,,
+Task ID,Priority,Type,Description,Dependency,Start Date,Due Date,Assignees,Comments
+T-P-001,,Coding,File parsing module,,,,Merlin,
+T-P-002,,Coding,REST API: Get all charts,,,,Merlin,
+T-P-003,,Coding,REST API: Get one chart,,,,Merlin,
+T-P-004,,Coding,REST API: Delete one chart,,,,Jory,
+T-P-005,,Coding,REST API: Create a new chart,,,,Merlin,
+T-P-006,,Coding,REST API: Update one chart,,,,Jory,
+T-P-007,,Coding,REST API: Get one chart's options,,,,Owen,
+T-P-008,,Coding,REST API: Update one chart's options,,,,Owen,
+T-P-009,,Coding,REST API: Get one chart's datatable,,,,Owen,
+T-P-010,,Coding,REST API: Update one chart's datatable,,,,Owen,
+T-P-011,,Coding,REST API: Get all chart sets,,,,Merlin,
+T-P-012,,Coding,REST API: Get one chart set,,,,Merlin,
+T-P-013,,Coding,REST API: Delete one chart set,,,,Jory,
+T-P-014,,Coding,REST API: Update one chart set,,,,Jory,
+T-P-015,,Coding, REST API: Create one chart set,,,,Merlin,
+T-P-016,,Coding,Chart friendly url support,,,,Merlin & Patrick,
+T-P-017,,Coding,Chart set friendly url support,,,,Merlin & Patrick,
+T-P-018,1,Architecture,Default options for different charts,,,,,"Each chart type has many configuration options, we could define some default ones, e.g., animation, color, etc."
+T-P-019,,Coding,Delete all charts,,,,Merlin,
+T-P-020,,Coding,Delete all chart sets,,,,Patrick,
+T-P-021,3,Coding,Unique chart friendlyUrl,,,,,Primary key in MongoDB
+T-P-022,3,Coding,Unique chart set friendlyUrl,,,,,Primary key in MongoDB
+T-P-023,2,Coding,Default options for column chart,T-P-018,,,,https://developers.google.com/chart/interactive/docs/gallery/columnchart#configuration-options
+T-P-024,2,Coding,Default options for bar chart,T-P-018,,,,https://developers.google.com/chart/interactive/docs/gallery/barchart#configuration-options
+T-P-025,2,Coding,Default options for line chart,T-P-018,,,,https://developers.google.com/chart/interactive/docs/gallery/linechart#configuration-options
+T-P-026,1,Architecture,REST API for searching,,,,,"Including results count limitation & between specific time, etc…"
+T-P-027,2,Coding,REST API: search chart,T-P-026,,,,
+T-P-028,2,Coding,REST API: search chart set,T-P-026,,,,
+T-P-029,1,Coding,"`timestamp` field, chart creation timestamp supporting",,,,,We should record the timestamp when the chart is created
+T-P-030,1,Coding,"`timestamp` field, chart set creation timestamp supporting",,,,,We should record the timestamp when the chart set is created
+T-P-031,1,Coding,"`lastUpdateTimestamp` field, chart last update timestamp supporting",,,,,We should record the timestamp when the chart is updated
+T-P-032,1,Coding,"`lastUpdateTimestamp` field, chart set last update timestamp supporting",,,,,We should record the timestamp when the chart set is updated
+T-P-033,,,,,,,,
+T-P-034,,,,,,,,
+T-P-035,,,,,,,,
+T-P-036,,,,,,,,
+T-P-037,,,,,,,,
+T-P-038,,,,,,,,
+T-P-039,,,,,,,,
+T-P-040,,,,,,,,
