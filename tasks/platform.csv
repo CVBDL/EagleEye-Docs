@@ -16,21 +16,21 @@ T-P-014,,Coding,REST API: Update one chart set,,,,Jory,
 T-P-015,,Coding, REST API: Create one chart set,,,,Merlin,
 T-P-016,,Coding,Chart friendly url support,,,,Merlin & Patrick,
 T-P-017,,Coding,Chart set friendly url support,,,,Merlin & Patrick,
-T-P-018,1,Architecture,Default options for different charts,,,,,"Each chart type has many configuration options, we could define some default ones, e.g., animation, color, etc."
+T-P-018,1,Architecture,Default options for different charts,,,,Owen,"Each chart type has many configuration options, we could define some default ones, e.g., animation, color, etc."
 T-P-019,,Coding,Delete all charts,,,,Merlin,
 T-P-020,,Coding,Delete all chart sets,,,,Patrick,
 T-P-021,3,Coding,Unique chart friendlyUrl,,,,,Primary key in MongoDB
 T-P-022,3,Coding,Unique chart set friendlyUrl,,,,,Primary key in MongoDB
-T-P-023,2,Coding,Default options for column chart,T-P-018,,,,https://developers.google.com/chart/interactive/docs/gallery/columnchart#configuration-options
-T-P-024,2,Coding,Default options for bar chart,T-P-018,,,,https://developers.google.com/chart/interactive/docs/gallery/barchart#configuration-options
-T-P-025,2,Coding,Default options for line chart,T-P-018,,,,https://developers.google.com/chart/interactive/docs/gallery/linechart#configuration-options
+T-P-023,2,Coding,Default options for column chart,T-P-018,,,Owen,https://developers.google.com/chart/interactive/docs/gallery/columnchart#configuration-options
+T-P-024,2,Coding,Default options for bar chart,T-P-018,,,Owen,https://developers.google.com/chart/interactive/docs/gallery/barchart#configuration-options
+T-P-025,2,Coding,Default options for line chart,T-P-018,,,Owen,https://developers.google.com/chart/interactive/docs/gallery/linechart#configuration-options
 T-P-026,1,Architecture,REST API for searching,,,,,"Including results count limitation & between specific time, etc…"
 T-P-027,2,Coding,REST API: search chart,T-P-026,,,,
 T-P-028,2,Coding,REST API: search chart set,T-P-026,,,,
-T-P-029,1,Coding,"`timestamp` field, chart creation timestamp supporting",,,,,We should record the timestamp when the chart is created
-T-P-030,1,Coding,"`timestamp` field, chart set creation timestamp supporting",,,,,We should record the timestamp when the chart set is created
-T-P-031,1,Coding,"`lastUpdateTimestamp` field, chart last update timestamp supporting",,,,,We should record the timestamp when the chart is updated
-T-P-032,1,Coding,"`lastUpdateTimestamp` field, chart set last update timestamp supporting",,,,,We should record the timestamp when the chart set is updated
+T-P-029,1,Coding,"`timestamp` field, chart creation timestamp supporting",,,,Merlin,We should record the timestamp when the chart is created
+T-P-030,1,Coding,"`timestamp` field, chart set creation timestamp supporting",,,,Merlin,We should record the timestamp when the chart set is created
+T-P-031,1,Coding,"`lastUpdateTimestamp` field, chart last update timestamp supporting",,,,Merlin,We should record the timestamp when the chart is updated
+T-P-032,1,Coding,"`lastUpdateTimestamp` field, chart set last update timestamp supporting",,,,Merlin,We should record the timestamp when the chart set is updated
 T-P-033,,,,,,,,
 T-P-034,,,,,,,,
 T-P-035,,,,,,,,
