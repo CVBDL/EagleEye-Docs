@@ -3,6 +3,8 @@
 
 ## Table of Contents
 
+* [Overview](#overview)
+  * [Client Errors](#client-errors)
 * [Charts](#charts)
   * [List all charts](#list-all-charts)
   * [Get one chart via chart id](#get-one-chart-via-chart-id)
@@ -21,6 +23,59 @@
   * [Remove all chart sets](#remove-all-chart-sets)
 
 
+## Overview
+
+
+### Client Errors
+
+There are three possible types of client errors on API calls that receive request bodies:
+
+1. Sending invalid JSON will result in a `400 Bad Request` response.
+
+```text
+HTTP/1.1 400 Bad Request
+Content-Length: 35
+
+{ "message": "Problems parsing JSON" }
+```
+
+2. Sending the wrong type of JSON values will result in a `400 Bad Request` response.
+
+```text
+HTTP/1.1 400 Bad Request
+Content-Length: 40
+
+{ "message": "Body should be a JSON object" }
+```
+
+3. Sending invalid fields will result in a `422 Unprocessable Entity` response.
+
+```text
+HTTP/1.1 422 Unprocessable Entity
+Content-Length: 149
+
+{
+  "message": "Validation Failed",
+  "errors": [
+    {
+      "resource": "chart",
+      "field": "friendlyUrl",
+      "code": "already_exists"
+    }
+  ]
+}
+```
+
+All error objects have resource and field properties so that your client can tell what the problem is. There's also an error code to let you know what is wrong with the field. These are the possible validation error codes:
+
+| Error Name     | Description                                      |
+| -------------- | ------------------------------------------------ |
+| missing        | This means a resource does not exist.            |
+| missing_field  | This means a required field on a resource has not been set. |
+| invalid        | This means the formatting of a field is invalid. The documentation for that resource should be able to give you more specific information. |
+| already_exists | This means another resource has the same value as this field. This can happen in resources that must have some unique key (such as Label names). |
+
+
 ## Charts
 
 
@@ -33,7 +88,9 @@ GET /api/v1/charts
 
 #### Response
 
-```json
+```text
+HTTP/1.1 200 OK
+
 [{
   "_id": "5768e6262999167c30946e7c",
   "timestamp": 1465891633478,
@@ -99,7 +156,9 @@ GET /api/v1/charts/:_id
 
 #### Response
 
-```json
+```text
+HTTP/1.1 200 OK
+
 {
   "_id": "5768e6262999167c30946e7c",
   "timestamp": 1465891633478,
@@ -140,7 +199,9 @@ GET /api/v1/charts/:friendlyUrl
 
 #### Response
 
-```json
+```text
+HTTP/1.1 200 OK
+
 {
   "_id": "5768e6262999167c30946e7c",
   "timestamp": 1465891633478,
@@ -194,7 +255,9 @@ POST /api/v1/charts
 
 #### Response
 
-```json
+```text
+HTTP/1.1 200 OK
+
 "8371e6262999167c30946e3f"
 ```
 
@@ -217,7 +280,9 @@ GET /api/v1/charts/:_id/datatable
 
 When `type` is `json`:
 
-```json
+```text
+HTTP/1.1 200 OK
+
 {
   "cols": [
     { "type": "string", "label": "Category", "p": {} },
@@ -256,7 +321,9 @@ POST /api/v1/charts/:_id/datatable
 
 #### Response
 
-```json
+```text
+HTTP/1.1 200 OK
+
 {
   "cols": [
     { "type": "string", "label": "Category", "p": {} },
@@ -280,7 +347,9 @@ GET /api/v1/charts/:_id/options
 
 #### Response
 
-```json
+```text
+HTTP/1.1 200 OK
+
 {
   "title": "Fruits Overview",
   "hAxis": {
@@ -315,7 +384,9 @@ Chart options JSON string.
 
 #### Response
 
-```json
+```text
+HTTP/1.1 200 OK
+
 {
   "title": "Fruits Overview",
   "hAxis": {
@@ -337,7 +408,9 @@ GET /api/v1/charts/clear
 
 #### Response
 
-```json
+```text
+HTTP/1.1 200 OK
+
 "success"
 ```
 
@@ -355,7 +428,9 @@ GET /api/v1/chart-sets
 
 #### Response
 
-```json
+```text
+HTTP/1.1 200 OK
+
 [{
   "title": "Chart set sample",
   "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
@@ -379,7 +454,9 @@ GET /api/v1/chart-sets/:_id
 
 #### Response
 
-```json
+```text
+HTTP/1.1 200 OK
+
 {
   "_id": "576a512dae40178426a0febb",
   "title": "Chart set sample",
@@ -399,7 +476,9 @@ GET /api/v1/chart-sets/:friendlyUrl
 
 #### Response
 
-```json
+```text
+HTTP/1.1 200 OK
+
 {
   "_id": "576a512dae40178426a0febb",
   "title": "Chart set sample",
@@ -429,7 +508,9 @@ POST /api/v1/chart-sets
 
 #### Response
 
-```json
+```text
+HTTP/1.1 200 OK
+
 "576a512dae40178426a0febb"
 ```
 
@@ -443,6 +524,8 @@ GET /api/v1/chart-sets/clear
 
 #### Response
 
-```json
+```text
+HTTP/1.1 200 OK
+
 "success"
 ```
