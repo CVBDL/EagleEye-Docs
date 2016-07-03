@@ -249,7 +249,7 @@ POST /api/v1/charts
 | domainDataType | string | Can be one of `string`, `number`, `date` and `datetime`. |
 | description    | string | Chart description content.                               |
 | friendlyUrl    | string | Unique friendly url                                      |
-| options        | object | Optional. Chart options.                                 |
+| options        | object | Chart options.                                           |
 | datatable      | object | Optional. Chart datatable.                               |
 
 
@@ -258,7 +258,35 @@ POST /api/v1/charts
 ```text
 HTTP/1.1 200 OK
 
-"8371e6262999167c30946e3f"
+{
+  "_id": "8371e6262999167c30946e3f",
+  "timestamp": 1465891633478,
+  "lastUpdateTimestamp": 1465891633478,
+  "chartType": "LineChart",
+  "domainDataType": "string",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+  "friendlyUrl": "s-eagleeye-line-chart",
+  "options": {
+    "title": "Fruits Overview",
+    "hAxis": {
+      "title": "Category"
+    },
+    "vAxis": {
+      "title": "Inventory"
+    }
+  },
+  "datatables": {
+    "cols": [
+      { "type": "string", "label": "Category", "p": {} },
+      { "type": "number", "label": "Apple", "p": {} },
+      { "type": "number", "label": "Orange", "p": {} }
+    ],
+    "rows": [
+      { "c": [{ "v": "Apple" }, { "v": 5 }, { "v": 9 }] },
+      { "c": [{ "v": "Orange" }, { "v": 7 }, { "v": 3 }] }
+    ]
+  }
+}
 ```
 
 
@@ -402,16 +430,14 @@ HTTP/1.1 200 OK
 ### Remove all charts
 
 ```text
-GET /api/v1/charts/clear
+DELETE /api/v1/charts
 ```
 
 
 #### Response
 
 ```text
-HTTP/1.1 200 OK
-
-"success"
+HTTP/1.1 204 No Content
 ```
 
 
