@@ -537,7 +537,13 @@ POST /api/v1/chart-sets
 ```text
 HTTP/1.1 200 OK
 
-"576a512dae40178426a0febb"
+{
+  "_id": "576a512dae40178426a0febb",
+  "title": "Chart set sample",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+  "friendlyUrl": "s-eagleeye-chart-set",
+  "charts": ["5768e6262999167c30946e7c"]
+}
 ```
 
 
