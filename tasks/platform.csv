@@ -16,14 +16,14 @@ T-P-014,,Coding,REST API: Update one chart set,,,,Done,Jory,
 T-P-015,,Coding, REST API: Create one chart set,,,,Done,Merlin,
 T-P-016,,Coding,Chart friendly url support,,,,Done,Merlin & Patrick,
 T-P-017,,Coding,Chart set friendly url support,,,,Done,Merlin & Patrick,
-T-P-018,1,Architecture,Default options for different charts,,,,,Owen,"Each chart type has many configuration options, we could define some default ones, e.g., animation, color, etc."
+T-P-018,1,Architecture,Default options for different charts,,,,Done,Owen,"Each chart type has many configuration options, we could define some default ones, e.g., animation, color, etc."
 T-P-019,,Coding,Delete all charts,,,,Done,Merlin,
 T-P-020,,Coding,Delete all chart sets,,,,Done,Patrick,
 T-P-021,3,Coding,Unique chart friendlyUrl,,,,Done,Merlin,Primary key in MongoDB
 T-P-022,3,Coding,Unique chart set friendlyUrl,,,,Done,Merlin,Primary key in MongoDB
 T-P-023,2,Coding,Default options for column chart,T-P-018,,,,Owen,https://developers.google.com/chart/interactive/docs/gallery/columnchart#configuration-options
 T-P-024,2,Coding,Default options for bar chart,T-P-018,,,,Owen,https://developers.google.com/chart/interactive/docs/gallery/barchart#configuration-options
-T-P-025,2,Coding,Default options for line chart,T-P-018,,,,Owen,https://developers.google.com/chart/interactive/docs/gallery/linechart#configuration-options
+T-P-025,2,Coding,Default options for line chart,T-P-018,,,Done,Owen,https://developers.google.com/chart/interactive/docs/gallery/linechart#configuration-options
 T-P-026,1,Architecture,REST API for searching,,,,,,"Including results count limitation & between specific time, etc."
 T-P-027,2,Coding,REST API: search chart,T-P-026,,,,,"sortBy, limitTo, orderBy"
 T-P-028,2,Coding,REST API: search chart set,T-P-026,,,,,
