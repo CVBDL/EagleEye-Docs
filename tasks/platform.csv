@@ -21,8 +21,8 @@ T-P-019,,Coding,Delete all charts,,,,Done,Merlin,
 T-P-020,,Coding,Delete all chart sets,,,,Done,Patrick,
 T-P-021,3,Coding,Unique chart friendlyUrl,,,,Done,Merlin,Primary key in MongoDB
 T-P-022,3,Coding,Unique chart set friendlyUrl,,,,Done,Merlin,Primary key in MongoDB
-T-P-023,2,Coding,Default options for column chart,T-P-018,,,,Owen,https://developers.google.com/chart/interactive/docs/gallery/columnchart#configuration-options
-T-P-024,2,Coding,Default options for bar chart,T-P-018,,,,Owen,https://developers.google.com/chart/interactive/docs/gallery/barchart#configuration-options
+T-P-023,2,Coding,Default options for column chart,T-P-018,,,Done,Owen,https://developers.google.com/chart/interactive/docs/gallery/columnchart#configuration-options
+T-P-024,2,Coding,Default options for bar chart,T-P-018,,,Done,Owen,https://developers.google.com/chart/interactive/docs/gallery/barchart#configuration-options
 T-P-025,2,Coding,Default options for line chart,T-P-018,,,Done,Owen,https://developers.google.com/chart/interactive/docs/gallery/linechart#configuration-options
 T-P-026,1,Architecture,REST API for searching,,,,Done,Patrick,"Including results count limitation & between specific time, etc."
 T-P-027,2,Coding,REST API: search chart,T-P-026,,,,,"sortBy, limitTo, orderBy"
