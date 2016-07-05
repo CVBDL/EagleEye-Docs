@@ -21,6 +21,10 @@
   * [Get one chart set via chart set friendly url](#get-one-chart-set-via-chart-set-friendly-url)
   * [Create a new chart set](#create-a-new-chart-set)
   * [Remove all chart sets](#remove-all-chart-sets)
+* [Search](#search)
+  * [Search both charts and chart sets](#search-both-charts-and-chart-sets)
+  * [Search charts](#search-charts)
+  * [Search chart sets](#search-chart-sets)
 
 
 ## Overview
@@ -84,6 +88,16 @@ All error objects have resource and field properties so that your client can tel
 ```text
 GET /api/v1/charts
 ```
+
+
+#### Parameters
+
+| Name  | Type   | Description                                                                                        |
+| ----- | ------ | -------------------------------------------------------------------------------------------------- |
+| sort  | string | The sort field. One of `timestamp`, `lastUpdateTimestamp` or `chartType`. Default: `timestamp`     |
+| order | string | The sort order if sort parameter is provided. One of `asc` or `desc`. Default: `desc`              |
+| limit | number | The results count field. Mainly for pagination purpose. Zero value means no limitation. Default: 0 |
+| start | number | The start index of results. Mainly for pagination purpose. Default: 0                              |
 
 
 #### Response
@@ -450,6 +464,16 @@ HTTP/1.1 204 No Content
 ```text
 GET /api/v1/chart-sets
 ```
+
+
+#### Parameters
+
+| Name  | Type   | Description                                                                                        |
+| ----- | ------ | -------------------------------------------------------------------------------------------------- |
+| sort  | string | The sort field. One of `timestamp`, `lastUpdateTimestamp` or `chartType`. Default: `timestamp`     |
+| order | string | The sort order if sort parameter is provided. One of `asc` or `desc`. Default: `desc`              |
+| limit | number | The results count field. Mainly for pagination purpose. Zero value means no limitation. Default: 0 |
+| start | number | The start index of results. Mainly for pagination purpose. Default: 0                              |
 
 
 #### Response
