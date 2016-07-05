@@ -581,7 +581,173 @@ GET /api/v1/chart-sets/clear
 #### Response
 
 ```text
+HTTP/1.1 204 No Content
+```
+
+
+## Search
+
+
+### Search both charts and chart sets
+
+
+```text
+GET /api/v1/search
+```
+
+
+#### Parameters
+
+| Name  | Type   | Description                                                                                        |
+| ----- | ------ | -------------------------------------------------------------------------------------------------- |
+| q     | string | The search keywords.                                                                               |
+| sort  | string | The sort field. One of `timestamp`, `lastUpdateTimestamp` or `chartType`. Default: `timestamp`     |
+| order | string | The sort order if sort parameter is provided. One of `asc` or `desc`. Default: `desc`              |
+| limit | number | The results count field. Mainly for pagination purpose. Zero value means no limitation. Default: 0 |
+| start | number | The start index of results. Mainly for pagination purpose. Default: 0                              |
+
+
+#### Response
+
+```text
 HTTP/1.1 200 OK
 
-"success"
+{
+  "total_count": 666,
+  "items": [{
+    "_id": "5768e6262999167c30946e7c",
+    "type": "chart",
+    "timestamp": 1465891633478,
+    "lastUpdateTimestamp": 1465891842059,
+    "chartType": "LineChart",
+    "domainDataType": "string",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    "friendlyUrl": "s-eagleeye-line-chart",
+    "options": {
+      "title": "Fruits Overview",
+      "hAxis": {
+        "title": "Category"
+      },
+      "vAxis": {
+        "title": "Inventory"
+      }
+    },
+    "datatables": {
+      "cols": [
+        { "type": "string", "label": "Category", "p": {} },
+        { "type": "number", "label": "Apple", "p": {} },
+        { "type": "number", "label": "Orange", "p": {} }
+      ],
+      "rows": [
+        { "c": [{ "v": "Apple" }, { "v": 5 }, { "v": 9 }] },
+        { "c": [{ "v": "Orange" }, { "v": 7 }, { "v": 3 }] }
+      ]
+    }
+  }, {
+    "_id": "576a512dae40178426a0febb",
+    "type": "chartset",
+    "title": "Chart set sample",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    "friendlyUrl": "s-eagleeye-chart-set",
+    "charts": ["5768e6262999167c30946e7c"]
+  }]
+}
+```
+
+
+### Search charts
+
+
+```text
+GET /api/v1/search/charts
+```
+
+
+#### Parameters
+
+| Name  | Type   | Description                                                                                        |
+| ----- | ------ | -------------------------------------------------------------------------------------------------- |
+| q     | string | The search keywords.                                                                               |
+| sort  | string | The sort field. One of `timestamp`, `lastUpdateTimestamp` or `chartType`. Default: `timestamp`     |
+| order | string | The sort order if sort parameter is provided. One of `asc` or `desc`. Default: `desc`              |
+| limit | number | The results count field. Mainly for pagination purpose. Zero value means no limitation. Default: 0 |
+| start | number | The start index of results. Mainly for pagination purpose. Default: 0                              |
+
+
+#### Response
+
+```text
+HTTP/1.1 200 OK
+
+{
+  "total_count": 120,
+  "items": [{
+    "_id": "5768e6262999167c30946e7c",
+    "type": "chart",
+    "timestamp": 1465891633478,
+    "lastUpdateTimestamp": 1465891842059,
+    "chartType": "LineChart",
+    "domainDataType": "string",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    "friendlyUrl": "s-eagleeye-line-chart",
+    "options": {
+      "title": "Fruits Overview",
+      "hAxis": {
+        "title": "Category"
+      },
+      "vAxis": {
+        "title": "Inventory"
+      }
+    },
+    "datatables": {
+      "cols": [
+        { "type": "string", "label": "Category", "p": {} },
+        { "type": "number", "label": "Apple", "p": {} },
+        { "type": "number", "label": "Orange", "p": {} }
+      ],
+      "rows": [
+        { "c": [{ "v": "Apple" }, { "v": 5 }, { "v": 9 }] },
+        { "c": [{ "v": "Orange" }, { "v": 7 }, { "v": 3 }] }
+      ]
+    }
+  }]
+}
+```
+
+
+### Search chart sets
+
+
+```text
+GET /api/v1/search/chart-sets
+```
+
+
+#### Parameters
+
+| Name  | Type   | Description                                                                                        |
+| ----- | ------ | -------------------------------------------------------------------------------------------------- |
+| q     | string | The search keywords.                                                                               |
+| sort  | string | The sort field. One of `timestamp`, `lastUpdateTimestamp` or `chartType`. Default: `timestamp`     |
+| order | string | The sort order if sort parameter is provided. One of `asc` or `desc`. Default: `desc`              |
+| limit | number | The results count field. Mainly for pagination purpose. Zero value means no limitation. Default: 0 |
+| start | number | The start index of results. Mainly for pagination purpose. Default: 0                              |
+
+
+#### Response
+
+```text
+HTTP/1.1 200 OK
+
+{
+  "total_count": 30,
+  "items": [{
+    "_id": "576a512dae40178426a0febb",
+    "type": "chartset",
+    "title": "Chart set sample",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    "friendlyUrl": "s-eagleeye-chart-set",
+    "charts": ["5768e6262999167c30946e7c"]
+  }]
+}
 ```
