@@ -24,8 +24,8 @@ T-P-022,3,Coding,Unique chart set friendlyUrl,,,,Merlin,Primary key in MongoDB
 T-P-023,2,Coding,Default options for column chart,T-P-018,,,Owen,https://developers.google.com/chart/interactive/docs/gallery/columnchart#configuration-options
 T-P-024,2,Coding,Default options for bar chart,T-P-018,,,Owen,https://developers.google.com/chart/interactive/docs/gallery/barchart#configuration-options
 T-P-025,2,Coding,Default options for line chart,T-P-018,,,Owen,https://developers.google.com/chart/interactive/docs/gallery/linechart#configuration-options
-T-P-026,1,Architecture,REST API for searching,,,,,"Including results count limitation & between specific time, etc…"
-T-P-027,2,Coding,REST API: search chart,T-P-026,,,,
+T-P-026,1,Architecture,REST API for searching,,,,,"Including results count limitation & between specific time, etc."
+T-P-027,2,Coding,REST API: search chart,T-P-026,,,,"sortBy, limitTo, orderBy"
 T-P-028,2,Coding,REST API: search chart set,T-P-026,,,,
 T-P-029,1,Coding,"`timestamp` field, chart creation timestamp supporting",,,,Merlin,We should record the timestamp when the chart is created
 T-P-030,1,Coding,"`timestamp` field, chart set creation timestamp supporting",,,,Merlin,We should record the timestamp when the chart set is created
