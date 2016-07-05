@@ -587,6 +587,8 @@ HTTP/1.1 204 No Content
 
 ## Search
 
+The search API provides up to **100** results for each search.
+
 
 ### Search both charts and chart sets
 
