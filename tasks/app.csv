@@ -43,7 +43,7 @@ T-A-041,1,Coding,If user doesn't input friendlyUrl leave it blank when post,,,,D
 T-A-042,1,Coding/UI,Link to the chart after creating the chart in chart setting page,,,,Done,Tweety,
 T-A-043,1,Desgin,Workflow for identify the icons on chart sets related pages,,,,,,
 T-A-044,,Coding,Google chart default options client side,,,,,Patrick,
-T-A-045,,,,,,,,,
+T-A-045,2,Research,Google chart to image/PDF,,,,,,
 T-A-046,,,,,,,,,
 T-A-047,,,,,,,,,
 T-A-048,,,,,,,,,
