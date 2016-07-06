@@ -44,7 +44,7 @@ T-A-042,1,Coding/UI,Link to the chart after creating the chart in chart setting 
 T-A-043,1,Desgin,Workflow for identify the icons on chart sets related pages,,,,,,
 T-A-044,,Coding,Google chart default options client side,,,,,Patrick,
 T-A-045,2,Research,Google chart to image/PDF,,,,,,
-T-A-046,,,,,,,,,
+T-A-046,,Coding,package the delete function to refresh the chartset page,,,,Done,Tweety,
 T-A-047,,,,,,,,,
 T-A-048,,,,,,,,,
 T-A-049,,,,,,,,,
