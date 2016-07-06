@@ -28,7 +28,7 @@ T-A-026,,Coding,Auto-refresh chart data on chart tool bar,,,,,,
 T-A-027,,UI,Chart set tool bar design,,,,,,"Settings button, refresh button, etc"
 T-A-028,,Coding,Chart set tool bar design,,,,,,
 T-A-029,,Design,Chart set display layout configuration,,,,,,"Number of charts showing on one line, etc"
-T-A-030,1,Design,Share chart and chart set on toolbar,,,,,,"Share via sending email, or popup a lint, or else"
+T-A-030,1,Design,Share chart and chart set on toolbar,,,,Done,Patrick,"Share via sending email, or popup a lint, or else"
 T-A-031,2,Coding,Add share chart icon and functionality on toolbar,T-A-030,,,,,
 T-A-032,2,Coding,Add share chart set icon and functionality on toolbar,T-A-030,,,,,
 T-A-033,,UI,Hottest charts and chart sets,,,,,,
@@ -42,7 +42,7 @@ T-A-040,,Coding,Auto-refresh chart set data on chart tool bar,,,,,,
 T-A-041,1,Coding,If user doesn't input friendlyUrl leave it blank when post,,,,Done,Patrick,
 T-A-042,1,Coding/UI,Link to the chart after creating the chart in chart setting page,,,,Done,Tweety,
 T-A-043,1,Desgin,Workflow for identify the icons on chart sets related pages,,,,,,
-T-A-044,,,,,,,,,
+T-A-044,,Coding,Google chart default options client side,,,,,Patrick,
 T-A-045,,,,,,,,,
 T-A-046,,,,,,,,,
 T-A-047,,,,,,,,,
