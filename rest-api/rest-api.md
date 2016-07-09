@@ -485,11 +485,15 @@ HTTP/1.1 200 OK
   "title": "Chart set sample",
   "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
   "friendlyUrl": "s-eagleeye-chart-set",
+  "timestamp": 1465891633478,
+  "lastUpdateTimestamp": 1465891842059,
   "charts": ["5768e6262999167c30946e7c"]
 }, {
   "title": "Chart set sample two",
   "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
   "friendlyUrl": "s-eagleeye-chart-set-two",
+  "timestamp": 1465891633478,
+  "lastUpdateTimestamp": 1465891842059,
   "charts": ["5768e6262999167c30946e7c", "576a4d56ae40178426a0feba"]
 }]
 ```
@@ -512,6 +516,8 @@ HTTP/1.1 200 OK
   "title": "Chart set sample",
   "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
   "friendlyUrl": "s-eagleeye-chart-set",
+  "timestamp": 1465891633478,
+  "lastUpdateTimestamp": 1465891842059,
   "charts": ["5768e6262999167c30946e7c"]
 }
 ```
@@ -534,6 +540,8 @@ HTTP/1.1 200 OK
   "title": "Chart set sample",
   "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
   "friendlyUrl": "s-eagleeye-chart-set",
+  "timestamp": 1465891633478,
+  "lastUpdateTimestamp": 1465891842059,
   "charts": ["5768e6262999167c30946e7c"]
 }
 ```
@@ -566,6 +574,8 @@ HTTP/1.1 200 OK
   "title": "Chart set sample",
   "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
   "friendlyUrl": "s-eagleeye-chart-set",
+  "timestamp": 1465891633478,
+  "lastUpdateTimestamp": 1465891842059,
   "charts": ["5768e6262999167c30946e7c"]
 }
 ```
@@ -651,6 +661,8 @@ HTTP/1.1 200 OK
     "title": "Chart set sample",
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
     "friendlyUrl": "s-eagleeye-chart-set",
+    "timestamp": 1465891633478,
+    "lastUpdateTimestamp": 1465891842059,
     "charts": ["5768e6262999167c30946e7c"]
   }]
 }
@@ -749,6 +761,8 @@ HTTP/1.1 200 OK
     "title": "Chart set sample",
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
     "friendlyUrl": "s-eagleeye-chart-set",
+    "timestamp": 1465891633478,
+    "lastUpdateTimestamp": 1465891842059,
     "charts": ["5768e6262999167c30946e7c"]
   }]
 }
