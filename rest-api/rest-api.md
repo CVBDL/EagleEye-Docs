@@ -470,7 +470,7 @@ GET /api/v1/chart-sets
 
 | Name  | Type   | Description                                                                                        |
 | ----- | ------ | -------------------------------------------------------------------------------------------------- |
-| sort  | string | The sort field. One of `timestamp`, `lastUpdateTimestamp` or `chartType`. Default: `timestamp`     |
+| sort  | string | The sort field. One of `timestamp` and `lastUpdateTimestamp`. Default: `timestamp`     |
 | order | string | The sort order if sort parameter is provided. One of `asc` or `desc`. Default: `desc`              |
 | limit | number | The results count field. Mainly for pagination purpose. Zero value means no limitation. Default: 0 |
 | start | number | The start index of results. Mainly for pagination purpose. Default: 0                              |
