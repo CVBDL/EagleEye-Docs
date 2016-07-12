@@ -38,7 +38,7 @@ T-P-036,1,Architecture,"REST API: GET sort, limit, order",,,,Done,Patrick,
 T-P-037,1,Coding,"Add ""type:chart"" and ""type: chartset"" when creating chart or chart set",,,,Done,Patrick,
 T-P-038,3,Architecture,Cron job,,,,,,"Read and parse files (Excel, etc), call web services, and then update chart data"
 T-P-039,4,Coding,Cron job,,,,,,
-T-P-040,,,,,,,,,
+T-P-040,1,Fixing Bug,"When a chart is deleted, it should be removed from related chart sets",,,,,,https://github.com/CVBDL/EagleEye-Platform/issues/2
 T-P-041,,,,,,,,,
 T-P-042,,,,,,,,,
 T-P-043,,,,,,,,,
