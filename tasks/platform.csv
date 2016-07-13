@@ -32,7 +32,7 @@ T-P-030,1,Coding,"`timestamp` field, chart set creation timestamp supporting",,,
 T-P-031,1,Coding,"`lastUpdateTimestamp` field, chart last update timestamp supporting",,,,Done,Merlin,We should record the timestamp when the chart is updated
 T-P-032,1,Coding,"`lastUpdateTimestamp` field, chart set last update timestamp supporting",,,,Done,Merlin,We should record the timestamp when the chart set is updated
 T-P-033,,Architecture,REST API error handling,,,,Done,Patrick,
-T-P-034,,Coding,REST API: chart and chart set order,,,,,,
+T-P-034,,Coding,REST API: chart and chart set order,,,,Done,Merlin,
 T-P-035,,Coding,REST API: get a part of data points,,,,,,
 T-P-036,1,Architecture,"REST API: GET sort, limit, order",,,,Done,Patrick,
 T-P-037,1,Coding,"Add ""type:chart"" and ""type: chartset"" when creating chart or chart set",,,,Done,Patrick,
