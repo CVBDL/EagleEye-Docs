@@ -41,7 +41,7 @@ T-P-039,4,Coding,Cron job,,,,,,
 T-P-040,1,Fixing Bug,"When a chart is deleted, it should be removed from related chart sets",,,,,,https://github.com/CVBDL/EagleEye-Platform/issues/2
 T-P-041,4,Architecture,User authentication,,,,,,
 T-P-042,2,Coding,DB backup,,,,,,
-T-P-043,,,,,,,,,
+T-P-043,,Coding,Allow user to upload image as a chart,,,Merlin,,,
 T-P-044,,,,,,,,,
 T-P-045,,,,,,,,,
 T-P-046,,,,,,,,,
