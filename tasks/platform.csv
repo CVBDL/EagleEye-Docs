@@ -1,47 +1,47 @@
-Task ID,Priority,Type,Description,Dependency,Start Date,Due Date,State,Assignees,Comments
-T-P-001,,Coding,File parsing module,,,,Done,Merlin,
-T-P-002,,Coding,REST API: Get all charts,,,,Done,Merlin,
-T-P-003,,Coding,REST API: Get one chart,,,,Done,Merlin,
-T-P-004,,Coding,REST API: Delete one chart,,,,Done,Jory,
-T-P-005,,Coding,REST API: Create a new chart,,,,Done,Merlin,
-T-P-006,,Coding,REST API: Update one chart,,,,Done,Jory,
-T-P-007,,Coding,REST API: Get one chart's options,,,,Done,Owen,
-T-P-008,,Coding,REST API: Update one chart's options,,,,Done,Owen,
-T-P-009,,Coding,REST API: Get one chart's datatable,,,,Done,Owen,
-T-P-010,,Coding,REST API: Update one chart's datatable,,,,Done,Owen,
-T-P-011,,Coding,REST API: Get all chart sets,,,,Done,Merlin,
-T-P-012,,Coding,REST API: Get one chart set,,,,Done,Merlin,
-T-P-013,,Coding,REST API: Delete one chart set,,,,Done,Jory,
-T-P-014,,Coding,REST API: Update one chart set,,,,Done,Jory,
-T-P-015,,Coding, REST API: Create one chart set,,,,Done,Merlin,
-T-P-016,,Coding,Chart friendly url support,,,,Done,Merlin & Patrick,
-T-P-017,,Coding,Chart set friendly url support,,,,Done,Merlin & Patrick,
-T-P-018,1,Architecture,Default options for different charts,,,,Done,Owen,"Each chart type has many configuration options, we could define some default ones, e.g., animation, color, etc."
-T-P-019,,Coding,Delete all charts,,,,Done,Merlin,
-T-P-020,,Coding,Delete all chart sets,,,,Done,Patrick,
-T-P-021,3,Coding,Unique chart friendlyUrl,,,,Done,Merlin,Primary key in MongoDB
-T-P-022,3,Coding,Unique chart set friendlyUrl,,,,Done,Merlin,Primary key in MongoDB
-T-P-023,2,Coding,Default options for column chart,T-P-018,,,Done,Owen,https://developers.google.com/chart/interactive/docs/gallery/columnchart#configuration-options
-T-P-024,2,Coding,Default options for bar chart,T-P-018,,,Done,Owen,https://developers.google.com/chart/interactive/docs/gallery/barchart#configuration-options
-T-P-025,2,Coding,Default options for line chart,T-P-018,,,Done,Owen,https://developers.google.com/chart/interactive/docs/gallery/linechart#configuration-options
-T-P-026,1,Architecture,REST API for searching,,,,Done,Patrick,"Including results count limitation & between specific time, etc."
+Task ID,Priority,Type,Description,Dependency,State,Assignees,Start Date,Due Date,Comments
+T-P-001,,Coding,File parsing module,,Done,Merlin,,,
+T-P-002,,Coding,REST API: Get all charts,,Done,Merlin,,,
+T-P-003,,Coding,REST API: Get one chart,,Done,Merlin,,,
+T-P-004,,Coding,REST API: Delete one chart,,Done,Jory,,,
+T-P-005,,Coding,REST API: Create a new chart,,Done,Merlin,,,
+T-P-006,,Coding,REST API: Update one chart,,Done,Jory,,,
+T-P-007,,Coding,REST API: Get one chart's options,,Done,Owen,,,
+T-P-008,,Coding,REST API: Update one chart's options,,Done,Owen,,,
+T-P-009,,Coding,REST API: Get one chart's datatable,,Done,Owen,,,
+T-P-010,,Coding,REST API: Update one chart's datatable,,Done,Owen,,,
+T-P-011,,Coding,REST API: Get all chart sets,,Done,Merlin,,,
+T-P-012,,Coding,REST API: Get one chart set,,Done,Merlin,,,
+T-P-013,,Coding,REST API: Delete one chart set,,Done,Jory,,,
+T-P-014,,Coding,REST API: Update one chart set,,Done,Jory,,,
+T-P-015,,Coding, REST API: Create one chart set,,Done,Merlin,,,
+T-P-016,,Coding,Chart friendly url support,,Done,Merlin & Patrick,,,
+T-P-017,,Coding,Chart set friendly url support,,Done,Merlin & Patrick,,,
+T-P-018,1,Architecture,Default options for different charts,,Done,Owen,,,"Each chart type has many configuration options, we could define some default ones, e.g., animation, color, etc."
+T-P-019,,Coding,Delete all charts,,Done,Merlin,,,
+T-P-020,,Coding,Delete all chart sets,,Done,Patrick,,,
+T-P-021,3,Coding,Unique chart friendlyUrl,,Done,Merlin,,,Primary key in MongoDB
+T-P-022,3,Coding,Unique chart set friendlyUrl,,Done,Merlin,,,Primary key in MongoDB
+T-P-023,2,Coding,Default options for column chart,T-P-018,Done,Owen,,,https://developers.google.com/chart/interactive/docs/gallery/columnchart#configuration-options
+T-P-024,2,Coding,Default options for bar chart,T-P-018,Done,Owen,,,https://developers.google.com/chart/interactive/docs/gallery/barchart#configuration-options
+T-P-025,2,Coding,Default options for line chart,T-P-018,Done,Owen,,,https://developers.google.com/chart/interactive/docs/gallery/linechart#configuration-options
+T-P-026,1,Architecture,REST API for searching,,Done,Patrick,,,"Including results count limitation & between specific time, etc."
 T-P-027,2,Coding,REST API: search chart,T-P-026,,,,,"sortBy, limitTo, orderBy"
 T-P-028,2,Coding,REST API: search chart set,T-P-026,,,,,
-T-P-029,1,Coding,"`timestamp` field, chart creation timestamp supporting",,,,Done,Merlin,We should record the timestamp when the chart is created
-T-P-030,1,Coding,"`timestamp` field, chart set creation timestamp supporting",,,,Done,Merlin,We should record the timestamp when the chart set is created
-T-P-031,1,Coding,"`lastUpdateTimestamp` field, chart last update timestamp supporting",,,,Done,Merlin,We should record the timestamp when the chart is updated
-T-P-032,1,Coding,"`lastUpdateTimestamp` field, chart set last update timestamp supporting",,,,Done,Merlin,We should record the timestamp when the chart set is updated
-T-P-033,,Architecture,REST API error handling,,,,Done,Patrick,
-T-P-034,,Coding,REST API: chart and chart set order,,,,,,
+T-P-029,1,Coding,"`timestamp` field, chart creation timestamp supporting",,Done,Merlin,,,We should record the timestamp when the chart is created
+T-P-030,1,Coding,"`timestamp` field, chart set creation timestamp supporting",,Done,Merlin,,,We should record the timestamp when the chart set is created
+T-P-031,1,Coding,"`lastUpdateTimestamp` field, chart last update timestamp supporting",,Done,Merlin,,,We should record the timestamp when the chart is updated
+T-P-032,1,Coding,"`lastUpdateTimestamp` field, chart set last update timestamp supporting",,Done,Merlin,,,We should record the timestamp when the chart set is updated
+T-P-033,,Architecture,REST API error handling,,Done,Patrick,,,
+T-P-034,,Coding,REST API: chart and chart set order,,Done,Merlin,,,
 T-P-035,,Coding,REST API: get a part of data points,,,,,,
-T-P-036,1,Architecture,"REST API: GET sort, limit, order",,,,Done,Patrick,
-T-P-037,1,Coding,"Add ""type:chart"" and ""type: chartset"" when creating chart or chart set",,,,Done,Patrick,
-T-P-038,,,,,,,,,
-T-P-039,,,,,,,,,
-T-P-040,,,,,,,,,
-T-P-041,,,,,,,,,
-T-P-042,,,,,,,,,
-T-P-043,,,,,,,,,
+T-P-036,1,Architecture,"REST API: GET sort, limit, order",,Done,Patrick,,,
+T-P-037,1,Coding,"Add ""type:chart"" and ""type: chartset"" when creating chart or chart set",,Done,Patrick,,,
+T-P-038,3,Architecture,Cron job,,,,,,"Read and parse files (Excel, etc), call web services, and then update chart data"
+T-P-039,4,Coding,Cron job,,,,,,
+T-P-040,1,Fixing Bug,"When a chart is deleted, it should be removed from related chart sets",,,,,,https://github.com/CVBDL/EagleEye-Platform/issues/2
+T-P-041,4,Architecture,User authentication,,,,,,
+T-P-042,2,Coding,DB backup,,,,,,
+T-P-043,,Coding,Allow user to upload image as a chart,,,Merlin,,,
 T-P-044,,,,,,,,,
 T-P-045,,,,,,,,,
 T-P-046,,,,,,,,,

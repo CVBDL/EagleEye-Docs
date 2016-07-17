@@ -92,73 +92,69 @@ Not in scope: 不计划在系统的第一个版本里包含此功能。
 
 *Not in scope.*
 
-类似 cron job， 平台可以配置定时任务主动调用某API或读取相关文件去获取数据并解析生成图表。
+Cron Job， 平台可以配置定时任务主动调用某API或读取相关文件去获取数据并解析生成图表。
 
 
 ### 客户端
 
 
-#### Dashboard模块
+#### 视图
 
-#/dashboard
+1. /home
 
-客户端主页
+  主页
 
+1. /charts
 
-#### 浏览单个图表模块
+  所有图表列表视图
 
-#/charts/:id
+1. /charts/:id
 
-只查看单个图表。
+  单个图表视图
 
+1. /charts/new
 
-#### 浏览图表集合模块
+  创建图表视图
 
-#/charts
+1. /charts/:id/settings
 
-查看某个图表集合。
+  更新图表配置及上传图表数据视图
 
+1. /chart-sets
 
-#### 新建图表模块
+  所有图表集合列表视图
 
-#/charts/new
+1. /chart-sets/：id
 
-新建一个图表。
+  单个图表集合视图
 
+1. /chart-sets/new
 
-#### 更新图表配置及上传图表数据
+  创建图表集合视图
 
-#/charts/:id/settings
+1. /chart-sets/:id/settings
 
-允许用户更新图表配置及选择文件上传。
-
-
-#### 查看图表集合模块
-
-#/chart-sets
-
-查看图表集合。
+  更新图表集合配置视图
 
 
-#### 查看单个图表集合模块
+#### Google Charts
 
-#/chart-sets/id
-
-查看单个图表集合。
+目前能够支持绘制折线图，条形图和柱状图。
 
 
-#### 新建图表集合模块
+#### 全屏化图表
 
-#/chart-sets/new
-
-新建一个图表集合。
+全屏显示图表。
 
 
-#### 更新图表集合模块
+#### 将图表保存为图片或PDF
 
-#/chart-sets/:id/settings
+能够将当前显示的图表保存成`.png`图片和`PDF`文档。
 
-更新某个图表集合。
+
+#### 分享
+
+当前支持通过邮件方式分享给其他人。
 
 
 ## 接口设计
@@ -172,9 +168,8 @@ Not in scope: 不计划在系统的第一个版本里包含此功能。
 
 主要数据表：
 
-* charts
-* chart_sets
-* chart_data
+* chart_collection
+* chart_set_collection
 
 
 ## 技术架构
@@ -191,14 +186,28 @@ Not in scope: 不计划在系统的第一个版本里包含此功能。
 * AngularJS ui-router (https://github.com/angular-ui/ui-router)
 
 
+#### 单元测试
+
+* Karma (https://karma-runner.github.io/1.0/index.html)
+* Jasmine (http://jasmine.github.io/)
+* Phantomjs (http://phantomjs.org/)
+* Angular-Mocks (https://docs.angularjs.org/guide/unit-testing)
+
+
+#### 集成测试
+
+None
+
+
 #### UI/UX
 
 * Material Design (https://www.google.com/design/spec/material-design/introduction.html)
+* Icons (https://design.google.com/icons/)
 
 
 ### Web Service
 
-* REST API
+* RESTful API
 
 
 ### Database
@@ -212,6 +221,13 @@ Not in scope: 不计划在系统的第一个版本里包含此功能。
 * Node.js v4.4.5 (https://nodejs.org/dist/v4.4.5/node-v4.4.5-x64.msi)
 
 
+#### 单元测试
+
+* Mocha (https://mochajs.org/)
+* Should.js (https://shouldjs.github.io/)
+* Async (http://caolan.github.io/async/)
+
+
 ## 部署架构
 
 
@@ -222,9 +238,9 @@ Node.js + Express
 
 ### 客户端
 
-Express for now.
+Express
 
 
 ## 其他说明
 
-TBD.
+* Use docker for deployment
