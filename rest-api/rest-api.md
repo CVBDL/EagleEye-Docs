@@ -4,6 +4,7 @@
 ## Table of Contents
 
 * [Overview](#overview)
+  * [Cross Origin Resource Sharing](cross-origin-resource-sharing)
   * [Client Errors](#client-errors)
 * [Charts](#charts)
   * [List all charts](#list-all-charts)
@@ -28,6 +29,21 @@
 
 
 ## Overview
+
+
+## Cross Origin Resource Sharing
+
+The API supports Cross Origin Resource Sharing (CORS) for AJAX requests from any origin. You can read the [CORS W3C Recommendation](http://www.w3.org/TR/cors/).
+
+This is an example:
+
+```sh
+curl -i https://api/v1/chart-sets/s-not-exist -H "Origin: http://example.com"
+HTTP/1.1 404 Not Found
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept
+Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS
+```
 
 
 ### Client Errors
@@ -204,6 +220,13 @@ HTTP/1.1 200 OK
 }
 ```
 
+If no record found:
+
+```text
+HTTP/1.1 404 Not Found
+Content-Length: 0
+```
+
 
 ### Get one chart via chart friendly url
 
@@ -245,6 +268,13 @@ HTTP/1.1 200 OK
     ]
   }
 }
+```
+
+If no record found:
+
+```text
+HTTP/1.1 404 Not Found
+Content-Length: 0
 ```
 
 
@@ -522,6 +552,13 @@ HTTP/1.1 200 OK
 }
 ```
 
+If no record found:
+
+```text
+HTTP/1.1 404 Not Found
+Content-Length: 0
+```
+
 
 ### Get one chart set via chart set friendly url
 
@@ -544,6 +581,13 @@ HTTP/1.1 200 OK
   "lastUpdateTimestamp": 1465891842059,
   "charts": ["5768e6262999167c30946e7c"]
 }
+```
+
+If no record found:
+
+```text
+HTTP/1.1 404 Not Found
+Content-Length: 0
 ```
 
 
