@@ -42,7 +42,7 @@ T-P-040,1,Fixing Bug,"When a chart is deleted, it should be removed from related
 T-P-041,4,Architecture,User authentication,,,,,,
 T-P-042,2,Coding,DB backup,,,,,,
 T-P-043,,Coding,Allow user to upload image as a chart,,,Merlin,,,
-T-P-044,,,,,,,,,
+T-P-044,,Coding,Combo chart support,,Done,Tweety,,,
 T-P-045,,,,,,,,,
 T-P-046,,,,,,,,,
 T-P-047,,,,,,,,,
