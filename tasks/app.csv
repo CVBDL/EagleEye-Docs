@@ -27,7 +27,7 @@ T-A-025,,Coding,Refresh chart data on chart tool bar,,Done,Tweety,,,
 T-A-026,,Coding,Auto-refresh chart data on chart tool bar,,Done,Jory,,,
 T-A-027,,UI,Chart set tool bar design,,Done,Patrick,,,"Settings button, refresh button, etc"
 T-A-028,,Coding,Chart set tool bar design,,Done,Tweety,,,
-T-A-029,3,Design,Chart set display layout configuration,,,,,,"Number of charts showing on one line, etc"
+T-A-029,3,Design,Chart set display layout configuration,,Done,Patrick,,,"Number of charts showing on one line, etc"
 T-A-030,1,Design,Share chart and chart set on toolbar,,Done,Patrick,,,"Share via sending email, or popup a lint, or else"
 T-A-031,2,Coding,Add share chart icon and functionality on toolbar,T-A-030,Done,Tweety & Patrick,,,
 T-A-032,2,Coding,Add share chart set icon and functionality on toolbar,T-A-030,Done,Tweety & Patrick,,,
