@@ -203,6 +203,8 @@ GET /api/v1/charts/:_id
 
 #### Response
 
+> /api/v1/charts/57837029c66dc1a4570962b6
+
 ```text
 HTTP/1.1 200 OK
 
@@ -296,6 +298,8 @@ GET /api/v1/charts/:friendlyUrl
 ```
 
 #### Response
+
+> /api/v1/charts/c-pretty-column-chart
 
 ```text
 HTTP/1.1 200 OK
@@ -444,6 +448,8 @@ DELETE /api/v1/charts/:id
 
 #### Response
 
+> /api/v1/charts/5768e6262999167c30946e7c
+
 ```text
 HTTP/1.1 204 No Content
 ```
@@ -520,6 +526,8 @@ GET /api/v1/chart-sets/:_id
 
 #### Response
 
+> /api/v1/chart-sets/578c8c493164a7304f72a9f3
+
 ```text
 HTTP/1.1 200 OK
 
@@ -552,18 +560,20 @@ GET /api/v1/chart-sets/:friendlyUrl
 
 #### Response
 
+> /api/v1/chart-sets/s-the-chart-set
+
 ```text
 HTTP/1.1 200 OK
 
 {
-  "_id": "578c8c493164a7304f72a9f3",
-  "title": "Chart set contains 3 charts",
-  "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
-  "charts": ["57837029c66dc1a4570962b6", "577f7d8825df25803c723069", "5791774271bc66244f964908", "577f7cdc25df25803c723068", "577f7c1425df25803c723067"],
+  "_id": "57ccd2fa4db6dc9c45d3164c",
+  "title": "This is a chart set",
+  "description": "This is a chart set",
+  "friendlyUrl": "s-the-chart-set",
+  "charts": ["57a93f748fff77fc4789c063", "5791774271bc66244f964908"],
   "type": "chartset",
-  "timestamp": 1468828745665,
-  "lastUpdateTimestamp": 1473038676177,
-  "friendlyUrl": ""
+  "timestamp": 1473041146946,
+  "lastUpdateTimestamp": 1473041146946
 }
 ```
 
@@ -616,6 +626,8 @@ DELETE /api/v1/chart-sets/:id
 
 #### Response
 
+> /api/v1/chart-sets/57ccd2fa4db6dc9c45d3164c
+
 ```text
 HTTP/1.1 204 No Content
 ```
@@ -654,49 +666,31 @@ GET /api/v1/search
 
 #### Response
 
+> /api/v1/search?q=set
+
 ```text
 HTTP/1.1 200 OK
 
 {
-  "total_count": 666,
+  "total_count": 2,
   "items": [{
-    "_id": "5768e6262999167c30946e7c",
-    "type": "chart",
-    "timestamp": 1465891633478,
-    "lastUpdateTimestamp": 1465891842059,
-    "chartType": "LineChart",
-    "domainDataType": "string",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-    "friendlyUrl": "s-eagleeye-line-chart",
-    "options": {
-      "title": "Fruits Overview",
-      "hAxis": {
-        "title": "Category"
-      },
-      "vAxis": {
-        "title": "Inventory"
-      }
-    },
-    "datatables": {
-      "cols": [
-        { "type": "string", "label": "Category", "p": {} },
-        { "type": "number", "label": "Apple", "p": {} },
-        { "type": "number", "label": "Orange", "p": {} }
-      ],
-      "rows": [
-        { "c": [{ "v": "Apple" }, { "v": 5 }, { "v": 9 }] },
-        { "c": [{ "v": "Orange" }, { "v": 7 }, { "v": 3 }] }
-      ]
-    }
-  }, {
-    "_id": "576a512dae40178426a0febb",
+    "_id": "57ccd2fa4db6dc9c45d3164c",
+    "title": "This is a chart set",
+    "description": "This is a chart set",
+    "friendlyUrl": "s-the-chart-set",
+    "charts": ["57a93f748fff77fc4789c063", "5791774271bc66244f964908"],
     "type": "chartset",
-    "title": "Chart set sample",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-    "friendlyUrl": "s-eagleeye-chart-set",
-    "timestamp": 1465891633478,
-    "lastUpdateTimestamp": 1465891842059,
-    "charts": ["5768e6262999167c30946e7c"]
+    "timestamp": 1473041146946,
+    "lastUpdateTimestamp": 1473041146946
+  }, {
+    "_id": "577f3582dbb89f2c47fc93c0",
+    "title": "The first chart set",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "friendlyUrl": "s-set-a",
+    "charts": ["577f7cdc25df25803c723068", "577f7d8825df25803c723069", "577f7a8d25df25803c723066", "577f7c1425df25803c723067", "5779fe9dec794f5c416f9480", "57837029c66dc1a4570962b6"],
+    "type": "chartset",
+    "timestamp": 1467954562172,
+    "lastUpdateTimestamp": 1468231728290
   }]
 }
 ```
@@ -719,40 +713,45 @@ GET /api/v1/search/charts
 
 #### Response
 
+> /api/v1/search/charts?q=image
+
 ```text
 HTTP/1.1 200 OK
 
 {
-  "total_count": 120,
+  "total_count": 2,
   "items": [{
-    "_id": "5768e6262999167c30946e7c",
-    "type": "chart",
-    "timestamp": 1465891633478,
-    "lastUpdateTimestamp": 1465891842059,
-    "chartType": "LineChart",
+    "_id": "57997784e24561202bc7190e",
+    "description": "",
+    "chartType": "ImageChart",
     "domainDataType": "string",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-    "friendlyUrl": "s-eagleeye-line-chart",
     "options": {
-      "title": "Fruits Overview",
-      "hAxis": {
-        "title": "Category"
-      },
-      "vAxis": {
-        "title": "Inventory"
-      }
+      "title": "Image Test 1",
+      "hAxis": {},
+      "vAxis": {},
+      "isStacked": false
     },
-    "datatables": {
-      "cols": [
-        { "type": "string", "label": "Category", "p": {} },
-        { "type": "number", "label": "Apple", "p": {} },
-        { "type": "number", "label": "Orange", "p": {} }
-      ],
-      "rows": [
-        { "c": [{ "v": "Apple" }, { "v": 5 }, { "v": 9 }] },
-        { "c": [{ "v": "Orange" }, { "v": 7 }, { "v": 3 }] }
-      ]
-    }
+    "datatable": {},
+    "type": "ImageChart",
+    "timestamp": 1469675396932,
+    "lastUpdateTimestamp": 1470202200371,
+    "image_file_name": "IC_604587LwFSXflR2yqjdVPL3VPXi2Ad.PNG"
+  }, {
+    "_id": "5799641be24561202bc7190d",
+    "description": "Upload an image as a chart",
+    "chartType": "ImageChart",
+    "domainDataType": "string",
+    "options": {
+      "title": "Image Chart",
+      "hAxis": {},
+      "vAxis": {},
+      "isStacked": false
+    },
+    "datatable": {},
+    "type": "ImageChart",
+    "timestamp": 1469670427057,
+    "lastUpdateTimestamp": 1469670443132,
+    "image_file_name": "IC_6691380Xl7Rn-XOMqYaD9-6fCk2PlH.png"
   }]
 }
 ```
@@ -775,20 +774,22 @@ GET /api/v1/search/chart-sets
 
 #### Response
 
+> /api/v1/search/chart-sets?q=remove
+
 ```text
 HTTP/1.1 200 OK
 
 {
-  "total_count": 30,
+  "total_count": 1,
   "items": [{
-    "_id": "576a512dae40178426a0febb",
+    "_id": "57859a3061c767d81713a163",
+    "title": "Test chart remove",
+    "description": "Test chart remove",
+    "charts": ["5799641be24561202bc7190d"],
     "type": "chartset",
-    "title": "Chart set sample",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-    "friendlyUrl": "s-eagleeye-chart-set",
-    "timestamp": 1465891633478,
-    "lastUpdateTimestamp": 1465891842059,
-    "charts": ["5768e6262999167c30946e7c"]
+    "timestamp": 1468373552837,
+    "lastUpdateTimestamp": 1469671119650,
+    "friendlyUrl": "s-s-test-remove"
   }]
 }
 ```
