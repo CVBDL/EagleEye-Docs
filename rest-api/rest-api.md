@@ -14,17 +14,15 @@
   * [Get a single chart via id](#get-a-single-chart-via-id)
   * [Get a single chart via friendly url](#get-a-single-chart-via-friendly-url)
   * [Create a chart](#create-a-chart)
-  * [List one chart's datatable](#list-one-charts-datatable)
-  * [Edit one chart's datatable](#edit-one-charts-datatable)
-  * [List one chart's options](#list-one-charts-options)
-  * [Edit one chart's options](#edit-one-charts-options)
-  * [Remove all charts](#remove-all-charts)
+  * [Delete a chart](#delete-a-chart)
+  * [Delete all charts](#delete-all-charts)
 * [Chart Sets](#chart-sets)
   * [List all chart sets](#list-all-chart-sets)
-  * [Get one chart set via chart set id](#get-one-chart-set-via-chart-set-id)
-  * [Get one chart set via chart set friendly url](#get-one-chart-set-via-chart-set-friendly-url)
-  * [Create a new chart set](#create-a-new-chart-set)
-  * [Remove all chart sets](#remove-all-chart-sets)
+  * [Get a single chart set via chart set id](#get-a-single-chart-set-via-chart-set-id)
+  * [Get a single chart set via chart set friendly url](#get-a-single-chart-set-via-chart-set-friendly-url)
+  * [Create a chart set](#create-a-chart-set)
+  * [Delete a chart set](#delete-a-chart-set)
+  * [Delete all chart sets](#delete-all-chart-sets)
 * [Search](#search)
   * [Search both charts and chart sets](#search-both-charts-and-chart-sets)
   * [Search charts](#search-charts)
@@ -207,7 +205,6 @@ GET /api/v1/charts/:_id
 
 ```text
 HTTP/1.1 200 OK
-Content-Length: 771
 
 {
   "_id": "57837029c66dc1a4570962b6",
@@ -304,33 +301,76 @@ GET /api/v1/charts/:friendlyUrl
 HTTP/1.1 200 OK
 
 {
-  "_id": "5768e6262999167c30946e7c",
-  "timestamp": 1465891633478,
-  "lastUpdateTimestamp": 1465891842059,
-  "chartType": "LineChart",
+  "_id": "57837029c66dc1a4570962b6",
+  "description": "A pretty column chart",
+  "chartType": "ColumnChart",
   "domainDataType": "string",
-  "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-  "friendlyUrl": "s-eagleeye-line-chart",
+  "friendlyUrl": "c-pretty-column-chart",
   "options": {
-    "title": "Fruits Overview",
+    "title": "Pretty column chart",
     "hAxis": {
-      "title": "Category"
+      "title": ""
     },
     "vAxis": {
-      "title": "Inventory"
+      "title": ""
     }
   },
-  "datatables": {
-    "cols": [
-      { "type": "string", "label": "Category", "p": {} },
-      { "type": "number", "label": "Apple", "p": {} },
-      { "type": "number", "label": "Orange", "p": {} }
-    ],
-    "rows": [
-      { "c": [{ "v": "Apple" }, { "v": 5 }, { "v": 9 }] },
-      { "c": [{ "v": "Orange" }, { "v": 7 }, { "v": 3 }] }
-    ]
-  }
+  "datatable": {
+    "cols": [{
+      "label": "City",
+      "type": "string"
+    }, {
+      "label": "2010 Population",
+      "type": "number"
+    }, {
+      "label": "2000 Population",
+      "type": "number"
+    }],
+    "rows": [{
+      "c": [{
+        "v": "New York City, NY"
+      }, {
+        "v": 8175000
+      }, {
+        "v": 8008000
+      }]
+    }, {
+      "c": [{
+        "v": "Los Angeles, CA"
+      }, {
+        "v": 3792000
+      }, {
+        "v": 3694000
+      }]
+    }, {
+      "c": [{
+        "v": "Chicago, IL"
+      }, {
+        "v": 2695000
+      }, {
+        "v": 2896000
+      }]
+    }, {
+      "c": [{
+        "v": "Houston, TX"
+      }, {
+        "v": 2099000
+      }, {
+        "v": 1953000
+      }]
+    }, {
+      "c": [{
+        "v": "Philadelphia, PA"
+      }, {
+        "v": 1526000
+      }, {
+        "v": 1517000
+      }]
+    }]
+  },
+  "type": "chart",
+  "timestamp": 1468231721781,
+  "lastUpdateTimestamp": 1468231721781
 }
 ```
 
@@ -396,133 +436,19 @@ HTTP/1.1 200 OK
 }
 ```
 
-### List one chart's datatable
+### Delete a chart
 
 ```text
-GET /api/v1/charts/:_id/datatable
-```
-
-#### Parameters
-
-| Name | Type   | Description                                      |
-| ---- | ------ | ------------------------------------------------ |
-| type | string | Can be one of `json` and `file`. Default: `json` |
-
-#### Response
-
-When `type` is `json`:
-
-```text
-HTTP/1.1 200 OK
-
-{
-  "cols": [
-    { "type": "string", "label": "Category", "p": {} },
-    { "type": "number", "label": "Apple", "p": {} },
-    { "type": "number", "label": "Orange", "p": {} }
-  ],
-  "rows": [
-    { "c": [{ "v": "Apple" }, { "v": 5 }, { "v": 9 }] },
-    { "c": [{ "v": "Orange" }, { "v": 7 }, { "v": 3 }] }
-  ]
-}
-```
-
-When `type` is `file`:
-
-```text
-Content-Disposition: attachment; filename="chart-datatable.xlsx"
-Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
-```
-
-### Edit one chart's datatable
-
-```text
-POST /api/v1/charts/:_id/datatable
-```
-
-#### Input
-
-| Name | Type           | Description                                      |
-| ---- | -------------- | ------------------------------------------------ |
-| type | string         | Can be one of `json` and `file`. Default: `json` |
-| data | string or file | JSON string or file depends on `type`            |
-
-#### Response
-
-```text
-HTTP/1.1 200 OK
-
-{
-  "cols": [
-    { "type": "string", "label": "Category", "p": {} },
-    { "type": "number", "label": "Apple", "p": {} },
-    { "type": "number", "label": "Orange", "p": {} }
-  ],
-  "rows": [
-    { "c": [{ "v": "Apple" }, { "v": 5 }, { "v": 9 }] },
-    { "c": [{ "v": "Orange" }, { "v": 7 }, { "v": 3 }] }
-  ]
-}
-```
-
-### List one chart's options
-
-```text
-GET /api/v1/charts/:_id/options
+DELETE /api/v1/charts/:id
 ```
 
 #### Response
 
 ```text
-HTTP/1.1 200 OK
-
-{
-  "title": "Fruits Overview",
-  "hAxis": {
-    "title": "Category"
-  },
-  "vAxis": {
-    "title": "Inventory"
-  },
-  "animation": {
-    "duration": 500,
-    "easing": "out",
-    "startup": true
-  },
-  "tooltip": {
-    "showColorCode": true
-  }
-}
+HTTP/1.1 204 No Content
 ```
 
-### Edit one chart's options
-
-```text
-POST /api/v1/charts/:_id/options
-```
-
-#### Input
-
-Chart options JSON string.
-
-#### Response
-
-```text
-HTTP/1.1 200 OK
-
-{
-  "title": "Fruits Overview",
-  "hAxis": {
-    "title": "Category"
-  },
-  "vAxis": {
-    "title": "Inventory"
-  }
-}
-```
-
-### Remove all charts
+### Delete all charts
 
 ```text
 DELETE /api/v1/charts
@@ -557,23 +483,36 @@ GET /api/v1/chart-sets
 HTTP/1.1 200 OK
 
 [{
-  "title": "Chart set sample",
-  "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-  "friendlyUrl": "s-eagleeye-chart-set",
-  "timestamp": 1465891633478,
-  "lastUpdateTimestamp": 1465891842059,
-  "charts": ["5768e6262999167c30946e7c"]
+  "_id": "578c8c493164a7304f72a9f3",
+  "title": "Chart set contains 3 charts",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+  "charts": ["57837029c66dc1a4570962b6", "577f7d8825df25803c723069", "5791774271bc66244f964908", "577f7cdc25df25803c723068", "577f7c1425df25803c723067"],
+  "type": "chartset",
+  "timestamp": 1468828745665,
+  "lastUpdateTimestamp": 1473038676177,
+  "friendlyUrl": ""
 }, {
-  "title": "Chart set sample two",
-  "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-  "friendlyUrl": "s-eagleeye-chart-set-two",
-  "timestamp": 1465891633478,
-  "lastUpdateTimestamp": 1465891842059,
-  "charts": ["5768e6262999167c30946e7c", "576a4d56ae40178426a0feba"]
+  "_id": "57859a3061c767d81713a163",
+  "title": "Test chart remove",
+  "description": "Test chart remove",
+  "charts": ["5799641be24561202bc7190d"],
+  "type": "chartset",
+  "timestamp": 1468373552837,
+  "lastUpdateTimestamp": 1469671119650,
+  "friendlyUrl": "s-s-test-remove"
+}, {
+  "_id": "577f3582dbb89f2c47fc93c0",
+  "title": "The first chart set",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  "friendlyUrl": "s-set-a",
+  "charts": ["577f7cdc25df25803c723068", "577f7d8825df25803c723069", "577f7a8d25df25803c723066", "577f7c1425df25803c723067", "5779fe9dec794f5c416f9480", "57837029c66dc1a4570962b6"],
+  "type": "chartset",
+  "timestamp": 1467954562172,
+  "lastUpdateTimestamp": 1468231728290
 }]
 ```
 
-### Get one chart set via chart set id
+### Get a single chart set via chart set id
 
 ```text
 GET /api/v1/chart-sets/:_id
@@ -585,13 +524,14 @@ GET /api/v1/chart-sets/:_id
 HTTP/1.1 200 OK
 
 {
-  "_id": "576a512dae40178426a0febb",
-  "title": "Chart set sample",
-  "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-  "friendlyUrl": "s-eagleeye-chart-set",
-  "timestamp": 1465891633478,
-  "lastUpdateTimestamp": 1465891842059,
-  "charts": ["5768e6262999167c30946e7c"]
+  "_id": "578c8c493164a7304f72a9f3",
+  "title": "Chart set contains 3 charts",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+  "charts": ["57837029c66dc1a4570962b6", "577f7d8825df25803c723069", "5791774271bc66244f964908", "577f7cdc25df25803c723068", "577f7c1425df25803c723067"],
+  "type": "chartset",
+  "timestamp": 1468828745665,
+  "lastUpdateTimestamp": 1473038676177,
+  "friendlyUrl": ""
 }
 ```
 
@@ -600,9 +540,11 @@ If no record found:
 ```text
 HTTP/1.1 404 Not Found
 Content-Length: 0
+
+
 ```
 
-### Get one chart set via chart set friendly url
+### Get a single chart set via chart set friendly url
 
 ```text
 GET /api/v1/chart-sets/:friendlyUrl
@@ -614,13 +556,14 @@ GET /api/v1/chart-sets/:friendlyUrl
 HTTP/1.1 200 OK
 
 {
-  "_id": "576a512dae40178426a0febb",
-  "title": "Chart set sample",
-  "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-  "friendlyUrl": "s-eagleeye-chart-set",
-  "timestamp": 1465891633478,
-  "lastUpdateTimestamp": 1465891842059,
-  "charts": ["5768e6262999167c30946e7c"]
+  "_id": "578c8c493164a7304f72a9f3",
+  "title": "Chart set contains 3 charts",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+  "charts": ["57837029c66dc1a4570962b6", "577f7d8825df25803c723069", "5791774271bc66244f964908", "577f7cdc25df25803c723068", "577f7c1425df25803c723067"],
+  "type": "chartset",
+  "timestamp": 1468828745665,
+  "lastUpdateTimestamp": 1473038676177,
+  "friendlyUrl": ""
 }
 ```
 
@@ -629,9 +572,11 @@ If no record found:
 ```text
 HTTP/1.1 404 Not Found
 Content-Length: 0
+
+
 ```
 
-### Create a new chart set
+### Create a chart set
 
 ```text
 POST /api/v1/chart-sets
@@ -652,20 +597,33 @@ POST /api/v1/chart-sets
 HTTP/1.1 200 OK
 
 {
-  "_id": "576a512dae40178426a0febb",
-  "title": "Chart set sample",
-  "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-  "friendlyUrl": "s-eagleeye-chart-set",
-  "timestamp": 1465891633478,
-  "lastUpdateTimestamp": 1465891842059,
-  "charts": ["5768e6262999167c30946e7c"]
+  "title": "This is a chart set",
+  "description": "This is a chart set",
+  "friendlyUrl": "s-the-chart-set",
+  "charts": ["57a93f748fff77fc4789c063", "5791774271bc66244f964908"],
+  "type": "chartset",
+  "timestamp": 1473041146946,
+  "lastUpdateTimestamp": 1473041146946,
+  "_id": "57ccd2fa4db6dc9c45d3164c"
 }
 ```
 
-### Remove all chart sets
+### Delete a chart set
 
 ```text
-GET /api/v1/chart-sets/clear
+DELETE /api/v1/chart-sets/:id
+```
+
+#### Response
+
+```text
+HTTP/1.1 204 No Content
+```
+
+### Delete all chart sets
+
+```text
+DELETE /api/v1/chart-sets
 ```
 
 #### Response
