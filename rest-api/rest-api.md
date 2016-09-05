@@ -203,7 +203,7 @@ GET /api/v1/charts/:_id
 
 #### Response
 
-> /api/v1/charts/57837029c66dc1a4570962b6
+> GET /api/v1/charts/57837029c66dc1a4570962b6
 
 ```text
 HTTP/1.1 200 OK
@@ -299,7 +299,7 @@ GET /api/v1/charts/:friendlyUrl
 
 #### Response
 
-> /api/v1/charts/c-pretty-column-chart
+> GET /api/v1/charts/c-pretty-column-chart
 
 ```text
 HTTP/1.1 200 OK
@@ -448,7 +448,7 @@ DELETE /api/v1/charts/:id
 
 #### Response
 
-> /api/v1/charts/5768e6262999167c30946e7c
+> DELETE /api/v1/charts/5768e6262999167c30946e7c
 
 ```text
 HTTP/1.1 204 No Content
@@ -526,7 +526,7 @@ GET /api/v1/chart-sets/:_id
 
 #### Response
 
-> /api/v1/chart-sets/578c8c493164a7304f72a9f3
+> GET /api/v1/chart-sets/578c8c493164a7304f72a9f3
 
 ```text
 HTTP/1.1 200 OK
@@ -560,7 +560,7 @@ GET /api/v1/chart-sets/:friendlyUrl
 
 #### Response
 
-> /api/v1/chart-sets/s-the-chart-set
+> GET /api/v1/chart-sets/s-the-chart-set
 
 ```text
 HTTP/1.1 200 OK
@@ -626,7 +626,7 @@ DELETE /api/v1/chart-sets/:id
 
 #### Response
 
-> /api/v1/chart-sets/57ccd2fa4db6dc9c45d3164c
+> DELETE /api/v1/chart-sets/57ccd2fa4db6dc9c45d3164c
 
 ```text
 HTTP/1.1 204 No Content
@@ -666,7 +666,7 @@ GET /api/v1/search
 
 #### Response
 
-> /api/v1/search?q=set
+> GET /api/v1/search?q=set
 
 ```text
 HTTP/1.1 200 OK
@@ -713,7 +713,7 @@ GET /api/v1/search/charts
 
 #### Response
 
-> /api/v1/search/charts?q=image
+> GET /api/v1/search/charts?q=image
 
 ```text
 HTTP/1.1 200 OK
@@ -774,7 +774,7 @@ GET /api/v1/search/chart-sets
 
 #### Response
 
-> /api/v1/search/chart-sets?q=remove
+> GET /api/v1/search/chart-sets?q=remove
 
 ```text
 HTTP/1.1 200 OK
