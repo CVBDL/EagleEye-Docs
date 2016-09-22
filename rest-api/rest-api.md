@@ -14,6 +14,7 @@
   * [Get a single chart via id](#get-a-single-chart-via-id)
   * [Get a single chart via friendly url](#get-a-single-chart-via-friendly-url)
   * [Create a chart](#create-a-chart)
+  * [Edit a chart](#edit-a-chart)
   * [Delete a chart](#delete-a-chart)
   * [Delete all charts](#delete-all-charts)
 * [Chart Sets](#chart-sets)
@@ -21,6 +22,7 @@
   * [Get a single chart set via chart set id](#get-a-single-chart-set-via-chart-set-id)
   * [Get a single chart set via chart set friendly url](#get-a-single-chart-set-via-chart-set-friendly-url)
   * [Create a chart set](#create-a-chart-set)
+  * [Edit a chart set](#edit-a-chart-set)
   * [Delete a chart set](#delete-a-chart-set)
   * [Delete all chart sets](#delete-all-chart-sets)
 * [Search](#search)
@@ -440,6 +442,101 @@ HTTP/1.1 200 OK
 }
 ```
 
+### Edit a chart
+
+```text
+PUT /api/v1/charts/:id
+```
+
+#### Input
+
+| Name           | Type   | Description                                              |
+| -------------- | ------ | -------------------------------------------------------- |
+| description    | string | Chart description content.                               |
+| friendlyUrl    | string | Unique friendly url                                      |
+| options        | object | Chart options.                                           |
+
+#### Response
+
+> PUT /api/v1/charts/57837029c66dc1a4570962b6
+
+```text
+HTTP/1.1 200
+
+{
+  "_id": "57837029c66dc1a4570962b6",
+  "description": "New description",
+  "chartType": "ColumnChart",
+  "domainDataType": "string",
+  "friendlyUrl": "c-pretty-column-chart",
+  "options": {
+    "title": "New title",
+    "hAxis": {
+      "title": "New hAxis title"
+    },
+    "vAxis": {
+      "title": "New vAxis title"
+    }
+  },
+  "datatable": {
+    "cols": [{
+      "label": "City",
+      "type": "string"
+    }, {
+      "label": "2010 Population",
+      "type": "number"
+    }, {
+      "label": "2000 Population",
+      "type": "number"
+    }],
+    "rows": [{
+      "c": [{
+        "v": "New York City, NY"
+      }, {
+        "v": 8175000
+      }, {
+        "v": 8008000
+      }]
+    }, {
+      "c": [{
+        "v": "Los Angeles, CA"
+      }, {
+        "v": 3792000
+      }, {
+        "v": 3694000
+      }]
+    }, {
+      "c": [{
+        "v": "Chicago, IL"
+      }, {
+        "v": 2695000
+      }, {
+        "v": 2896000
+      }]
+    }, {
+      "c": [{
+        "v": "Houston, TX"
+      }, {
+        "v": 2099000
+      }, {
+        "v": 1953000
+      }]
+    }, {
+      "c": [{
+        "v": "Philadelphia, PA"
+      }, {
+        "v": 1526000
+      }, {
+        "v": 1517000
+      }]
+    }]
+  },
+  "type": "chart",
+  "timestamp": 1468231721781,
+  "lastUpdateTimestamp": 1468231721781
+}
+```
+
 ### Delete a chart
 
 ```text
@@ -615,6 +712,40 @@ HTTP/1.1 200 OK
   "timestamp": 1473041146946,
   "lastUpdateTimestamp": 1473041146946,
   "_id": "57ccd2fa4db6dc9c45d3164c"
+}
+```
+
+### Edit a chart set
+
+```text
+PUT /api/v1/chart-sets/:id
+```
+
+#### Input
+
+| Name           | Type   | Description                                              |
+| -------------- | ------ | -------------------------------------------------------- |
+| title          | string | Chart set title.                                         |
+| description    | string | Chart set description content.                           |
+| friendlyUrl    | string | Unique friendly url, prefix with `s-`.                   |
+| charts         | array  | Chart ids.                                               |
+
+#### Response
+
+> PUT /api/v1/chart-sets/57e0f76b31fad8dc35aaee35
+
+```text
+HTTP/1.1 200 OK
+
+{
+  "_id": "57e0f76b31fad8dc35aaee35",
+  "title": "New title",
+  "description": "New description",
+  "charts": ["57df8fd00b53c66839fdfb6b", "57dbabc60b53c66839fdfb66", "57db539c05db66cc1435218f", "57df3fab0b53c66839fdfb69"],
+  "type": "chartset",
+  "timestamp": 1474361195859,
+  "lastUpdateTimestamp": 1474513878962,
+  "friendlyUrl": "s-product-one"
 }
 ```
 
