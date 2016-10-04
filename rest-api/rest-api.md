@@ -59,7 +59,7 @@ curl -i http://hostname:port/api/v1/charts?limit=1
 You can issue a `GET` request to the root endpoint to get all the endpoint categories that the API supports:
 
 ```sh
-curl http://hostname:port/api/v1/charts
+curl http://hostname:port/api/v1
 ```
 
 ### Client Errors
