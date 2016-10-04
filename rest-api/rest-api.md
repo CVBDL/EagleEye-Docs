@@ -40,6 +40,12 @@ The current version is `v1`. You must specify it in url `http://hostname:port/ap
 
 All API access is over HTTP. All data is sent and received as JSON.
 
+All timestamps are returned in ISO 8601 format:
+
+```text
+YYYY-MM-DDTHH:MM:SSZ
+```
+
 ## Parameters
 
 Many API methods take optional parameters. For GET requests, any parameters not specified as a segment in the path can be padded as an HTTP query string parameter:
@@ -131,7 +137,7 @@ GET /api/v1/charts
 
 | Name  | Type   | Description                                                                                        |
 | ----- | ------ | -------------------------------------------------------------------------------------------------- |
-| sort  | string | The sort field. One of `timestamp`, `lastUpdateTimestamp` or `chartType`. Default: `timestamp`     |
+| sort  | string | The sort field. One of `createdAt`, `updatedAt` or `chartType`. Default: `createdAt`     |
 | order | string | The sort order if sort parameter is provided. One of `asc` or `desc`. Default: `desc`              |
 | limit | number | The results count field. Mainly for pagination purpose. Zero value means no limitation. Default: 0 |
 | start | number | The start index of results. Mainly for pagination purpose. Default: 1                              |
@@ -143,8 +149,8 @@ HTTP/1.1 200 OK
 
 [{
   "_id": "5768e6262999167c30946e7c",
-  "timestamp": 1465891633478,
-  "lastUpdateTimestamp": 1465891842059,
+  "createdAt": 1465891633478,
+  "updatedAt": 1465891842059,
   "chartType": "LineChart",
   "domainDataType": "string",
   "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
@@ -279,8 +285,8 @@ HTTP/1.1 200 OK
     }]
   },
   "type": "chart",
-  "timestamp": 1468231721781,
-  "lastUpdateTimestamp": 1468231721781
+  "createdAt": 1468231721781,
+  "updatedAt": 1468231721781
 }
 ```
 
@@ -375,8 +381,8 @@ HTTP/1.1 200 OK
     }]
   },
   "type": "chart",
-  "timestamp": 1468231721781,
-  "lastUpdateTimestamp": 1468231721781
+  "createdAt": 1468231721781,
+  "updatedAt": 1468231721781
 }
 ```
 
@@ -413,8 +419,8 @@ HTTP/1.1 200 OK
 
 {
   "_id": "8371e6262999167c30946e3f",
-  "timestamp": 1465891633478,
-  "lastUpdateTimestamp": 1465891633478,
+  "createdAt": 1465891633478,
+  "updatedAt": 1465891633478,
   "chartType": "LineChart",
   "domainDataType": "string",
   "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
@@ -532,8 +538,8 @@ HTTP/1.1 200
     }]
   },
   "type": "chart",
-  "timestamp": 1468231721781,
-  "lastUpdateTimestamp": 1468231721781
+  "createdAt": 1468231721781,
+  "updatedAt": 1468231721781
 }
 ```
 
@@ -575,7 +581,7 @@ GET /api/v1/chart-sets
 
 | Name  | Type   | Description                                                                                        |
 | ----- | ------ | -------------------------------------------------------------------------------------------------- |
-| sort  | string | The sort field. One of `timestamp` and `lastUpdateTimestamp`. Default: `timestamp`     |
+| sort  | string | The sort field. One of `createdAt` and `updatedAt`. Default: `createdAt`     |
 | order | string | The sort order if sort parameter is provided. One of `asc` or `desc`. Default: `desc`              |
 | limit | number | The results count field. Mainly for pagination purpose. Zero value means no limitation. Default: 0 |
 | start | number | The start index of results. Mainly for pagination purpose. Default: 1                              |
@@ -591,8 +597,8 @@ HTTP/1.1 200 OK
   "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
   "charts": ["57837029c66dc1a4570962b6", "577f7d8825df25803c723069", "5791774271bc66244f964908", "577f7cdc25df25803c723068", "577f7c1425df25803c723067"],
   "type": "chartset",
-  "timestamp": 1468828745665,
-  "lastUpdateTimestamp": 1473038676177,
+  "createdAt": 1468828745665,
+  "updatedAt": 1473038676177,
   "friendlyUrl": ""
 }, {
   "_id": "57859a3061c767d81713a163",
@@ -600,8 +606,8 @@ HTTP/1.1 200 OK
   "description": "Test chart remove",
   "charts": ["5799641be24561202bc7190d"],
   "type": "chartset",
-  "timestamp": 1468373552837,
-  "lastUpdateTimestamp": 1469671119650,
+  "createdAt": 1468373552837,
+  "updatedAt": 1469671119650,
   "friendlyUrl": "s-s-test-remove"
 }, {
   "_id": "577f3582dbb89f2c47fc93c0",
@@ -610,8 +616,8 @@ HTTP/1.1 200 OK
   "friendlyUrl": "s-set-a",
   "charts": ["577f7cdc25df25803c723068", "577f7d8825df25803c723069", "577f7a8d25df25803c723066", "577f7c1425df25803c723067", "5779fe9dec794f5c416f9480", "57837029c66dc1a4570962b6"],
   "type": "chartset",
-  "timestamp": 1467954562172,
-  "lastUpdateTimestamp": 1468231728290
+  "createdAt": 1467954562172,
+  "updatedAt": 1468231728290
 }]
 ```
 
@@ -634,8 +640,8 @@ HTTP/1.1 200 OK
   "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
   "charts": ["57837029c66dc1a4570962b6", "577f7d8825df25803c723069", "5791774271bc66244f964908", "577f7cdc25df25803c723068", "577f7c1425df25803c723067"],
   "type": "chartset",
-  "timestamp": 1468828745665,
-  "lastUpdateTimestamp": 1473038676177,
+  "createdAt": 1468828745665,
+  "updatedAt": 1473038676177,
   "friendlyUrl": ""
 }
 ```
@@ -669,8 +675,8 @@ HTTP/1.1 200 OK
   "friendlyUrl": "s-the-chart-set",
   "charts": ["57a93f748fff77fc4789c063", "5791774271bc66244f964908"],
   "type": "chartset",
-  "timestamp": 1473041146946,
-  "lastUpdateTimestamp": 1473041146946
+  "createdAt": 1473041146946,
+  "updatedAt": 1473041146946
 }
 ```
 
@@ -709,8 +715,8 @@ HTTP/1.1 200 OK
   "friendlyUrl": "s-the-chart-set",
   "charts": ["57a93f748fff77fc4789c063", "5791774271bc66244f964908"],
   "type": "chartset",
-  "timestamp": 1473041146946,
-  "lastUpdateTimestamp": 1473041146946,
+  "createdAt": 1473041146946,
+  "updatedAt": 1473041146946,
   "_id": "57ccd2fa4db6dc9c45d3164c"
 }
 ```
@@ -743,8 +749,8 @@ HTTP/1.1 200 OK
   "description": "New description",
   "charts": ["57df8fd00b53c66839fdfb6b", "57dbabc60b53c66839fdfb66", "57db539c05db66cc1435218f", "57df3fab0b53c66839fdfb69"],
   "type": "chartset",
-  "timestamp": 1474361195859,
-  "lastUpdateTimestamp": 1474513878962,
+  "createdAt": 1474361195859,
+  "updatedAt": 1474513878962,
   "friendlyUrl": "s-product-one"
 }
 ```
@@ -790,7 +796,7 @@ GET /api/v1/search
 | Name  | Type   | Description                                                                                        |
 | ----- | ------ | -------------------------------------------------------------------------------------------------- |
 | q     | string | The search keywords.                                                                               |
-| sort  | string | The sort field. One of `timestamp`, `lastUpdateTimestamp` or `chartType`. Default: `timestamp`     |
+| sort  | string | The sort field. One of `createdAt`, `updatedAt` or `chartType`. Default: `createdAt`     |
 | order | string | The sort order if sort parameter is provided. One of `asc` or `desc`. Default: `desc`              |
 | limit | number | The results count field. Mainly for pagination purpose. Zero value means no limitation. Default: 0 |
 | start | number | The start index of results. Mainly for pagination purpose. Default: 1                              |
@@ -811,8 +817,8 @@ HTTP/1.1 200 OK
     "friendlyUrl": "s-the-chart-set",
     "charts": ["57a93f748fff77fc4789c063", "5791774271bc66244f964908"],
     "type": "chartset",
-    "timestamp": 1473041146946,
-    "lastUpdateTimestamp": 1473041146946
+    "createdAt": 1473041146946,
+    "updatedAt": 1473041146946
   }, {
     "_id": "577f3582dbb89f2c47fc93c0",
     "title": "The first chart set",
@@ -820,8 +826,8 @@ HTTP/1.1 200 OK
     "friendlyUrl": "s-set-a",
     "charts": ["577f7cdc25df25803c723068", "577f7d8825df25803c723069", "577f7a8d25df25803c723066", "577f7c1425df25803c723067", "5779fe9dec794f5c416f9480", "57837029c66dc1a4570962b6"],
     "type": "chartset",
-    "timestamp": 1467954562172,
-    "lastUpdateTimestamp": 1468231728290
+    "createdAt": 1467954562172,
+    "updatedAt": 1468231728290
   }]
 }
 ```
@@ -837,7 +843,7 @@ GET /api/v1/search/charts
 | Name  | Type   | Description                                                                                        |
 | ----- | ------ | -------------------------------------------------------------------------------------------------- |
 | q     | string | The search keywords.                                                                               |
-| sort  | string | The sort field. One of `timestamp`, `lastUpdateTimestamp` or `chartType`. Default: `timestamp`     |
+| sort  | string | The sort field. One of `createdAt`, `updatedAt` or `chartType`. Default: `createdAt`     |
 | order | string | The sort order if sort parameter is provided. One of `asc` or `desc`. Default: `desc`              |
 | limit | number | The results count field. Mainly for pagination purpose. Zero value means no limitation. Default: 0 |
 | start | number | The start index of results. Mainly for pagination purpose. Default: 1                              |
@@ -864,8 +870,8 @@ HTTP/1.1 200 OK
     },
     "datatable": {},
     "type": "ImageChart",
-    "timestamp": 1469675396932,
-    "lastUpdateTimestamp": 1470202200371,
+    "createdAt": 1469675396932,
+    "updatedAt": 1470202200371,
     "image_file_name": "IC_604587LwFSXflR2yqjdVPL3VPXi2Ad.PNG"
   }, {
     "_id": "5799641be24561202bc7190d",
@@ -880,8 +886,8 @@ HTTP/1.1 200 OK
     },
     "datatable": {},
     "type": "ImageChart",
-    "timestamp": 1469670427057,
-    "lastUpdateTimestamp": 1469670443132,
+    "createdAt": 1469670427057,
+    "updatedAt": 1469670443132,
     "image_file_name": "IC_6691380Xl7Rn-XOMqYaD9-6fCk2PlH.png"
   }]
 }
@@ -898,7 +904,7 @@ GET /api/v1/search/chart-sets
 | Name  | Type   | Description                                                                                        |
 | ----- | ------ | -------------------------------------------------------------------------------------------------- |
 | q     | string | The search keywords.                                                                               |
-| sort  | string | The sort field. One of `timestamp`, `lastUpdateTimestamp` or `chartType`. Default: `timestamp`     |
+| sort  | string | The sort field. One of `createdAt`, `updatedAt` or `chartType`. Default: `createdAt`     |
 | order | string | The sort order if sort parameter is provided. One of `asc` or `desc`. Default: `desc`              |
 | limit | number | The results count field. Mainly for pagination purpose. Zero value means no limitation. Default: 0 |
 | start | number | The start index of results. Mainly for pagination purpose. Default: 1                              |
@@ -918,8 +924,8 @@ HTTP/1.1 200 OK
     "description": "Test chart remove",
     "charts": ["5799641be24561202bc7190d"],
     "type": "chartset",
-    "timestamp": 1468373552837,
-    "lastUpdateTimestamp": 1469671119650,
+    "createdAt": 1468373552837,
+    "updatedAt": 1469671119650,
     "friendlyUrl": "s-s-test-remove"
   }]
 }
