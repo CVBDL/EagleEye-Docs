@@ -174,6 +174,9 @@ HTTP/1.1 200 OK
       { "c": [{ "v": "Apple" }, { "v": 5 }, { "v": 9 }] },
       { "c": [{ "v": "Orange" }, { "v": 7 }, { "v": 3 }] }
     ]
+  },
+  "browserDownloadUrl": {
+    "excel": "http://<hostname>:<port>/api/v1/download/excels/5768e6262999167c30946e7c"
   }
 }, {
   "_id": "576a4d56ae40178426a0feba",
@@ -199,6 +202,9 @@ HTTP/1.1 200 OK
       { "c": [{ "v": "2016-06-11T16:00:00.000Z" }, { "v": 5 }, { "v": 9 }] },
       { "c": [{ "v": "2016-06-12T16:00:00.000Z" }, { "v": 7 }, { "v": 3 }] }
     ]
+  },
+  "browserDownloadUrl": {
+    "excel": "http://<hostname>:<port>/api/v1/download/excels/576a4d56ae40178426a0feba"
   }
 }]
 ```
@@ -286,7 +292,10 @@ HTTP/1.1 200 OK
   },
   "type": "chart",
   "createdAt": "2016-06-06T08:00:00.000Z",
-  "updatedAt": "2016-06-06T08:00:00.000Z"
+  "updatedAt": "2016-06-06T08:00:00.000Z",
+  "browserDownloadUrl": {
+    "excel": "http://<hostname>:<port>/api/v1/download/excels/57837029c66dc1a4570962b6"
+  }
 }
 ```
 
@@ -382,7 +391,10 @@ HTTP/1.1 200 OK
   },
   "type": "chart",
   "createdAt": "2016-06-06T08:00:00.000Z",
-  "updatedAt": "2016-06-06T08:00:00.000Z"
+  "updatedAt": "2016-06-06T08:00:00.000Z",
+  "browserDownloadUrl": {
+    "excel": "http://<hostname>:<port>/api/v1/download/excels/57837029c66dc1a4570962b6"
+  }
 }
 ```
 
@@ -418,7 +430,7 @@ POST /api/v1/charts
 HTTP/1.1 200 OK
 
 {
-  "_id": "8371e6262999167c30946e3f",
+  "_id": "57837029c66dc1a4570962b6",
   "createdAt": "2016-06-06T08:00:00.000Z",
   "updatedAt": "2016-06-06T08:00:00.000Z",
   "chartType": "LineChart",
@@ -444,6 +456,9 @@ HTTP/1.1 200 OK
       { "c": [{ "v": "Apple" }, { "v": 5 }, { "v": 9 }] },
       { "c": [{ "v": "Orange" }, { "v": 7 }, { "v": 3 }] }
     ]
+  },
+  "browserDownloadUrl": {
+    "excel": "http://<hostname>:<port>/api/v1/download/excels/57837029c66dc1a4570962b6"
   }
 }
 ```
@@ -539,7 +554,10 @@ HTTP/1.1 200
   },
   "type": "chart",
   "createdAt": "2016-06-06T08:00:00.000Z",
-  "updatedAt": "2016-06-06T08:00:00.000Z"
+  "updatedAt": "2016-06-06T08:00:00.000Z",
+  "browserDownloadUrl": {
+    "excel": "http://<hostname>:<port>/api/v1/download/excels/57837029c66dc1a4570962b6"
+  }
 }
 ```
 
