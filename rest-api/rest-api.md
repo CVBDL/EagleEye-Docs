@@ -647,20 +647,130 @@ GET /api/v1/chart-sets/:_id
 
 #### Response
 
-> GET /api/v1/chart-sets/578c8c493164a7304f72a9f3
+> GET /api/v1/chart-sets/57f60f717600621c3e28a855
 
 ```text
 HTTP/1.1 200 OK
 
 {
-  "_id": "578c8c493164a7304f72a9f3",
-  "title": "Chart set contains 3 charts",
-  "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
-  "charts": ["57837029c66dc1a4570962b6", "577f7d8825df25803c723069", "5791774271bc66244f964908", "577f7cdc25df25803c723068", "577f7c1425df25803c723067"],
+  "_id": "57f60f717600621c3e28a855",
+  "title": "Column Chart",
+  "description": "",
+  "friendlyUrl": "s-the-chart-set",
+  "charts": [
+    {
+      "_id": "57eb2dc15d2722401b951c26",
+      "description": "column chart",
+      "domainDataType": "string",
+      "options": {
+        "title": "Column",
+        "hAxis": {
+          "title": "",
+          "format": ""
+        },
+        "vAxis": {
+          "title": "",
+          "format": ""
+        },
+        "combolines": "",
+        "isStacked": true,
+        "chartArea": {}
+      },
+      "chartType": "ColumnChart",
+      "datatable": {
+        "cols": [
+          {
+            "label": "City",
+            "type": "string"
+          },
+          {
+            "label": "2010 Population",
+            "type": "number"
+          },
+          {
+            "label": "2000 Population",
+            "type": "number"
+          }
+        ],
+        "rows": [
+          {
+            "c": [
+              {
+                "v": "New York City, NY"
+              },
+              {
+                "v": 8175000
+              },
+              {
+                "v": 8008000
+              }
+            ]
+          },
+          {
+            "c": [
+              {
+                "v": "Los Angeles, CA"
+              },
+              {
+                "v": 3792000
+              },
+              {
+                "v": 3694000
+              }
+            ]
+          },
+          {
+            "c": [
+              {
+                "v": "Chicago, IL"
+              },
+              {
+                "v": 2695000
+              },
+              {
+                "v": 2896000
+              }
+            ]
+          },
+          {
+            "c": [
+              {
+                "v": "Houston, TX"
+              },
+              {
+                "v": 2099000
+              },
+              {
+                "v": 1953000
+              }
+            ]
+          },
+          {
+            "c": [
+              {
+                "v": "Philadelphia, PA"
+              },
+              {
+                "v": 1526000
+              },
+              {
+                "v": 1517000
+              }
+            ]
+          }
+        ]
+      },
+      "type": "chart",
+      "browserDownloadUrl": {
+        "excel": "http://APCNDAEJR2YQ42:3000/api/v1/download/excels/57eb2dc15d2722401b951c26"
+      },
+      "createdAt": "2016-09-28T02:41:05.949Z",
+      "updatedAt": "2016-09-28T02:49:54.768Z"
+    }
+  ],
   "type": "chartset",
-  "createdAt": "2016-06-06T08:00:00.000Z",
-  "updatedAt": "2016-06-06T08:00:00.000Z",
-  "friendlyUrl": ""
+  "updatedAt": "2016-10-06T08:46:41.135Z",
+  "createdAt": "2016-10-06T08:46:41.135Z"
 }
 ```
 
@@ -687,14 +797,124 @@ GET /api/v1/chart-sets/:friendlyUrl
 HTTP/1.1 200 OK
 
 {
-  "_id": "57ccd2fa4db6dc9c45d3164c",
-  "title": "This is a chart set",
-  "description": "This is a chart set",
+  "_id": "57f60f717600621c3e28a855",
+  "title": "Column Chart",
+  "description": "",
   "friendlyUrl": "s-the-chart-set",
-  "charts": ["57a93f748fff77fc4789c063", "5791774271bc66244f964908"],
+  "charts": [
+    {
+      "_id": "57eb2dc15d2722401b951c26",
+      "description": "column chart",
+      "domainDataType": "string",
+      "options": {
+        "title": "Column",
+        "hAxis": {
+          "title": "",
+          "format": ""
+        },
+        "vAxis": {
+          "title": "",
+          "format": ""
+        },
+        "combolines": "",
+        "isStacked": true,
+        "chartArea": {}
+      },
+      "chartType": "ColumnChart",
+      "datatable": {
+        "cols": [
+          {
+            "label": "City",
+            "type": "string"
+          },
+          {
+            "label": "2010 Population",
+            "type": "number"
+          },
+          {
+            "label": "2000 Population",
+            "type": "number"
+          }
+        ],
+        "rows": [
+          {
+            "c": [
+              {
+                "v": "New York City, NY"
+              },
+              {
+                "v": 8175000
+              },
+              {
+                "v": 8008000
+              }
+            ]
+          },
+          {
+            "c": [
+              {
+                "v": "Los Angeles, CA"
+              },
+              {
+                "v": 3792000
+              },
+              {
+                "v": 3694000
+              }
+            ]
+          },
+          {
+            "c": [
+              {
+                "v": "Chicago, IL"
+              },
+              {
+                "v": 2695000
+              },
+              {
+                "v": 2896000
+              }
+            ]
+          },
+          {
+            "c": [
+              {
+                "v": "Houston, TX"
+              },
+              {
+                "v": 2099000
+              },
+              {
+                "v": 1953000
+              }
+            ]
+          },
+          {
+            "c": [
+              {
+                "v": "Philadelphia, PA"
+              },
+              {
+                "v": 1526000
+              },
+              {
+                "v": 1517000
+              }
+            ]
+          }
+        ]
+      },
+      "type": "chart",
+      "browserDownloadUrl": {
+        "excel": "http://APCNDAEJR2YQ42:3000/api/v1/download/excels/57eb2dc15d2722401b951c26"
+      },
+      "createdAt": "2016-09-28T02:41:05.949Z",
+      "updatedAt": "2016-09-28T02:49:54.768Z"
+    }
+  ],
   "type": "chartset",
-  "createdAt": "2016-06-06T08:00:00.000Z",
-  "updatedAt": "2016-06-06T08:00:00.000Z"
+  "updatedAt": "2016-10-06T08:46:41.135Z",
+  "createdAt": "2016-10-06T08:46:41.135Z"
 }
 ```
 
