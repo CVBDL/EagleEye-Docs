@@ -762,7 +762,7 @@ HTTP/1.1 200 OK
       },
       "type": "chart",
       "browserDownloadUrl": {
-        "excel": "http://APCNDAEJR2YQ42:3000/api/v1/download/excels/57eb2dc15d2722401b951c26"
+        "excel": "http://<hostname>:<port>/api/v1/download/excels/57eb2dc15d2722401b951c26"
       },
       "createdAt": "2016-09-28T02:41:05.949Z",
       "updatedAt": "2016-09-28T02:49:54.768Z"
@@ -906,7 +906,7 @@ HTTP/1.1 200 OK
       },
       "type": "chart",
       "browserDownloadUrl": {
-        "excel": "http://APCNDAEJR2YQ42:3000/api/v1/download/excels/57eb2dc15d2722401b951c26"
+        "excel": "http://<hostname>:<port>/api/v1/download/excels/57eb2dc15d2722401b951c26"
       },
       "createdAt": "2016-09-28T02:41:05.949Z",
       "updatedAt": "2016-09-28T02:49:54.768Z"
