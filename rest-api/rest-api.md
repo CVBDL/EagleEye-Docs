@@ -29,6 +29,7 @@
   * [Search both charts and chart sets](#search-both-charts-and-chart-sets)
   * [Search charts](#search-charts)
   * [Search chart sets](#search-chart-sets)
+* [Jobs](#jobs)
 
 ## Overview
 
@@ -1172,5 +1173,96 @@ HTTP/1.1 200 OK
     "updatedAt": "2016-06-06T08:00:00.000Z",
     "friendlyUrl": "s-s-test-remove"
   }]
+}
+```
+
+## Jobs
+
+A Job means a cron job. 
+A job is mainly used to update chart data. 
+But, we also have some system jobs like backup database, etc.
+
+A job **must** have a `name` field, it's the job's name.
+
+A job **must** have an `expression` field. It's used to schedule when the job should be run. 
+
+```json
+{
+  "name": "daily report for review counts",
+  "expression": "0 0 * * *"
+}
+```
+
+The format is as follows:
+
+```text
+*    *    *    *    *    *
+┬    ┬    ┬    ┬    ┬    ┬
+│    │    │    │    │    |
+│    │    │    │    │    └ day of week (0 - 7) (0 or 7 is Sun)
+│    │    │    │    └───── month (1 - 12)
+│    │    │    └────────── day of month (1 - 31)
+│    │    └─────────────── hour (0 - 23)
+│    └──────────────────── minute (0 - 59)
+└───────────────────────── second (0 - 59, OPTIONAL)
+```
+
+Here're some handy entries:
+
+| Entry   | Description                                                | expression |
+| ------- | ---------------------------------------------------------- | ---------- |
+| yearly  | Run once a year at midnight of 1 January                   | 0 0 1 1 *  |
+| monthly | Run once a month at midnight of the first day of the month | 0 0 1 * *  |
+| weekly  | Run once a week at midnight on Sunday morning              | 0 0 * * 0  |
+| daily   | Run once a day at midnight                                 | 0 0 * * *  |
+| hourly  | Run once an hour at the beginning of the hour              | 0 * * * *  |
+
+A job **must** have a `command` field. It specifies the command to run. For example: 
+
+```json
+{
+  "name": "daily report for review counts",
+  "expression": "0 0 * * *",
+  "command": "/www/code-collaborator/code-review-count-by-month"
+}
+```
+
+A command requires some arguments sometimes. An `arguments` field is used for 
+passing arguments to a command. For example:
+
+```json
+{
+  "name": "daily report for review counts",
+  "expression": "0 0 * * *",
+  "command": "/www/code-collaborator/code-review-count-by-month",
+  "arguments": [ "Patrick", "2016-01-01T00:00:00.000Z", "2016-12-12T23:59:59.000Z"]
+}
+```
+
+The `enabled` field is used to indicate if the job is enabled or disabled. 
+If a job is disabled, it won't be run when the scheduled time arrived. For example: 
+
+```json
+{
+  "name": "daily report for review counts",
+  "expression": "0 0 * * *",
+  "command": "/www/code-collaborator/code-review-count-by-month",
+  "arguments": [ "Patrick", "2016-01-01T00:00:00.000Z", "2016-12-12T23:59:59.000Z"],
+  "enabled": true
+}
+```
+
+If a job is used to update a chart's datatable, then a `chartId` field is required. 
+
+So a job configuration may look like this:
+
+```json
+{
+  "name": "daily report for review counts",
+  "expression": "0 0 * * *",
+  "command": "/www/code-collaborator/code-review-count-by-month",
+  "arguments": [ "Patrick", "2016-01-01T00:00:00.000Z", "2016-12-12T23:59:59.000Z"],
+  "enabled": true,
+  "chartId": "5768e6262999167c30946e7c"
 }
 ```
