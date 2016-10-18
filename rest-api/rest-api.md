@@ -30,6 +30,12 @@
   * [Search charts](#search-charts)
   * [Search chart sets](#search-chart-sets)
 * [Jobs](#jobs)
+  * [List all jobs](#list-all-jobs)
+  * [Get a single job via id](#get-a-single-job-via-id)
+  * [Create a job](#create-a-job)
+  * [Edit a job](#edit-a-job)
+  * [Delete a job](#delete-a-job)
+  * [List all available commands](#list-all-available-commands)
 
 ## Overview
 
@@ -1264,5 +1270,261 @@ So a job configuration may look like this:
   "arguments": [ "Patrick", "2016-01-01T00:00:00.000Z", "2016-12-12T23:59:59.000Z"],
   "enabled": true,
   "chartId": "5768e6262999167c30946e7c"
+}
+```
+
+### List all jobs
+
+```text
+GET /api/v1/jobs
+```
+
+#### Response
+
+```text
+HTTP/1.1 200 OK
+
+[{
+  "_id": "57fca45d69ea5f081a6b4076",
+  "name": "fetch code review count for Patrick",
+  "createdAt": "2016-10-06T11:00:00.000Z",
+  "updatedAt": "2016-10-06T11:00:00.000Z",
+  "expression": "0 0 * * *",
+  "command": "/www/code-collaborator/code-review-count-by-month",
+  "arguments": [
+    "Patrick",
+    "2016-05-06T08:00:00.000Z",
+    "2016-06-06T08:00:00.000Z"
+  ],
+  "enabled": true,
+  "chartId": "57837029c66dc1a4570962b6",
+  "state": "success",
+  "lastStartedAt": "2016-10-08T11:00:00.000Z",
+  "lastFinishedAt": "2016-10-07T11:00:00.000Z"
+}, {
+  "_id": "57fca41069ea5f081a6b4074",
+  "name": "fetch defect count created by Patrick",
+  "createdAt": "2016-10-06T11:00:00.000Z",
+  "updatedAt": "2016-10-06T11:00:00.000Z",
+  "expression": "0 0 * * *",
+  "command": "/www/code-collaborator/defect-count-by-creator",
+  "arguments": [
+    "Patrick",
+    "2016-05-06T08:00:00.000Z",
+    "2016-06-06T08:00:00.000Z"
+  ],
+  "enabled": true,
+  "chartId": "57837029c66dc1a4570962b6",
+  "state": "error",
+  "lastStartedAt": "2016-10-08T11:00:00.000Z",
+  "lastFinishedAt": "2016-10-07T11:00:00.000Z"
+}]
+```
+
+### Get a single job via id
+
+```text
+GET /api/v1/jobs/:id
+```
+
+#### Response
+
+```text
+HTTP/1.1 200 OK
+
+{
+  "_id": "57fca45d69ea5f081a6b4076",
+  "name": "fetch code review count for Patrick",
+  "createdAt": "2016-10-06T11:00:00.000Z",
+  "updatedAt": "2016-10-06T11:00:00.000Z",
+  "expression": "0 0 * * *",
+  "command": "/www/code-collaborator/code-review-count-by-month",
+  "arguments": [
+    "Patrick",
+    "2016-05-06T08:00:00.000Z",
+    "2016-06-06T08:00:00.000Z"
+  ],
+  "enabled": true,
+  "chartId": "57837029c66dc1a4570962b6",
+  "state": "success",
+  "lastStartedAt": "2016-10-08T11:00:00.000Z",
+  "lastFinishedAt": "2016-10-07T11:00:00.000Z"
+}
+```
+
+### Create a job
+
+```text
+POST /api/v1/jobs
+```
+
+#### Input
+
+| Name       | Type    | Description                                              |
+| ---------- | ------- | -------------------------------------------------------- |
+| name       | string  | Job name.                                                |
+| expression | string  | Cron expression.                                         |
+| command    | string  | Command name.                                            |
+| arguments  | array   | Optional. Command arguments                              |
+| enabled    | boolean | Enable the job or not.                                   |
+| chartId    | string  | Chart id which job is going to update data on.           |
+
+#### Example
+
+```json
+{
+  "name": "fetch code review count for Patrick",
+  "expression": "0 0 * * *",
+  "command": "/www/code-collaborator/code-review-count-by-month",
+  "arguments": [
+    "Patrick",
+    "2016-05-06T08:00:00.000Z",
+    "2016-06-06T08:00:00.000Z"
+  ],
+  "enabled": true,
+  "chartId": "57837029c66dc1a4570962b6"
+}
+```
+
+#### Response
+
+```text
+HTTP/1.1 200 OK
+
+{
+  "_id": "57fca45d69ea5f081a6b4076",
+  "name": "fetch code review count for Patrick",
+  "createdAt": "2016-10-06T11:00:00.000Z",
+  "updatedAt": "2016-10-06T11:00:00.000Z",
+  "expression": "0 0 * * *",
+  "command": "/www/code-collaborator/code-review-count-by-month",
+  "arguments": [
+    "Patrick",
+    "2016-05-06T08:00:00.000Z",
+    "2016-06-06T08:00:00.000Z"
+  ],
+  "enabled": true,
+  "chartId": "57837029c66dc1a4570962b6",
+  "state": null,
+  "lastStartedAt": null,
+  "lastFinishedAt": null
+}
+```
+
+### Edit a job
+
+```text
+PUT /api/v1/jobs/:id
+```
+
+#### Input
+
+| Name       | Type    | Description                                              |
+| ---------- | ------- | -------------------------------------------------------- |
+| name       | string  | Job name.                                                |
+| expression | string  | Cron expression.                                         |
+| arguments  | array   | Optional. Command arguments                              |
+| enabled    | boolean | Enable the job or not.                                   |
+
+#### Example
+
+```json
+{
+  "name": "fetch code review count for Merlin",
+  "expression": "0 0 1 * *",
+  "arguments": [
+    "Merlin",
+    "2016-05-06T08:00:00.000Z",
+    "2016-06-06T08:00:00.000Z"
+  ],
+  "enabled": false
+}
+```
+
+#### Response
+
+```text
+HTTP/1.1 200 OK
+
+{
+  "_id": "57fca45d69ea5f081a6b4076",
+  "name": "fetch code review count for Merlin",
+  "createdAt": "2016-10-06T11:00:00.000Z",
+  "updatedAt": "2016-10-10T11:00:00.000Z",
+  "expression": "0 0 1 * *",
+  "command": "/www/code-collaborator/code-review-count-by-month",
+  "arguments": [
+    "Merlin",
+    "2016-05-06T08:00:00.000Z",
+    "2016-06-06T08:00:00.000Z"
+  ],
+  "enabled": false
+  "chartId": "57837029c66dc1a4570962b6",
+  "state": null,
+  "lastStartedAt": null,
+  "lastFinishedAt": null
+}
+```
+
+### Delete a job
+
+```text
+DELETE /api/v1/jobs/:id
+```
+
+#### Response
+
+```text
+HTTP/1.1 204 No Content
+```
+
+### List all available commands
+
+List all the commands that the platform supports.
+
+```text
+GET /api/v1/jobs/commands
+```
+
+#### Response
+
+```text
+HTTP/1.1 200 OK
+
+{
+  "commands": [{
+    "name": "/www/code-collaborator/code-review-count-by-month",
+    "arguments": [{
+      "name": "creator",
+      "type": "users"
+    }, {
+      "name": "startDate",
+      "type": "date"
+    }, {
+      "name": "endDate",
+      "type": "date"
+    }],
+    "help": "This command is to generate code review count by creator among given months."
+  }, {
+    "name": "/www/code-collaborator/defect-count-by-creator",
+    "arguments": [{
+      "name": "creator",
+      "type": "users"
+    }, {
+      "name": "startDate",
+      "type": "date"
+    }, {
+      "name": "endDate",
+      "type": "date"
+    }],
+    "help": "This command is to generate code review defect count by creator among given months."
+  }],
+  "types": {
+    "users": [
+      "Patrick",
+      "Merlin",
+      "ProductA"
+    ]
+  }
 }
 ```
