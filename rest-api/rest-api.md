@@ -38,6 +38,7 @@
   * [List all available commands](#list-all-available-commands)
 * [Logs](#logs)
   * [List all logs](#list-all-logs)
+  * [Get a single log via id](#get-a-single-log-via-id)
 
 ## Overview
 
@@ -1537,11 +1538,18 @@ It saves all the logs of the platform. The log data are readonly.
 
 ### List all logs
 
-It will only response the latest 100 logs.
+It will only response the latest 100 logs. The results is sorted by `createAt` 
+field in descending order (the latest created the first).
 
 ```test
 GET /api/v1/logs
 ```
+
+#### Parameters
+
+| Name  | Type   | Description                                                                                        |
+| ----- | ------ | -------------------------------------------------------------------------------------------------- |
+| jobId | string | The job's id that generate this log                                                                |
 
 #### Response
 
@@ -1551,6 +1559,7 @@ HTTP/1.1 200 OK
 [{
   "_id": "25dca45d69ea5f991a6b4076",
   "jobId": "57fca45d69ea5f081a6b4076",
+  "createdAt": "2016-10-08T00:01:00.000Z",
   "config": {
     "name": "fetch code review count for Patrick",
     "expression": "0 0 * * *",
@@ -1569,6 +1578,7 @@ HTTP/1.1 200 OK
 }, {
   "_id": "25dca45d69ea5f991a6b4087",
   "jobId": "57fca45d69ea5f081a6b4076",
+  "createdAt": "2016-10-09T00:01:00.000Z",
   "config": {
     "name": "fetch code review count for Patrick",
     "expression": "0 0 * * *",
@@ -1585,4 +1595,37 @@ HTTP/1.1 200 OK
   "finishedAt": "2016-10-09T00:01:00.000Z",
   "message": "Foo"
 }]
+```
+
+### Get a single log via id
+
+```test
+GET /api/v1/logs/:id
+```
+
+#### Response
+
+```text
+HTTP/1.1 200 OK
+
+{
+  "_id": "25dca45d69ea5f991a6b4076",
+  "jobId": "57fca45d69ea5f081a6b4076",
+  "createdAt": "2016-10-08T00:01:00.000Z",
+  "config": {
+    "name": "fetch code review count for Patrick",
+    "expression": "0 0 * * *",
+    "command": "/www/code-collaborator/code-review-count-by-month",
+    "arguments": [
+      "Patrick",
+      "2016-05-06T08:00:00.000Z",
+      "2016-06-06T08:00:00.000Z"
+    ],
+    "enabled": true,
+    "chartId": "57837029c66dc1a4570962b6",
+  },
+  "startedAt": "2016-10-08T00:00:00.000Z",
+  "finishedAt": "2016-10-08T00:01:00.000Z",
+  "message": "Foo"
+}
 ```
