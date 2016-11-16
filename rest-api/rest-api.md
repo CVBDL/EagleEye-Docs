@@ -40,6 +40,8 @@
 * [Tasks](#tasks)
   * [List tasks](#list-tasks)
   * [Get a single task](#get-a-single-task)
+  * [Create a task](#create-a-task)
+  * [Edit task status](#edit-task-status)
 
 ## Overview
 
@@ -1426,7 +1428,7 @@ recore the process and status.
 It will only response the latest 100 logs. The results is sorted by `createAt` 
 field in descending order (the latest created the first).
 
-```test
+```text
 GET /api/v1/tasks
 ```
 
@@ -1464,7 +1466,7 @@ HTTP/1.1 200 OK
 
 ### Get a single task
 
-```test
+```text
 GET /api/v1/tasks/:_id
 ```
 
@@ -1490,6 +1492,82 @@ HTTP/1.1 200 OK
   "createdAt": "2016-10-08T00:01:00.000Z",
   "startedAt": "2016-10-08T00:01:00.000Z",
   "finishedAt": "2016-10-08T00:01:11.111Z",
+  "state": "success"
+}
+```
+
+### Create a task
+
+```text
+POST /api/v1/tasks
+```
+
+#### Input
+
+| Name     | Type   | Description                                              |
+| -------- | ------ | -------------------------------------------------------- |
+| jobId    | string | The id of the job spawn this task.                       |
+
+#### Response
+
+```text
+HTTP/1.1 200 OK
+
+{
+  "_id": "25dca45d69ea5f991a6b4076",
+  "job": {
+    "_id": "57fca45d69ea5f081a6b4076",
+    "name": "Code Review By Month",
+    "expression": "0 0 * * *",
+    "command": "/path/to/command/codecollaborator2eagleeye.exe",
+    "enabled": true,
+    "createdAt": "2016-10-06T11:00:00.000Z",
+    "updatedAt": "2016-10-06T11:00:00.000Z",
+    "lastState": "success",
+    "lastStartedAt": "2016-10-08T11:00:00.000Z",
+    "lastFinishedAt": "2016-10-07T11:00:00.000Z"
+  },
+  "createdAt": "2016-10-08T00:01:00.000Z",
+  "startedAt": "2016-10-08T00:01:00.000Z",
+  "finishedAt": null,
+  "state": null
+}
+```
+
+### Edit task status
+
+```text
+PUT /api/v1/tasks/:_id
+```
+
+#### Input
+
+| Name     | Type   | Description                                                               |
+| -------- | ------ | ------------------------------------------------------------------------- |
+| status   | string | The status of this task, available values are: running, success, failure. |
+
+#### Response
+
+```text
+HTTP/1.1 200 OK
+
+{
+  "_id": "25dca45d69ea5f991a6b4076",
+  "job": {
+    "_id": "57fca45d69ea5f081a6b4076",
+    "name": "Code Review By Month",
+    "expression": "0 0 * * *",
+    "command": "/path/to/command/codecollaborator2eagleeye.exe",
+    "enabled": true,
+    "createdAt": "2016-10-06T11:00:00.000Z",
+    "updatedAt": "2016-10-06T11:00:00.000Z",
+    "lastState": "success",
+    "lastStartedAt": "2016-10-08T11:00:00.000Z",
+    "lastFinishedAt": "2016-10-07T11:00:00.000Z"
+  },
+  "createdAt": "2016-10-08T00:01:00.000Z",
+  "startedAt": "2016-10-08T00:01:00.000Z",
+  "finishedAt": "2016-10-08T00:01:12.666Z",
   "state": "success"
 }
 ```
