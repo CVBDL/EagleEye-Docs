@@ -8,6 +8,7 @@
   * [Parameters](#parameters)
   * [Root Endpoint](#root-endpoint)
   * [Client Errors](#client-errors)
+  * [HTTP Verbs](#http-verbs)
   * [Cross Origin Resource Sharing](#cross-origin-resource-sharing)
 * [Charts](#charts)
   * [List all charts](#list-all-charts)
@@ -30,15 +31,15 @@
   * [Search charts](#search-charts)
   * [Search chart sets](#search-chart-sets)
 * [Jobs](#jobs)
-  * [List all jobs](#list-all-jobs)
-  * [Get a single job via id](#get-a-single-job-via-id)
+  * [List jobs](#list-jobs)
+  * [Get a single job](#get-a-single-job)
   * [Create a job](#create-a-job)
   * [Edit a job](#edit-a-job)
   * [Delete a job](#delete-a-job)
-  * [List all available commands](#list-all-available-commands)
-* [Logs](#logs)
-  * [List all logs](#list-all-logs)
-  * [Get a single log via id](#get-a-single-log-via-id)
+  * [Restart a job](#restart-a-job)
+* [Tasks](#tasks)
+  * [List tasks](#list-tasks)
+  * [Get a single log](#get-a-single-log)
 
 ## Overview
 
@@ -122,6 +123,20 @@ All error objects have resource and field properties so that your client can tel
 | missing_field  | This means a required field on a resource has not been set. |
 | invalid        | This means the formatting of a field is invalid. The documentation for that resource should be able to give you more specific information. |
 | already_exists | This means another resource has the same value as this field. This can happen in resources that must have some unique key (such as Label names). |
+
+### HTTP Verbs
+
+EagleEye Platform API will try to use appropriate HTTP verbs for each action.
+
+Verb `PATCH` is an uncommon HTTP verb, so use `PUT` instead.
+
+| Verb       | Description                                              |
+| ---------- | -------------------------------------------------------- |
+| GET        | Used for retrieving resources.                           |
+| POST       | Used for creating resources.                             |
+| PUT        | Used for updating or replacing resources or collections. |
+| DELETE     | Used for deleting resources.                             |
+| GET        | Used for retrieving resources.                           |
 
 ### Cross Origin Resource Sharing
 
@@ -473,7 +488,7 @@ HTTP/1.1 200 OK
 ### Edit a chart
 
 ```text
-PUT /api/v1/charts/:id
+PUT /api/v1/charts/:_id
 ```
 
 #### Input
@@ -572,7 +587,7 @@ HTTP/1.1 200
 ### Delete a chart
 
 ```text
-DELETE /api/v1/charts/:id
+DELETE /api/v1/charts/:_id
 ```
 
 #### Response
@@ -972,7 +987,7 @@ HTTP/1.1 200 OK
 ### Edit a chart set
 
 ```text
-PUT /api/v1/chart-sets/:id
+PUT /api/v1/chart-sets/:_id
 ```
 
 #### Input
@@ -1006,7 +1021,7 @@ HTTP/1.1 200 OK
 ### Delete a chart set
 
 ```text
-DELETE /api/v1/chart-sets/:id
+DELETE /api/v1/chart-sets/:_id
 ```
 
 #### Response
@@ -1180,29 +1195,40 @@ HTTP/1.1 200 OK
     "type": "chartset",
     "createdAt": "2016-06-06T08:00:00.000Z",
     "updatedAt": "2016-06-06T08:00:00.000Z",
-    "friendlyUrl": "s-s-test-remove"
+    "friendlyUrl": "s-test-remove"
   }]
 }
 ```
 
 ## Jobs
 
-A Job means a cron job. 
-A job is mainly used to update chart data. 
+A job in EagleEye Platform means a cron job.
+Cron job is a time-based job scheduler.
+A job is mainly used to update charts or chart sets in EagleEye Platform.
 But, we also have some system jobs like backup database, etc.
 
 A job **must** have a `name` field, it's the job's name.
 
-A job **must** have an `expression` field. It's used to schedule when the job should be run. 
+A job **must** have an `expression` field.
+It's a CRON expression, used to determine when to run the job.
+
+A job **must** have a `command` field.
+It's a windows CMD command to execute.
+
+A job **must** have an `enabled` field to indicate whether the job is enabled.
+
+Job example:
 
 ```json
 {
-  "name": "daily report for review counts",
-  "expression": "0 0 * * *"
+  "name": "Code Review By Month",
+  "expression": "0 0 * * *",
+  "command": "/path/to/command/codecollaborator2eagleeye.exe",
+  "enabled": true
 }
 ```
 
-The format is as follows:
+### Format of `expression`
 
 ```text
 *    *    *    *    *    *
@@ -1226,57 +1252,7 @@ Here're some handy entries:
 | daily   | Run once a day at midnight                                 | 0 0 * * *  |
 | hourly  | Run once an hour at the beginning of the hour              | 0 * * * *  |
 
-A job **must** have a `command` field. It specifies the command to run. For example: 
-
-```json
-{
-  "name": "daily report for review counts",
-  "expression": "0 0 * * *",
-  "command": "/www/code-collaborator/code-review-count-by-month"
-}
-```
-
-A command requires some arguments sometimes. An `arguments` field is used for 
-passing arguments to a command. For example:
-
-```json
-{
-  "name": "daily report for review counts",
-  "expression": "0 0 * * *",
-  "command": "/www/code-collaborator/code-review-count-by-month",
-  "arguments": [ "Patrick", "2016-01-01T00:00:00.000Z", "2016-12-12T23:59:59.000Z"]
-}
-```
-
-The `enabled` field is used to indicate if the job is enabled or disabled. 
-If a job is disabled, it won't be run when the scheduled time arrived. For example: 
-
-```json
-{
-  "name": "daily report for review counts",
-  "expression": "0 0 * * *",
-  "command": "/www/code-collaborator/code-review-count-by-month",
-  "arguments": [ "Patrick", "2016-01-01T00:00:00.000Z", "2016-12-12T23:59:59.000Z"],
-  "enabled": true
-}
-```
-
-If a job is used to update a chart's datatable, then a `chartId` field is required. 
-
-So a job configuration may look like this:
-
-```json
-{
-  "name": "daily report for review counts",
-  "expression": "0 0 * * *",
-  "command": "/www/code-collaborator/code-review-count-by-month",
-  "arguments": [ "Patrick", "2016-01-01T00:00:00.000Z", "2016-12-12T23:59:59.000Z"],
-  "enabled": true,
-  "chartId": "5768e6262999167c30946e7c"
-}
-```
-
-### List all jobs
+### List jobs
 
 ```text
 GET /api/v1/jobs
@@ -1289,45 +1265,22 @@ HTTP/1.1 200 OK
 
 [{
   "_id": "57fca45d69ea5f081a6b4076",
-  "name": "fetch code review count for Patrick",
+  "name": "Code Review By Month",
+  "expression": "0 0 * * *",
+  "command": "/path/to/command/codecollaborator2eagleeye.exe",
+  "enabled": true,
   "createdAt": "2016-10-06T11:00:00.000Z",
   "updatedAt": "2016-10-06T11:00:00.000Z",
-  "expression": "0 0 * * *",
-  "command": "/www/code-collaborator/code-review-count-by-month",
-  "arguments": [
-    "Patrick",
-    "2016-05-06T08:00:00.000Z",
-    "2016-06-06T08:00:00.000Z"
-  ],
-  "enabled": true,
-  "chartId": "57837029c66dc1a4570962b6",
-  "state": "success",
-  "lastStartedAt": "2016-10-08T11:00:00.000Z",
-  "lastFinishedAt": "2016-10-07T11:00:00.000Z"
-}, {
-  "_id": "57fca41069ea5f081a6b4074",
-  "name": "fetch defect count created by Patrick",
-  "createdAt": "2016-10-06T11:00:00.000Z",
-  "updatedAt": "2016-10-06T11:00:00.000Z",
-  "expression": "0 0 * * *",
-  "command": "/www/code-collaborator/defect-count-by-creator",
-  "arguments": [
-    "Patrick",
-    "2016-05-06T08:00:00.000Z",
-    "2016-06-06T08:00:00.000Z"
-  ],
-  "enabled": true,
-  "chartId": "57837029c66dc1a4570962b6",
-  "state": "error",
+  "lastState": "success",
   "lastStartedAt": "2016-10-08T11:00:00.000Z",
   "lastFinishedAt": "2016-10-07T11:00:00.000Z"
 }]
 ```
 
-### Get a single job via id
+### Get a single job
 
 ```text
-GET /api/v1/jobs/:id
+GET /api/v1/jobs/:_id
 ```
 
 #### Response
@@ -1337,19 +1290,13 @@ HTTP/1.1 200 OK
 
 {
   "_id": "57fca45d69ea5f081a6b4076",
-  "name": "fetch code review count for Patrick",
+  "name": "Code Review By Month",
+  "expression": "0 0 * * *",
+  "command": "/path/to/command/codecollaborator2eagleeye.exe",
+  "enabled": true,
   "createdAt": "2016-10-06T11:00:00.000Z",
   "updatedAt": "2016-10-06T11:00:00.000Z",
-  "expression": "0 0 * * *",
-  "command": "/www/code-collaborator/code-review-count-by-month",
-  "arguments": [
-    "Patrick",
-    "2016-05-06T08:00:00.000Z",
-    "2016-06-06T08:00:00.000Z"
-  ],
-  "enabled": true,
-  "chartId": "57837029c66dc1a4570962b6",
-  "state": "success",
+  "lastState": "success",
   "lastStartedAt": "2016-10-08T11:00:00.000Z",
   "lastFinishedAt": "2016-10-07T11:00:00.000Z"
 }
@@ -1368,24 +1315,16 @@ POST /api/v1/jobs
 | name       | string  | Job name.                                                |
 | expression | string  | Cron expression.                                         |
 | command    | string  | Command name.                                            |
-| arguments  | array   | Optional. Command arguments                              |
 | enabled    | boolean | Enable the job or not.                                   |
-| chartId    | string  | Chart id which job is going to update data on.           |
 
 #### Example
 
 ```json
 {
-  "name": "fetch code review count for Patrick",
+  "name": "Code Review By Month",
   "expression": "0 0 * * *",
-  "command": "/www/code-collaborator/code-review-count-by-month",
-  "arguments": [
-    "Patrick",
-    "2016-05-06T08:00:00.000Z",
-    "2016-06-06T08:00:00.000Z"
-  ],
-  "enabled": true,
-  "chartId": "57837029c66dc1a4570962b6"
+  "command": "/path/to/command/codecollaborator2eagleeye.exe",
+  "enabled": true
 }
 ```
 
@@ -1396,19 +1335,13 @@ HTTP/1.1 200 OK
 
 {
   "_id": "57fca45d69ea5f081a6b4076",
-  "name": "fetch code review count for Patrick",
+  "name": "Code Review By Month",
+  "expression": "0 0 * * *",
+  "command": "/path/to/command/codecollaborator2eagleeye.exe",
+  "enabled": true,
   "createdAt": "2016-10-06T11:00:00.000Z",
   "updatedAt": "2016-10-06T11:00:00.000Z",
-  "expression": "0 0 * * *",
-  "command": "/www/code-collaborator/code-review-count-by-month",
-  "arguments": [
-    "Patrick",
-    "2016-05-06T08:00:00.000Z",
-    "2016-06-06T08:00:00.000Z"
-  ],
-  "enabled": true,
-  "chartId": "57837029c66dc1a4570962b6",
-  "state": null,
+  "lastState": null,
   "lastStartedAt": null,
   "lastFinishedAt": null
 }
@@ -1417,7 +1350,7 @@ HTTP/1.1 200 OK
 ### Edit a job
 
 ```text
-PUT /api/v1/jobs/:id
+PUT /api/v1/jobs/:_id
 ```
 
 #### Input
@@ -1426,20 +1359,14 @@ PUT /api/v1/jobs/:id
 | ---------- | ------- | -------------------------------------------------------- |
 | name       | string  | Job name.                                                |
 | expression | string  | Cron expression.                                         |
-| arguments  | array   | Optional. Command arguments                              |
+| command    | string  | Command name.                                            |
 | enabled    | boolean | Enable the job or not.                                   |
 
 #### Example
 
 ```json
 {
-  "name": "fetch code review count for Merlin",
-  "expression": "0 0 1 * *",
-  "arguments": [
-    "Merlin",
-    "2016-05-06T08:00:00.000Z",
-    "2016-06-06T08:00:00.000Z"
-  ],
+  "name": "Code Review By Month",
   "enabled": false
 }
 ```
@@ -1451,19 +1378,13 @@ HTTP/1.1 200 OK
 
 {
   "_id": "57fca45d69ea5f081a6b4076",
-  "name": "fetch code review count for Merlin",
+  "name": "Code Review By Month",
+  "expression": "0 0 * * *",
+  "command": "/path/to/command/codecollaborator2eagleeye.exe",
+  "enabled": false,
   "createdAt": "2016-10-06T11:00:00.000Z",
-  "updatedAt": "2016-10-10T11:00:00.000Z",
-  "expression": "0 0 1 * *",
-  "command": "/www/code-collaborator/code-review-count-by-month",
-  "arguments": [
-    "Merlin",
-    "2016-05-06T08:00:00.000Z",
-    "2016-06-06T08:00:00.000Z"
-  ],
-  "enabled": false
-  "chartId": "57837029c66dc1a4570962b6",
-  "state": null,
+  "updatedAt": "2016-10-15T11:00:00.000Z",
+  "lastState": null,
   "lastStartedAt": null,
   "lastFinishedAt": null
 }
@@ -1472,7 +1393,7 @@ HTTP/1.1 200 OK
 ### Delete a job
 
 ```text
-DELETE /api/v1/jobs/:id
+DELETE /api/v1/jobs/:_id
 ```
 
 #### Response
@@ -1481,75 +1402,39 @@ DELETE /api/v1/jobs/:id
 HTTP/1.1 204 No Content
 ```
 
-### List all available commands
+### Restart a job
 
-List all the commands that the platform supports.
+Run the job immediately regardless of the scheduled time.
 
 ```text
-GET /api/v1/jobs/commands
+PUT /api/v1/jobs/:_id/restart
 ```
 
 #### Response
 
 ```text
-HTTP/1.1 200 OK
-
-{
-  "commands": [{
-    "name": "/www/code-collaborator/code-review-count-by-month",
-    "arguments": [{
-      "name": "creator",
-      "type": "users"
-    }, {
-      "name": "startDate",
-      "type": "date"
-    }, {
-      "name": "endDate",
-      "type": "date"
-    }],
-    "help": "This command is to generate code review count by creator among given months."
-  }, {
-    "name": "/www/code-collaborator/defect-count-by-creator",
-    "arguments": [{
-      "name": "creator",
-      "type": "users"
-    }, {
-      "name": "startDate",
-      "type": "date"
-    }, {
-      "name": "endDate",
-      "type": "date"
-    }],
-    "help": "This command is to generate code review defect count by creator among given months."
-  }],
-  "types": {
-    "users": [
-      "Patrick",
-      "Merlin",
-      "ProductA"
-    ]
-  }
-}
+HTTP/1.1 204 No Content
 ```
 
-## Logs
+## Tasks
 
-It saves all the logs of the platform. The log data are readonly.
+Whenever a job need to run, it will spawn a task to run the command and
+recore the process and status.
 
-### List all logs
+### List tasks
 
 It will only response the latest 100 logs. The results is sorted by `createAt` 
 field in descending order (the latest created the first).
 
 ```test
-GET /api/v1/logs
+GET /api/v1/tasks
 ```
 
 #### Parameters
 
-| Name  | Type   | Description                                                                                        |
-| ----- | ------ | -------------------------------------------------------------------------------------------------- |
-| jobId | string | The job's id that generate this log                                                                |
+| Name  | Type   | Description                                                 |
+| ----- | ------ | ----------------------------------------------------------- |
+| jobId | string | The job's id that spawn this task.                          |
 
 #### Response
 
@@ -1558,49 +1443,29 @@ HTTP/1.1 200 OK
 
 [{
   "_id": "25dca45d69ea5f991a6b4076",
-  "jobId": "57fca45d69ea5f081a6b4076",
+  "job": {
+    "_id": "57fca45d69ea5f081a6b4076",
+    "name": "Code Review By Month",
+    "expression": "0 0 * * *",
+    "command": "/path/to/command/codecollaborator2eagleeye.exe",
+    "enabled": true,
+    "createdAt": "2016-10-06T11:00:00.000Z",
+    "updatedAt": "2016-10-06T11:00:00.000Z",
+    "lastState": "success",
+    "lastStartedAt": "2016-10-08T11:00:00.000Z",
+    "lastFinishedAt": "2016-10-07T11:00:00.000Z"
+  },
   "createdAt": "2016-10-08T00:01:00.000Z",
-  "config": {
-    "name": "fetch code review count for Patrick",
-    "expression": "0 0 * * *",
-    "command": "/www/code-collaborator/code-review-count-by-month",
-    "arguments": [
-      "Patrick",
-      "2016-05-06T08:00:00.000Z",
-      "2016-06-06T08:00:00.000Z"
-    ],
-    "enabled": true,
-    "chartId": "57837029c66dc1a4570962b6",
-  },
-  "startedAt": "2016-10-08T00:00:00.000Z",
-  "finishedAt": "2016-10-08T00:01:00.000Z",
-  "message": "Foo"
-}, {
-  "_id": "25dca45d69ea5f991a6b4087",
-  "jobId": "57fca45d69ea5f081a6b4076",
-  "createdAt": "2016-10-09T00:01:00.000Z",
-  "config": {
-    "name": "fetch code review count for Patrick",
-    "expression": "0 0 * * *",
-    "command": "/www/code-collaborator/code-review-count-by-month",
-    "arguments": [
-      "Patrick",
-      "2016-05-06T08:00:00.000Z",
-      "2016-06-06T08:00:00.000Z"
-    ],
-    "enabled": true,
-    "chartId": "57837029c66dc1a4570962b6",
-  },
-  "startedAt": "2016-10-09T00:00:00.000Z",
-  "finishedAt": "2016-10-09T00:01:00.000Z",
-  "message": "Foo"
+  "startedAt": "2016-10-08T00:01:00.000Z",
+  "finishedAt": "2016-10-08T00:01:11.111Z",
+  "state": "success"
 }]
 ```
 
-### Get a single log via id
+### Get a single task
 
 ```test
-GET /api/v1/logs/:id
+GET /api/v1/tasks/:_id
 ```
 
 #### Response
@@ -1610,22 +1475,21 @@ HTTP/1.1 200 OK
 
 {
   "_id": "25dca45d69ea5f991a6b4076",
-  "jobId": "57fca45d69ea5f081a6b4076",
-  "createdAt": "2016-10-08T00:01:00.000Z",
-  "config": {
-    "name": "fetch code review count for Patrick",
+  "job": {
+    "_id": "57fca45d69ea5f081a6b4076",
+    "name": "Code Review By Month",
     "expression": "0 0 * * *",
-    "command": "/www/code-collaborator/code-review-count-by-month",
-    "arguments": [
-      "Patrick",
-      "2016-05-06T08:00:00.000Z",
-      "2016-06-06T08:00:00.000Z"
-    ],
+    "command": "/path/to/command/codecollaborator2eagleeye.exe",
     "enabled": true,
-    "chartId": "57837029c66dc1a4570962b6",
+    "createdAt": "2016-10-06T11:00:00.000Z",
+    "updatedAt": "2016-10-06T11:00:00.000Z",
+    "lastState": "success",
+    "lastStartedAt": "2016-10-08T11:00:00.000Z",
+    "lastFinishedAt": "2016-10-07T11:00:00.000Z"
   },
-  "startedAt": "2016-10-08T00:00:00.000Z",
-  "finishedAt": "2016-10-08T00:01:00.000Z",
-  "message": "Foo"
+  "createdAt": "2016-10-08T00:01:00.000Z",
+  "startedAt": "2016-10-08T00:01:00.000Z",
+  "finishedAt": "2016-10-08T00:01:11.111Z",
+  "state": "success"
 }
 ```
