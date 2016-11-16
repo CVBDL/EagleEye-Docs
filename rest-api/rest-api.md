@@ -39,7 +39,7 @@
   * [Restart a job](#restart-a-job)
 * [Tasks](#tasks)
   * [List tasks](#list-tasks)
-  * [Get a single log](#get-a-single-log)
+  * [Get a single task](#get-a-single-task)
 
 ## Overview
 
