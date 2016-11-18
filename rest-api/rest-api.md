@@ -1275,7 +1275,7 @@ HTTP/1.1 200 OK
   "updatedAt": "2016-10-06T11:00:00.000Z",
   "lastState": "success",
   "lastStartedAt": "2016-10-08T11:00:00.000Z",
-  "lastFinishedAt": "2016-10-07T11:00:00.000Z"
+  "lastFinishedAt": "2016-10-08T11:01:15.000Z"
 }]
 ```
 
@@ -1300,7 +1300,7 @@ HTTP/1.1 200 OK
   "updatedAt": "2016-10-06T11:00:00.000Z",
   "lastState": "success",
   "lastStartedAt": "2016-10-08T11:00:00.000Z",
-  "lastFinishedAt": "2016-10-07T11:00:00.000Z"
+  "lastFinishedAt": "2016-10-08T11:01:15.000Z"
 }
 ```
 
@@ -1312,12 +1312,12 @@ POST /api/v1/jobs
 
 #### Input
 
-| Name       | Type    | Description                                              |
-| ---------- | ------- | -------------------------------------------------------- |
-| name       | string  | Job name.                                                |
-| expression | string  | Cron expression.                                         |
-| command    | string  | Command name.                                            |
-| enabled    | boolean | Enable the job or not.                                   |
+| Name       | Type    | Description                                           |
+| ---------- | ------- | ----------------------------------------------------- |
+| name       | string  | Job name.                                             |
+| expression | string  | Cron expression.                                      |
+| command    | string  | Command name.                                         |
+| enabled    | boolean | Enable the job or not.                                |
 
 #### Example
 
@@ -1357,12 +1357,12 @@ PUT /api/v1/jobs/:_id
 
 #### Input
 
-| Name       | Type    | Description                                              |
-| ---------- | ------- | -------------------------------------------------------- |
-| name       | string  | Job name.                                                |
-| expression | string  | Cron expression.                                         |
-| command    | string  | Command name.                                            |
-| enabled    | boolean | Enable the job or not.                                   |
+| Name       | Type    | Description                                           |
+| ---------- | ------- | ----------------------------------------------------- |
+| name       | string  | Job name.                                             |
+| expression | string  | Cron expression.                                      |
+| command    | string  | Command name.                                         |
+| enabled    | boolean | Enable the job or not.                                |
 
 #### Example
 
@@ -1525,7 +1525,7 @@ HTTP/1.1 200 OK
     "updatedAt": "2016-10-06T11:00:00.000Z",
     "lastState": "success",
     "lastStartedAt": "2016-10-08T11:00:00.000Z",
-    "lastFinishedAt": "2016-10-07T11:00:00.000Z"
+    "lastFinishedAt": "2016-10-08T11:00:30.000Z"
   },
   "createdAt": "2016-10-08T00:01:00.000Z",
   "startedAt": "2016-10-08T00:01:00.000Z",
@@ -1542,9 +1542,9 @@ PUT /api/v1/tasks/:_id
 
 #### Input
 
-| Name     | Type   | Description                                                               |
-| -------- | ------ | ------------------------------------------------------------------------- |
-| status   | string | The status of this task, available values are: running, success, failure. |
+| Name     | Type   | Description                                                                  |
+| -------- | ------ | ---------------------------------------------------------------------------- |
+| status   | string | The status of this task, available values are: running, success, failure.    |
 
 #### Response
 
@@ -1563,7 +1563,7 @@ HTTP/1.1 200 OK
     "updatedAt": "2016-10-06T11:00:00.000Z",
     "lastState": "success",
     "lastStartedAt": "2016-10-08T11:00:00.000Z",
-    "lastFinishedAt": "2016-10-07T11:00:00.000Z"
+    "lastFinishedAt": "2016-10-08T11:00:30.000Z"
   },
   "createdAt": "2016-10-08T00:01:00.000Z",
   "startedAt": "2016-10-08T00:01:00.000Z",
