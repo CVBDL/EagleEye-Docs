@@ -11,7 +11,7 @@
   * [HTTP Verbs](#http-verbs)
   * [Cross Origin Resource Sharing](#cross-origin-resource-sharing)
 * [Charts](#charts)
-  * [List all charts](#list-all-charts)
+  * [List charts](#list-charts)
   * [Get a single chart via id](#get-a-single-chart-via-id)
   * [Get a single chart via friendly url](#get-a-single-chart-via-friendly-url)
   * [Create a chart](#create-a-chart)
@@ -156,7 +156,7 @@ Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS
 
 ## Charts
 
-### List all charts
+### List charts
 
 ```text
 GET /api/v1/charts
@@ -166,7 +166,7 @@ GET /api/v1/charts
 
 | Name  | Type   | Description                                                                                        |
 | ----- | ------ | -------------------------------------------------------------------------------------------------- |
-| sort  | string | The sort field. One of `createdAt`, `updatedAt` or `chartType`. Default: `createdAt`     |
+| sort  | string | The sort field. One of `createdAt`, `updatedAt` or `chartType`. Default: `createdAt`               |
 | order | string | The sort order if sort parameter is provided. One of `asc` or `desc`. Default: `desc`              |
 | limit | number | The results count field. Mainly for pagination purpose. Zero value means no limitation. Default: 0 |
 | start | number | The start index of results. Mainly for pagination purpose. Default: 1                              |
@@ -177,35 +177,54 @@ GET /api/v1/charts
 HTTP/1.1 200 OK
 
 [{
-  "_id": "5768e6262999167c30946e7c",
-  "createdAt": "2016-06-06T08:00:00.000Z",
-  "updatedAt": "2016-06-06T08:00:00.000Z",
-  "chartType": "LineChart",
+  "_id": "57837029c66dc1a4570962b6",
+  "description": "A pretty column chart",
+  "chartType": "ColumnChart",
   "domainDataType": "string",
-  "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-  "friendlyUrl": "s-eagleeye-line-chart",
+  "friendlyUrl": "c-pretty-column-chart",
   "options": {
-    "title": "Fruits Overview",
+    "title": "Pretty column chart",
     "hAxis": {
-      "title": "Category"
+      "title": ""
     },
     "vAxis": {
-      "title": "Inventory"
+      "title": ""
     }
   },
-  "datatables": {
-    "cols": [
-      { "type": "string", "label": "Category", "p": {} },
-      { "type": "number", "label": "Apple", "p": {} },
-      { "type": "number", "label": "Orange", "p": {} }
-    ],
-    "rows": [
-      { "c": [{ "v": "Apple" }, { "v": 5 }, { "v": 9 }] },
-      { "c": [{ "v": "Orange" }, { "v": 7 }, { "v": 3 }] }
-    ]
+  "datatable": {
+    "cols": [{
+      "label": "City",
+      "type": "string"
+    }, {
+      "label": "2010 Population",
+      "type": "number"
+    }, {
+      "label": "2000 Population",
+      "type": "number"
+    }],
+    "rows": [{
+      "c": [{
+        "v": "New York City, NY"
+      }, {
+        "v": 8175000
+      }, {
+        "v": 8008000
+      }]
+    }, {
+      "c": [{
+        "v": "Los Angeles, CA"
+      }, {
+        "v": 3792000
+      }, {
+        "v": 3694000
+      }]
+    }]
   },
+  "type": "chart",
+  "createdAt": "2016-06-06T08:00:00.000Z",
+  "updatedAt": "2016-06-06T08:00:00.000Z",
   "browserDownloadUrl": {
-    "excel": "http://<hostname>:<port>/api/v1/download/excels/5768e6262999167c30946e7c",
+    "excel": "http://<hostname>:<port>/api/v1/download/excels/57837029c66dc1a4570962b6",
     "image": null
   }
 }, {
@@ -237,8 +256,6 @@ GET /api/v1/charts/:_id
 ```
 
 #### Response
-
-> GET /api/v1/charts/57837029c66dc1a4570962b6
 
 ```text
 HTTP/1.1 200 OK
@@ -284,30 +301,6 @@ HTTP/1.1 200 OK
         "v": 3792000
       }, {
         "v": 3694000
-      }]
-    }, {
-      "c": [{
-        "v": "Chicago, IL"
-      }, {
-        "v": 2695000
-      }, {
-        "v": 2896000
-      }]
-    }, {
-      "c": [{
-        "v": "Houston, TX"
-      }, {
-        "v": 2099000
-      }, {
-        "v": 1953000
-      }]
-    }, {
-      "c": [{
-        "v": "Philadelphia, PA"
-      }, {
-        "v": 1526000
-      }, {
-        "v": 1517000
       }]
     }]
   },
@@ -385,30 +378,6 @@ HTTP/1.1 200 OK
       }, {
         "v": 3694000
       }]
-    }, {
-      "c": [{
-        "v": "Chicago, IL"
-      }, {
-        "v": 2695000
-      }, {
-        "v": 2896000
-      }]
-    }, {
-      "c": [{
-        "v": "Houston, TX"
-      }, {
-        "v": 2099000
-      }, {
-        "v": 1953000
-      }]
-    }, {
-      "c": [{
-        "v": "Philadelphia, PA"
-      }, {
-        "v": 1526000
-      }, {
-        "v": 1517000
-      }]
     }]
   },
   "type": "chart",
@@ -469,16 +438,34 @@ HTTP/1.1 200 OK
       "title": "Inventory"
     }
   },
-  "datatables": {
-    "cols": [
-      { "type": "string", "label": "Category", "p": {} },
-      { "type": "number", "label": "Apple", "p": {} },
-      { "type": "number", "label": "Orange", "p": {} }
-    ],
-    "rows": [
-      { "c": [{ "v": "Apple" }, { "v": 5 }, { "v": 9 }] },
-      { "c": [{ "v": "Orange" }, { "v": 7 }, { "v": 3 }] }
-    ]
+  "datatable": {
+    "cols": [{
+      "label": "City",
+      "type": "string"
+    }, {
+      "label": "2010 Population",
+      "type": "number"
+    }, {
+      "label": "2000 Population",
+      "type": "number"
+    }],
+    "rows": [{
+      "c": [{
+        "v": "New York City, NY"
+      }, {
+        "v": 8175000
+      }, {
+        "v": 8008000
+      }]
+    }, {
+      "c": [{
+        "v": "Los Angeles, CA"
+      }, {
+        "v": 3792000
+      }, {
+        "v": 3694000
+      }]
+    }]
   },
   "browserDownloadUrl": {
     "excel": "http://<hostname>:<port>/api/v1/download/excels/57837029c66dc1a4570962b6",
@@ -549,30 +536,6 @@ HTTP/1.1 200
         "v": 3792000
       }, {
         "v": 3694000
-      }]
-    }, {
-      "c": [{
-        "v": "Chicago, IL"
-      }, {
-        "v": 2695000
-      }, {
-        "v": 2896000
-      }]
-    }, {
-      "c": [{
-        "v": "Houston, TX"
-      }, {
-        "v": 2099000
-      }, {
-        "v": 1953000
-      }]
-    }, {
-      "c": [{
-        "v": "Philadelphia, PA"
-      }, {
-        "v": 1526000
-      }, {
-        "v": 1517000
       }]
     }]
   },
@@ -703,87 +666,33 @@ HTTP/1.1 200 OK
       },
       "chartType": "ColumnChart",
       "datatable": {
-        "cols": [
-          {
-            "label": "City",
-            "type": "string"
-          },
-          {
-            "label": "2010 Population",
-            "type": "number"
-          },
-          {
-            "label": "2000 Population",
-            "type": "number"
-          }
-        ],
-        "rows": [
-          {
-            "c": [
-              {
-                "v": "New York City, NY"
-              },
-              {
-                "v": 8175000
-              },
-              {
-                "v": 8008000
-              }
-            ]
-          },
-          {
-            "c": [
-              {
-                "v": "Los Angeles, CA"
-              },
-              {
-                "v": 3792000
-              },
-              {
-                "v": 3694000
-              }
-            ]
-          },
-          {
-            "c": [
-              {
-                "v": "Chicago, IL"
-              },
-              {
-                "v": 2695000
-              },
-              {
-                "v": 2896000
-              }
-            ]
-          },
-          {
-            "c": [
-              {
-                "v": "Houston, TX"
-              },
-              {
-                "v": 2099000
-              },
-              {
-                "v": 1953000
-              }
-            ]
-          },
-          {
-            "c": [
-              {
-                "v": "Philadelphia, PA"
-              },
-              {
-                "v": 1526000
-              },
-              {
-                "v": 1517000
-              }
-            ]
-          }
-        ]
+        "cols": [{
+          "label": "City",
+          "type": "string"
+        }, {
+          "label": "2010 Population",
+          "type": "number"
+        }, {
+          "label": "2000 Population",
+          "type": "number"
+        }],
+        "rows": [{
+          "c": [{
+            "v": "New York City, NY"
+          }, {
+            "v": 8175000
+          }, {
+            "v": 8008000
+          }]
+        }, {
+          "c": [{
+            "v": "Los Angeles, CA"
+          }, {
+            "v": 3792000
+          }, {
+            "v": 3694000
+          }]
+        }]
       },
       "type": "chart",
       "browserDownloadUrl": {
@@ -848,87 +757,33 @@ HTTP/1.1 200 OK
       },
       "chartType": "ColumnChart",
       "datatable": {
-        "cols": [
-          {
-            "label": "City",
-            "type": "string"
-          },
-          {
-            "label": "2010 Population",
-            "type": "number"
-          },
-          {
-            "label": "2000 Population",
-            "type": "number"
-          }
-        ],
-        "rows": [
-          {
-            "c": [
-              {
-                "v": "New York City, NY"
-              },
-              {
-                "v": 8175000
-              },
-              {
-                "v": 8008000
-              }
-            ]
-          },
-          {
-            "c": [
-              {
-                "v": "Los Angeles, CA"
-              },
-              {
-                "v": 3792000
-              },
-              {
-                "v": 3694000
-              }
-            ]
-          },
-          {
-            "c": [
-              {
-                "v": "Chicago, IL"
-              },
-              {
-                "v": 2695000
-              },
-              {
-                "v": 2896000
-              }
-            ]
-          },
-          {
-            "c": [
-              {
-                "v": "Houston, TX"
-              },
-              {
-                "v": 2099000
-              },
-              {
-                "v": 1953000
-              }
-            ]
-          },
-          {
-            "c": [
-              {
-                "v": "Philadelphia, PA"
-              },
-              {
-                "v": 1526000
-              },
-              {
-                "v": 1517000
-              }
-            ]
-          }
-        ]
+        "cols": [{
+          "label": "City",
+          "type": "string"
+        }, {
+          "label": "2010 Population",
+          "type": "number"
+        }, {
+          "label": "2000 Population",
+          "type": "number"
+        }],
+        "rows": [{
+          "c": [{
+            "v": "New York City, NY"
+          }, {
+            "v": 8175000
+          }, {
+            "v": 8008000
+          }]
+        }, {
+          "c": [{
+            "v": "Los Angeles, CA"
+          }, {
+            "v": 3792000
+          }, {
+            "v": 3694000
+          }]
+        }]
       },
       "type": "chart",
       "browserDownloadUrl": {
