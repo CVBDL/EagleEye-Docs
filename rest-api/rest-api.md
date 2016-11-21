@@ -16,6 +16,7 @@
   * [Get a single chart via friendly url](#get-a-single-chart-via-friendly-url)
   * [Create a chart](#create-a-chart)
   * [Edit a chart](#edit-a-chart)
+  * [Edit data table](#edit-data-table)
   * [Delete a chart](#delete-a-chart)
   * [Delete all charts](#delete-all-charts)
 * [Chart Sets](#chart-sets)
@@ -491,6 +492,88 @@ PUT /api/v1/charts/:_id
 #### Response
 
 > PUT /api/v1/charts/57837029c66dc1a4570962b6
+
+```text
+HTTP/1.1 200
+
+{
+  "_id": "57837029c66dc1a4570962b6",
+  "description": "New description",
+  "chartType": "ColumnChart",
+  "domainDataType": "string",
+  "friendlyUrl": "c-pretty-column-chart",
+  "options": {
+    "title": "New title",
+    "hAxis": {
+      "title": "New hAxis title"
+    },
+    "vAxis": {
+      "title": "New vAxis title"
+    }
+  },
+  "datatable": {
+    "cols": [{
+      "label": "City",
+      "type": "string"
+    }, {
+      "label": "2010 Population",
+      "type": "number"
+    }, {
+      "label": "2000 Population",
+      "type": "number"
+    }],
+    "rows": [{
+      "c": [{
+        "v": "New York City, NY"
+      }, {
+        "v": 8175000
+      }, {
+        "v": 8008000
+      }]
+    }, {
+      "c": [{
+        "v": "Los Angeles, CA"
+      }, {
+        "v": 3792000
+      }, {
+        "v": 3694000
+      }]
+    }]
+  },
+  "type": "chart",
+  "createdAt": "2016-06-06T08:00:00.000Z",
+  "updatedAt": "2016-06-06T08:00:00.000Z",
+  "browserDownloadUrl": {
+    "excel": "http://<hostname>:<port>/api/v1/download/excels/57837029c66dc1a4570962b6",
+    "image": null
+  }
+}
+```
+
+### Edit data table
+
+```text
+PUT /api/v1/charts/:_id/datatable
+```
+
+#### Input
+
+| Name           | Type   | Description                                              |
+| -------------- | ------ | -------------------------------------------------------- |
+| datatable      | array  | 2D array of chart data table.                            |
+
+#### Request payload
+
+```json
+{
+  "datatable": [
+    ["name", "dept", "lunchTime", "salary", "hireDate", "age", "isSenior", "seniorityStartTime"],
+    ["John", "Eng", "12:00:00", "1000", "2005-03-19", "35", "true", "2007-12-02 15:56:00"]
+  ]
+}
+```
+
+#### Response
 
 ```text
 HTTP/1.1 200
