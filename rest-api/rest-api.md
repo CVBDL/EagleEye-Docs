@@ -567,8 +567,9 @@ PUT /api/v1/charts/:_id/datatable
 ```json
 {
   "datatable": [
-    ["name", "dept", "lunchTime", "salary", "hireDate", "age", "isSenior", "seniorityStartTime"],
-    ["John", "Eng", "12:00:00", "1000", "2005-03-19", "35", "true", "2007-12-02 15:56:00"]
+    ["city", "2010 Population", "2000 Population"],
+    ["NY", 8175000, 8008000],
+    ["CA", 3792000, 3694000]
   ]
 }
 ```
