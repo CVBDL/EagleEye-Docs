@@ -35,8 +35,8 @@ command line option.
 Right before exit your running job client, you should make a request to notify
 EagleEye Platform the status of this task (success or failure).
 
-This is the EagleEye Platform API for task notification:
-<https://github.com/CVBDL/EagleEye-Docs/blob/master/rest-api/rest-api.md#edit-task-status>.
+This is the EagleEye Platform API for
+[task notification](../rest-api/rest-api.md#edit-task-status).
 
 For example:
 
