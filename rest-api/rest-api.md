@@ -1,4 +1,4 @@
-# EagleEye REST APIs
+# EagleEye Platform API v1
 
 ## Table of Contents
 

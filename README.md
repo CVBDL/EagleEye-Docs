@@ -4,3 +4,4 @@
 
 * [EagleEye Architecture](./architecture/architecture.md)
 * [EagleEye Platform API v1](./rest-api/rest-api.md)
+* [EagleEye Job Client Guide](./job-client-guide/job-client-guide.md)
