@@ -9,7 +9,7 @@ Platform.
 An *EagleEye Job Client* is desired to be invoked by *EagleEye Cron Job System*.
 
 When invoked, One required command line option
-`--task-id "57837029c66dc1a4570962b6"` (or `-t` for short) will be passed to the
+`--task-id` (or `-t` for short) will be passed to the
 job client.
 
 For example:
@@ -17,7 +17,7 @@ For example:
 ```sh
 # "ccollab2ee.exe" is an EagleEye Job Client
 
-C:\ccollab2ee.exe --task-id "57837029c66dc1a4570962b6"
+C:\ccollab2ee.exe --task-id="57837029c66dc1a4570962b6"
 
 # Or invoked this way
 
@@ -49,7 +49,7 @@ curl -i -d '{"status":"success"}' http://localhost/api/v1/api/v1/tasks/57837029c
 Take the following job client as an example:
 
 ```sh
-C:\ccollab2ee.exe --task-id "57837029c66dc1a4570962b6"
+C:\ccollab2ee.exe --task-id="57837029c66dc1a4570962b6"
 ```
 
 The job client `ccollab2ee.exe` exit with code `0` is not equal to that
