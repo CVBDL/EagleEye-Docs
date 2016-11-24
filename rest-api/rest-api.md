@@ -1483,7 +1483,7 @@ PUT /api/v1/tasks/:_id
 
 | Name     | Type   | Description                                                                  |
 | -------- | ------ | ---------------------------------------------------------------------------- |
-| status   | string | The status of this task, available values are: running, success, failure.    |
+| state    | string | The state  of this task, available values are: running, success, failure.    |
 
 #### Response
 
