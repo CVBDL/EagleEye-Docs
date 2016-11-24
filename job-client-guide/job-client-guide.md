@@ -33,18 +33,18 @@ Your *EagleEye Job Client* should be able to receive the `--task-id` or `-t`
 command line option.
 
 Right before exit your running job client, you should make a request to notify
-EagleEye Platform the status of this task (success or failure).
+EagleEye Platform the state of this task (success or failure).
 
 This is the EagleEye Platform API for
-[task notification](../rest-api/rest-api.md#edit-task-status).
+[task notification](../rest-api/rest-api.md#edit-task-state).
 
 For example:
 
 ```sh
-curl -i -d '{"status":"success"}' http://localhost/api/v1/api/v1/tasks/57837029c66dc1a4570962b6 -X PUT
+curl -i -d '{"state":"success"}' http://localhost/api/v1/tasks/57837029c66dc1a4570962b6 -X PUT
 ```
 
-## Why have to notify task status
+## Why have to notify task state
 
 Take the following job client as an example:
 
@@ -53,12 +53,12 @@ C:\ccollab2ee.exe --task-id="57837029c66dc1a4570962b6"
 ```
 
 The job client `ccollab2ee.exe` exit with code `0` is not equal to that
-the status of task `57837029c66dc1a4570962b6` is successful.
+the state of task `57837029c66dc1a4570962b6` is successful.
 
-When we're checking one task's status, we want to know that if the task
+When we're checking one task's state, we want to know that if the task
 updated some charts successfully.
 Rather than the job client exit with code `0` or others.
 
 Sometimes, a job client exiting with code `0` stands for the task is in success
-status.
+state.
 But it depends on implementation.

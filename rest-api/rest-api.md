@@ -42,7 +42,7 @@
   * [List tasks](#list-tasks)
   * [Get a single task](#get-a-single-task)
   * [Create a task](#create-a-task)
-  * [Edit task status](#edit-task-status)
+  * [Edit task state](#edit-task-state)
 
 ## Overview
 
@@ -1473,7 +1473,7 @@ HTTP/1.1 200 OK
 }
 ```
 
-### Edit task status
+### Edit task state
 
 ```text
 PUT /api/v1/tasks/:_id
