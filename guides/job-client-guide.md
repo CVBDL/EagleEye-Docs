@@ -1,20 +1,20 @@
 # How to write a job client
 
-An **EagleEye Job Client** is an application or a script that could run from
+An *EagleEye Job Client* is an application or a script that could run from
 command line.
 For example: `ccollab2ee.exe`.
 
-An **EagleEye Job Client** is used to manage charts or chart sets inside
+An *EagleEye Job Client* is used to manage charts or chart sets inside
 EagleEye Platform.
 
-An **EagleEye Job Client** is desired to be invoked by
+An *EagleEye Job Client* is desired to be invoked by
 [EagleEye Cron Job System](./cron-job-system-guide.md).
 
 ## Required command line option
 
 Your job client **MUST** support one command line option `--task-id`.
 
-Whenever your job client is invoked by **EagleEye Cron Job System**,
+Whenever your job client is invoked by *EagleEye Cron Job System*,
 one specific task id is passing from command line via `--task-id` option.
 
 For example:
@@ -27,7 +27,7 @@ C:\ccollab2ee.exe --task-id="57837029c66dc1a4570962b6"
 
 ## Dealing with task id
 
-Whenever a job is to run, **EagleEye Cron Job System** will create a new task to
+Whenever a job is to run, *EagleEye Cron Job System* will create a new task to
 handle this running attempt.
 
 Right before exiting your job client, you should make a request to notify
