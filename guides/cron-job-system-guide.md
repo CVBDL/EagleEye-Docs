@@ -59,7 +59,7 @@ Suppose we have a job with the following setttings:
 {
   "name": "Code Review By Month",
   "expression": "0 0 * * 0",
-  "command": "C:\ccollab2ee.exe",
+  "command": "C:\ccollab2eeplatform.exe",
   "enabled": true
 }
 ```
@@ -67,7 +67,7 @@ Suppose we have a job with the following setttings:
 Then at the midnight on every Sunday, this job will run.
 
 ```sh
-C:\ccollab2ee.exe --task-id="57837029c66dc1a4570962b6"
+C:\ccollab2eeplatform.exe --task-id="57837029c66dc1a4570962b6"
 ```
 
 The command option `--task-id="57837029c66dc1a4570962b6"` is passed by EagleEye
