@@ -2,7 +2,7 @@
 
 An *EagleEye Job Client* is an application or a script that could run from
 command line.
-For example: `ccollab2ee.exe`.
+For example: `ccollab2eeplatform.exe`.
 
 An *EagleEye Job Client* is used to manage charts or chart sets inside
 EagleEye Platform.
@@ -20,9 +20,9 @@ one specific task id is passing from command line via `--task-id` option.
 For example:
 
 ```sh
-# "ccollab2ee.exe" is an EagleEye Job Client
+# "ccollab2eeplatform.exe" is an EagleEye Job Client
 
-C:\ccollab2ee.exe --task-id="57837029c66dc1a4570962b6"
+C:\ccollab2eeplatform.exe --task-id="57837029c66dc1a4570962b6"
 ```
 
 ## Dealing with task id
@@ -47,10 +47,10 @@ curl -i -d '{"state":"success"}' http://localhost/api/v1/tasks/57837029c66dc1a45
 Take the following job client as an example:
 
 ```sh
-C:\ccollab2ee.exe --task-id="57837029c66dc1a4570962b6"
+C:\ccollab2eeplatform.exe --task-id="57837029c66dc1a4570962b6"
 ```
 
-The job client `ccollab2ee.exe` exit with code `0` is not equal to that
+The job client `ccollab2eeplatform.exe` exit with code `0` is not equal to that
 the state of task with id `57837029c66dc1a4570962b6` is successful.
 
 When we're checking one task's state, we want to know that if the task
