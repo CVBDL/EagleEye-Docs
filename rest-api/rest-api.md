@@ -556,21 +556,37 @@ HTTP/1.1 200
 PUT /api/v1/charts/:_id/datatable
 ```
 
-#### Input
-
-| Name           | Type   | Description                                              |
-| -------------- | ------ | -------------------------------------------------------- |
-| datatable      | array  | 2D array of chart data table.                            |
-
 #### Request payload
 
 ```json
 {
-  "datatable": [
-    ["city", "2010 Population", "2000 Population"],
-    ["NY", 8175000, 8008000],
-    ["CA", 3792000, 3694000]
-  ]
+  "cols": [{
+    "label": "City",
+    "type": "string"
+  }, {
+    "label": "2010 Population",
+    "type": "number"
+  }, {
+    "label": "2000 Population",
+    "type": "number"
+  }],
+  "rows": [{
+    "c": [{
+      "v": "New York City, NY"
+    }, {
+      "v": 8175000
+    }, {
+      "v": 8008000
+    }]
+  }, {
+    "c": [{
+      "v": "Los Angeles, CA"
+    }, {
+      "v": 3792000
+    }, {
+      "v": 3694000
+    }]
+  }]
 }
 ```
 
