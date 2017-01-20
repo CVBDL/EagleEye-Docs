@@ -12,15 +12,15 @@
   * [Cross Origin Resource Sharing](#cross-origin-resource-sharing)
 * [Charts](#charts)
   * [List charts](#list-charts)
-  * [Get a single chart via id](#get-a-single-chart-via-id)
-  * [Get a single chart via friendly url](#get-a-single-chart-via-friendly-url)
+  * [Get a single chart](#get-a-single-chart)
+  * [Get a single chart via friendly url (DEPRECATED)](#get-a-single-chart-via-friendly-url)
   * [Create a chart](#create-a-chart)
   * [Edit a chart](#edit-a-chart)
   * [Edit data table](#edit-data-table)
   * [Delete a chart](#delete-a-chart)
   * [Delete all charts](#delete-all-charts)
 * [Chart Sets](#chart-sets)
-  * [List all chart sets](#list-all-chart-sets)
+  * [List chart sets](#list-chart-sets)
   * [Get a single chart set via chart set id](#get-a-single-chart-set-via-chart-set-id)
   * [Get a single chart set via chart set friendly url](#get-a-single-chart-set-via-chart-set-friendly-url)
   * [Create a chart set](#create-a-chart-set)
@@ -131,7 +131,7 @@ All error objects have resource and field properties so that your client can tel
 
 EagleEye Platform API will try to use appropriate HTTP verbs for each action.
 
-Verb `PATCH` is an uncommon HTTP verb, so use `PUT` instead.
+Verb `PATCH` is an uncommon HTTP verb, so use `POST` instead.
 
 | Verb       | Description                                              |
 | ---------- | -------------------------------------------------------- |
@@ -167,9 +167,9 @@ GET /api/v1/charts
 
 | Name  | Type   | Description                                                                                        |
 | ----- | ------ | -------------------------------------------------------------------------------------------------- |
-| sort  | string | The sort field. One of `createdAt`, `updatedAt` or `chartType`. Default: `createdAt`               |
+| sort  | string | The sort field. Could be one of `createdAt`, `updatedAt` or `chartType`. Default: `createdAt`      |
 | order | string | The sort order if sort parameter is provided. One of `asc` or `desc`. Default: `desc`              |
-| limit | number | The results count field. Mainly for pagination purpose. Zero value means no limitation. Default: 0 |
+| limit | number | The results count field. Mainly for pagination purpose. 0 means no limitation. Default: 0          |
 | start | number | The start index of results. Mainly for pagination purpose. Default: 1                              |
 
 #### Response
@@ -250,7 +250,7 @@ HTTP/1.1 200 OK
 }]
 ```
 
-### Get a single chart via id
+### Get a single chart
 
 ```text
 GET /api/v1/charts/:_id
@@ -678,7 +678,7 @@ HTTP/1.1 204 No Content
 
 ## Chart Sets
 
-### List all chart sets
+### List chart sets
 
 ```text
 GET /api/v1/chart-sets
