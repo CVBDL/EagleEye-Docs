@@ -13,7 +13,6 @@
 * [Charts](#charts)
   * [List charts](#list-charts)
   * [Get a single chart](#get-a-single-chart)
-  * [Get a single chart via friendly url (DEPRECATED)](#get-a-single-chart-via-friendly-url)
   * [Create a chart](#create-a-chart)
   * [Edit a chart](#edit-a-chart)
   * [Edit data table](#edit-data-table)
@@ -21,8 +20,7 @@
   * [Delete all charts](#delete-all-charts)
 * [Chart Sets](#chart-sets)
   * [List chart sets](#list-chart-sets)
-  * [Get a single chart set via chart set id](#get-a-single-chart-set-via-chart-set-id)
-  * [Get a single chart set via chart set friendly url](#get-a-single-chart-set-via-chart-set-friendly-url)
+  * [Get a single chart set](#get-a-single-chart-set)
   * [Create a chart set](#create-a-chart-set)
   * [Edit a chart set](#edit-a-chart-set)
   * [Delete a chart set](#delete-a-chart-set)
@@ -111,7 +109,7 @@ Content-Length: 149
   "errors": [
     {
       "resource": "chart",
-      "field": "friendlyUrl",
+      "field": "_id",
       "code": "already_exists"
     }
   ]
@@ -182,7 +180,6 @@ HTTP/1.1 200 OK
   "description": "A pretty column chart",
   "chartType": "ColumnChart",
   "domainDataType": "string",
-  "friendlyUrl": "c-pretty-column-chart",
   "options": {
     "title": "Pretty column chart",
     "hAxis": {
@@ -266,83 +263,6 @@ HTTP/1.1 200 OK
   "description": "A pretty column chart",
   "chartType": "ColumnChart",
   "domainDataType": "string",
-  "friendlyUrl": "c-pretty-column-chart",
-  "options": {
-    "title": "Pretty column chart",
-    "hAxis": {
-      "title": ""
-    },
-    "vAxis": {
-      "title": ""
-    }
-  },
-  "datatable": {
-    "cols": [{
-      "label": "City",
-      "type": "string"
-    }, {
-      "label": "2010 Population",
-      "type": "number"
-    }, {
-      "label": "2000 Population",
-      "type": "number"
-    }],
-    "rows": [{
-      "c": [{
-        "v": "New York City, NY"
-      }, {
-        "v": 8175000
-      }, {
-        "v": 8008000
-      }]
-    }, {
-      "c": [{
-        "v": "Los Angeles, CA"
-      }, {
-        "v": 3792000
-      }, {
-        "v": 3694000
-      }]
-    }]
-  },
-  "type": "chart",
-  "createdAt": "2016-06-06T08:00:00.000Z",
-  "updatedAt": "2016-06-06T08:00:00.000Z",
-  "browserDownloadUrl": {
-    "excel": "http://<hostname>:<port>/api/v1/download/excels/57837029c66dc1a4570962b6",
-    "image": null
-  }
-}
-```
-
-If no record found:
-
-```text
-HTTP/1.1 404 Not Found
-Content-Length: 0
-
-
-```
-
-### Get a single chart via friendly url
-
-```text
-GET /api/v1/charts/:friendlyUrl
-```
-
-#### Response
-
-> GET /api/v1/charts/c-pretty-column-chart
-
-```text
-HTTP/1.1 200 OK
-
-{
-  "_id": "57837029c66dc1a4570962b6",
-  "description": "A pretty column chart",
-  "chartType": "ColumnChart",
-  "domainDataType": "string",
-  "friendlyUrl": "c-pretty-column-chart",
   "options": {
     "title": "Pretty column chart",
     "hAxis": {
@@ -413,7 +333,6 @@ POST /api/v1/charts
 | chartType      | string | Can be one of `LineChart`, `ColumnChart` and `BarChart`. |
 | domainDataType | string | Can be one of `string`, `number`, `date` and `datetime`. |
 | description    | string | Chart description content.                               |
-| friendlyUrl    | string | Unique friendly url                                      |
 | options        | object | Chart options.                                           |
 | datatable      | object | Optional. Chart datatable.                               |
 
@@ -429,7 +348,6 @@ HTTP/1.1 200 OK
   "chartType": "LineChart",
   "domainDataType": "string",
   "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-  "friendlyUrl": "s-eagleeye-line-chart",
   "options": {
     "title": "Fruits Overview",
     "hAxis": {
@@ -486,7 +404,6 @@ POST /api/v1/charts/:_id
 | Name           | Type   | Description                                              |
 | -------------- | ------ | -------------------------------------------------------- |
 | description    | string | Chart description content.                               |
-| friendlyUrl    | string | Unique friendly url                                      |
 | options        | object | Chart options.                                           |
 | datatable      | object | Chart data table.                                        |
 
@@ -502,7 +419,6 @@ HTTP/1.1 200
   "description": "New description",
   "chartType": "ColumnChart",
   "domainDataType": "string",
-  "friendlyUrl": "c-pretty-column-chart",
   "options": {
     "title": "New title",
     "hAxis": {
@@ -601,7 +517,6 @@ HTTP/1.1 200
   "description": "New description",
   "chartType": "ColumnChart",
   "domainDataType": "string",
-  "friendlyUrl": "c-pretty-column-chart",
   "options": {
     "title": "New title",
     "hAxis": {
@@ -705,8 +620,7 @@ HTTP/1.1 200 OK
   "charts": ["57837029c66dc1a4570962b6", "577f7d8825df25803c723069", "5791774271bc66244f964908", "577f7cdc25df25803c723068", "577f7c1425df25803c723067"],
   "type": "chartset",
   "createdAt": "2016-06-06T08:00:00.000Z",
-  "updatedAt": "2016-06-06T08:00:00.000Z",
-  "friendlyUrl": ""
+  "updatedAt": "2016-06-06T08:00:00.000Z"
 }, {
   "_id": "57859a3061c767d81713a163",
   "title": "Test chart remove",
@@ -714,13 +628,11 @@ HTTP/1.1 200 OK
   "charts": ["5799641be24561202bc7190d"],
   "type": "chartset",
   "createdAt": "2016-06-06T08:00:00.000Z",
-  "updatedAt": "2016-06-06T08:00:00.000Z",
-  "friendlyUrl": "s-s-test-remove"
+  "updatedAt": "2016-06-06T08:00:00.000Z"
 }, {
   "_id": "577f3582dbb89f2c47fc93c0",
   "title": "The first chart set",
   "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  "friendlyUrl": "s-set-a",
   "charts": ["577f7cdc25df25803c723068", "577f7d8825df25803c723069", "577f7a8d25df25803c723066", "577f7c1425df25803c723067", "5779fe9dec794f5c416f9480", "57837029c66dc1a4570962b6"],
   "type": "chartset",
   "createdAt": "2016-06-06T08:00:00.000Z",
@@ -728,7 +640,7 @@ HTTP/1.1 200 OK
 }]
 ```
 
-### Get a single chart set via chart set id
+### Get a single chart set
 
 ```text
 GET /api/v1/chart-sets/:_id
@@ -745,98 +657,6 @@ HTTP/1.1 200 OK
   "_id": "57f60f717600621c3e28a855",
   "title": "Column Chart",
   "description": "",
-  "friendlyUrl": "s-the-chart-set",
-  "charts": [
-    {
-      "_id": "57eb2dc15d2722401b951c26",
-      "description": "column chart",
-      "domainDataType": "string",
-      "options": {
-        "title": "Column",
-        "hAxis": {
-          "title": "",
-          "format": ""
-        },
-        "vAxis": {
-          "title": "",
-          "format": ""
-        },
-        "combolines": "",
-        "isStacked": true,
-        "chartArea": {}
-      },
-      "chartType": "ColumnChart",
-      "datatable": {
-        "cols": [{
-          "label": "City",
-          "type": "string"
-        }, {
-          "label": "2010 Population",
-          "type": "number"
-        }, {
-          "label": "2000 Population",
-          "type": "number"
-        }],
-        "rows": [{
-          "c": [{
-            "v": "New York City, NY"
-          }, {
-            "v": 8175000
-          }, {
-            "v": 8008000
-          }]
-        }, {
-          "c": [{
-            "v": "Los Angeles, CA"
-          }, {
-            "v": 3792000
-          }, {
-            "v": 3694000
-          }]
-        }]
-      },
-      "type": "chart",
-      "browserDownloadUrl": {
-        "excel": "http://<hostname>:<port>/api/v1/download/excels/57eb2dc15d2722401b951c26",
-        "image": null
-      },
-      "createdAt": "2016-09-28T02:41:05.949Z",
-      "updatedAt": "2016-09-28T02:49:54.768Z"
-    }
-  ],
-  "type": "chartset",
-  "updatedAt": "2016-10-06T08:46:41.135Z",
-  "createdAt": "2016-10-06T08:46:41.135Z"
-}
-```
-
-If no record found:
-
-```text
-HTTP/1.1 404 Not Found
-Content-Length: 0
-
-
-```
-
-### Get a single chart set via chart set friendly url
-
-```text
-GET /api/v1/chart-sets/:friendlyUrl
-```
-
-#### Response
-
-> GET /api/v1/chart-sets/s-the-chart-set
-
-```text
-HTTP/1.1 200 OK
-
-{
-  "_id": "57f60f717600621c3e28a855",
-  "title": "Column Chart",
-  "description": "",
-  "friendlyUrl": "s-the-chart-set",
   "charts": [
     {
       "_id": "57eb2dc15d2722401b951c26",
@@ -922,7 +742,6 @@ POST /api/v1/chart-sets
 | -------------- | ------ | -------------------------------------------------------- |
 | title          | string | Chart set title.                                         |
 | description    | string | Chart set description content.                           |
-| friendlyUrl    | string | Unique friendly url, prefix with `s-`.                   |
 | charts         | array  | Chart ids.                                               |
 
 #### Response
@@ -933,7 +752,6 @@ HTTP/1.1 200 OK
 {
   "title": "This is a chart set",
   "description": "This is a chart set",
-  "friendlyUrl": "s-the-chart-set",
   "charts": ["57a93f748fff77fc4789c063", "5791774271bc66244f964908"],
   "type": "chartset",
   "createdAt": "2016-06-06T08:00:00.000Z",
@@ -954,7 +772,6 @@ POST /api/v1/chart-sets/:_id
 | -------------- | ------ | -------------------------------------------------------- |
 | title          | string | Chart set title.                                         |
 | description    | string | Chart set description content.                           |
-| friendlyUrl    | string | Unique friendly url, prefix with `s-`.                   |
 | charts         | array  | Chart ids.                                               |
 
 #### Response
@@ -971,8 +788,7 @@ HTTP/1.1 200 OK
   "charts": ["57df8fd00b53c66839fdfb6b", "57dbabc60b53c66839fdfb66", "57db539c05db66cc1435218f", "57df3fab0b53c66839fdfb69"],
   "type": "chartset",
   "createdAt": "2016-06-06T08:00:00.000Z",
-  "updatedAt": "2016-06-06T08:00:00.000Z",
-  "friendlyUrl": "s-product-one"
+  "updatedAt": "2016-06-06T08:00:00.000Z"
 }
 ```
 
@@ -1035,7 +851,6 @@ HTTP/1.1 200 OK
     "_id": "57ccd2fa4db6dc9c45d3164c",
     "title": "This is a chart set",
     "description": "This is a chart set",
-    "friendlyUrl": "s-the-chart-set",
     "charts": ["57a93f748fff77fc4789c063", "5791774271bc66244f964908"],
     "type": "chartset",
     "createdAt": "2016-06-06T08:00:00.000Z",
@@ -1044,7 +859,6 @@ HTTP/1.1 200 OK
     "_id": "577f3582dbb89f2c47fc93c0",
     "title": "The first chart set",
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "friendlyUrl": "s-set-a",
     "charts": ["577f7cdc25df25803c723068", "577f7d8825df25803c723069", "577f7a8d25df25803c723066", "577f7c1425df25803c723067", "5779fe9dec794f5c416f9480", "57837029c66dc1a4570962b6"],
     "type": "chartset",
     "createdAt": "2016-06-06T08:00:00.000Z",
@@ -1152,8 +966,7 @@ HTTP/1.1 200 OK
     "charts": ["5799641be24561202bc7190d"],
     "type": "chartset",
     "createdAt": "2016-06-06T08:00:00.000Z",
-    "updatedAt": "2016-06-06T08:00:00.000Z",
-    "friendlyUrl": "s-test-remove"
+    "updatedAt": "2016-06-06T08:00:00.000Z"
   }]
 }
 ```
