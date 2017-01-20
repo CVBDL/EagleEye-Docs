@@ -478,7 +478,7 @@ HTTP/1.1 200 OK
 ### Edit a chart
 
 ```text
-PUT /api/v1/charts/:_id
+POST /api/v1/charts/:_id
 ```
 
 #### Input
@@ -488,10 +488,11 @@ PUT /api/v1/charts/:_id
 | description    | string | Chart description content.                               |
 | friendlyUrl    | string | Unique friendly url                                      |
 | options        | object | Chart options.                                           |
+| datatable      | object | Chart data table.                                        |
 
 #### Response
 
-> PUT /api/v1/charts/57837029c66dc1a4570962b6
+> POST /api/v1/charts/57837029c66dc1a4570962b6
 
 ```text
 HTTP/1.1 200
@@ -944,7 +945,7 @@ HTTP/1.1 200 OK
 ### Edit a chart set
 
 ```text
-PUT /api/v1/chart-sets/:_id
+POST /api/v1/chart-sets/:_id
 ```
 
 #### Input
@@ -958,7 +959,7 @@ PUT /api/v1/chart-sets/:_id
 
 #### Response
 
-> PUT /api/v1/chart-sets/57e0f76b31fad8dc35aaee35
+> POST /api/v1/chart-sets/57e0f76b31fad8dc35aaee35
 
 ```text
 HTTP/1.1 200 OK
