@@ -136,8 +136,8 @@ Verb `PATCH` is an uncommon HTTP verb, so use `PUT` instead.
 | Verb       | Description                                              |
 | ---------- | -------------------------------------------------------- |
 | GET        | Used for retrieving resources.                           |
-| POST       | Used for creating resources.                             |
-| PUT        | Used for updating or replacing resources or collections. |
+| POST       | Used for creating resources or update a resource.        |
+| PUT        | Used for replacing resources or collections.             |
 | DELETE     | Used for deleting resources.                             |
 | GET        | Used for retrieving resources.                           |
 
