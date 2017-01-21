@@ -165,7 +165,7 @@ GET /api/v1/charts
 
 | Name  | Type   | Description                                                                                        |
 | ----- | ------ | -------------------------------------------------------------------------------------------------- |
-| sort  | string | The sort field. Could be one of `createdAt`, `updatedAt` or `chartType`. Default: `createdAt`      |
+| sort  | string | The sort field. Can be one of: `createdAt` and `updatedAt`. Default: `createdAt`                   |
 | order | string | The sort order if sort parameter is provided. One of `asc` or `desc`. Default: `desc`              |
 | limit | number | The results count field. Mainly for pagination purpose. 0 means no limitation. Default: 0          |
 | start | number | The start index of results. Mainly for pagination purpose. Default: 1                              |
@@ -174,19 +174,21 @@ GET /api/v1/charts
 
 ```text
 HTTP/1.1 200 OK
+```
 
+```json
 [{
   "_id": "57837029c66dc1a4570962b6",
-  "description": "A pretty column chart",
+  "description": "Sample chart.",
   "chartType": "ColumnChart",
   "domainDataType": "string",
   "options": {
-    "title": "Pretty column chart",
+    "title": "Population of Largest U.S. Cities",
     "hAxis": {
-      "title": ""
+      "title": "Total Population"
     },
     "vAxis": {
-      "title": ""
+      "title": "City"
     }
   },
   "datatable": {
@@ -225,25 +227,6 @@ HTTP/1.1 200 OK
     "excel": "http://<hostname>:<port>/api/v1/download/excels/57837029c66dc1a4570962b6",
     "image": null
   }
-}, {
-  "_id": "5799641be24561202bc7190d",
-  "description": "Upload an image as a chart",
-  "chartType": "ImageChart",
-  "domainDataType": "string",
-  "options": {
-    "title": "Image Chart",
-    "hAxis": {},
-    "vAxis": {},
-    "isStacked": false
-  },
-  "datatable": {},
-  "type": "ImageChart",
-  "createdAt": "2016-06-06T08:00:00.000Z",
-  "updatedAt": "2016-06-06T08:00:00.000Z",
-  "browserDownloadUrl": {
-    "excel": null,
-    "image": "http://<hostname>:<port>/uploadChartImages/IC_6691380Xl7Rn-XOMqYaD9-6fCk2PlH.png"
-  }
 }]
 ```
 
@@ -257,19 +240,21 @@ GET /api/v1/charts/:_id
 
 ```text
 HTTP/1.1 200 OK
+```
 
+```json
 {
   "_id": "57837029c66dc1a4570962b6",
-  "description": "A pretty column chart",
+  "description": "Sample chart.",
   "chartType": "ColumnChart",
   "domainDataType": "string",
   "options": {
-    "title": "Pretty column chart",
+    "title": "Population of Largest U.S. Cities",
     "hAxis": {
-      "title": ""
+      "title": "Total Population"
     },
     "vAxis": {
-      "title": ""
+      "title": "City"
     }
   },
   "datatable": {
@@ -316,8 +301,6 @@ If no record found:
 ```text
 HTTP/1.1 404 Not Found
 Content-Length: 0
-
-
 ```
 
 ### Create a chart
@@ -336,25 +319,20 @@ POST /api/v1/charts
 | options        | object | Chart options.                                           |
 | datatable      | object | Optional. Chart datatable.                               |
 
-#### Response
+#### Example
 
-```text
-HTTP/1.1 200 OK
-
+```json
 {
-  "_id": "57837029c66dc1a4570962b6",
-  "createdAt": "2016-06-06T08:00:00.000Z",
-  "updatedAt": "2016-06-06T08:00:00.000Z",
-  "chartType": "LineChart",
+  "description": "Sample chart.",
+  "chartType": "ColumnChart",
   "domainDataType": "string",
-  "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
   "options": {
-    "title": "Fruits Overview",
+    "title": "Population of Largest U.S. Cities",
     "hAxis": {
-      "title": "Category"
+      "title": "Total Population"
     },
     "vAxis": {
-      "title": "Inventory"
+      "title": "City"
     }
   },
   "datatable": {
@@ -386,6 +364,62 @@ HTTP/1.1 200 OK
       }]
     }]
   },
+}
+```
+
+#### Response
+
+```text
+HTTP/1.1 200 OK
+```
+
+```json
+{
+  "_id": "57837029c66dc1a4570962b6",
+  "description": "Sample chart.",
+  "chartType": "ColumnChart",
+  "domainDataType": "string",
+  "options": {
+    "title": "Population of Largest U.S. Cities",
+    "hAxis": {
+      "title": "Total Population"
+    },
+    "vAxis": {
+      "title": "City"
+    }
+  },
+  "datatable": {
+    "cols": [{
+      "label": "City",
+      "type": "string"
+    }, {
+      "label": "2010 Population",
+      "type": "number"
+    }, {
+      "label": "2000 Population",
+      "type": "number"
+    }],
+    "rows": [{
+      "c": [{
+        "v": "New York City, NY"
+      }, {
+        "v": 8175000
+      }, {
+        "v": 8008000
+      }]
+    }, {
+      "c": [{
+        "v": "Los Angeles, CA"
+      }, {
+        "v": 3792000
+      }, {
+        "v": 3694000
+      }]
+    }]
+  },
+  "type": "chart",
+  "createdAt": "2016-06-06T08:00:00.000Z",
+  "updatedAt": "2016-06-06T08:00:00.000Z",
   "browserDownloadUrl": {
     "excel": "http://<hostname>:<port>/api/v1/download/excels/57837029c66dc1a4570962b6",
     "image": null
@@ -407,59 +441,43 @@ POST /api/v1/charts/:_id
 | options        | object | Chart options.                                           |
 | datatable      | object | Chart data table.                                        |
 
-#### Response
+#### Example
 
-> POST /api/v1/charts/57837029c66dc1a4570962b6
+```json
+{
+  "description": "Year 2016",
+  "options": {
+    "title": "Population of Largest U.S. Cities in 2016"
+  },
+  "datatable": null
+}
+```
+
+#### Response
 
 ```text
 HTTP/1.1 200
+```
 
+```json
 {
   "_id": "57837029c66dc1a4570962b6",
-  "description": "New description",
+  "description": "Year 2016",
   "chartType": "ColumnChart",
   "domainDataType": "string",
   "options": {
-    "title": "New title",
+    "title": "Population of Largest U.S. Cities in 2016",
     "hAxis": {
-      "title": "New hAxis title"
+      "title": "Total Population"
     },
     "vAxis": {
-      "title": "New vAxis title"
+      "title": "City"
     }
   },
-  "datatable": {
-    "cols": [{
-      "label": "City",
-      "type": "string"
-    }, {
-      "label": "2010 Population",
-      "type": "number"
-    }, {
-      "label": "2000 Population",
-      "type": "number"
-    }],
-    "rows": [{
-      "c": [{
-        "v": "New York City, NY"
-      }, {
-        "v": 8175000
-      }, {
-        "v": 8008000
-      }]
-    }, {
-      "c": [{
-        "v": "Los Angeles, CA"
-      }, {
-        "v": 3792000
-      }, {
-        "v": 3694000
-      }]
-    }]
-  },
+  "datatable": null,
   "type": "chart",
   "createdAt": "2016-06-06T08:00:00.000Z",
-  "updatedAt": "2016-06-06T08:00:00.000Z",
+  "updatedAt": "2016-06-06T09:11:00.000Z",
   "browserDownloadUrl": {
     "excel": "http://<hostname>:<port>/api/v1/download/excels/57837029c66dc1a4570962b6",
     "image": null
@@ -473,7 +491,7 @@ HTTP/1.1 200
 PUT /api/v1/charts/:_id/datatable
 ```
 
-#### Request payload
+#### Example
 
 ```json
 {
@@ -489,19 +507,11 @@ PUT /api/v1/charts/:_id/datatable
   }],
   "rows": [{
     "c": [{
-      "v": "New York City, NY"
+      "v": "Houston, TX"
     }, {
-      "v": 8175000
+      "v": 2099000
     }, {
-      "v": 8008000
-    }]
-  }, {
-    "c": [{
-      "v": "Los Angeles, CA"
-    }, {
-      "v": 3792000
-    }, {
-      "v": 3694000
+      "v": 2019000
     }]
   }]
 }
@@ -511,7 +521,9 @@ PUT /api/v1/charts/:_id/datatable
 
 ```text
 HTTP/1.1 200
+```
 
+```json
 {
   "_id": "57837029c66dc1a4570962b6",
   "description": "New description",
@@ -539,19 +551,11 @@ HTTP/1.1 200
     }],
     "rows": [{
       "c": [{
-        "v": "New York City, NY"
+        "v": "Houston, TX"
       }, {
-        "v": 8175000
+        "v": 2099000
       }, {
-        "v": 8008000
-      }]
-    }, {
-      "c": [{
-        "v": "Los Angeles, CA"
-      }, {
-        "v": 3792000
-      }, {
-        "v": 3694000
+        "v": 2019000
       }]
     }]
   },
@@ -572,8 +576,6 @@ DELETE /api/v1/charts/:_id
 ```
 
 #### Response
-
-> DELETE /api/v1/charts/5768e6262999167c30946e7c
 
 ```text
 HTTP/1.1 204 No Content
@@ -612,28 +614,14 @@ GET /api/v1/chart-sets
 
 ```text
 HTTP/1.1 200 OK
+```
 
+```json
 [{
   "_id": "578c8c493164a7304f72a9f3",
-  "title": "Chart set contains 3 charts",
-  "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+  "title": "Sample chart set.",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
   "charts": ["57837029c66dc1a4570962b6", "577f7d8825df25803c723069", "5791774271bc66244f964908", "577f7cdc25df25803c723068", "577f7c1425df25803c723067"],
-  "type": "chartset",
-  "createdAt": "2016-06-06T08:00:00.000Z",
-  "updatedAt": "2016-06-06T08:00:00.000Z"
-}, {
-  "_id": "57859a3061c767d81713a163",
-  "title": "Test chart remove",
-  "description": "Test chart remove",
-  "charts": ["5799641be24561202bc7190d"],
-  "type": "chartset",
-  "createdAt": "2016-06-06T08:00:00.000Z",
-  "updatedAt": "2016-06-06T08:00:00.000Z"
-}, {
-  "_id": "577f3582dbb89f2c47fc93c0",
-  "title": "The first chart set",
-  "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  "charts": ["577f7cdc25df25803c723068", "577f7d8825df25803c723069", "577f7a8d25df25803c723066", "577f7c1425df25803c723067", "5779fe9dec794f5c416f9480", "57837029c66dc1a4570962b6"],
   "type": "chartset",
   "createdAt": "2016-06-06T08:00:00.000Z",
   "updatedAt": "2016-06-06T08:00:00.000Z"
@@ -648,11 +636,11 @@ GET /api/v1/chart-sets/:_id
 
 #### Response
 
-> GET /api/v1/chart-sets/57f60f717600621c3e28a855
-
 ```text
 HTTP/1.1 200 OK
+```
 
+```json
 {
   "_id": "57f60f717600621c3e28a855",
   "title": "Column Chart",
@@ -726,8 +714,6 @@ If no record found:
 ```text
 HTTP/1.1 404 Not Found
 Content-Length: 0
-
-
 ```
 
 ### Create a chart set
@@ -744,14 +730,26 @@ POST /api/v1/chart-sets
 | description    | string | Chart set description content.                           |
 | charts         | array  | Chart ids.                                               |
 
+#### Example
+
+```json
+{
+  "title": "New chart set",
+  "description": "This is a new chart set.",
+  "charts": ["57a93f748fff77fc4789c063", "5791774271bc66244f964908"]
+}
+```
+
 #### Response
 
 ```text
 HTTP/1.1 200 OK
+```
 
+```json
 {
-  "title": "This is a chart set",
-  "description": "This is a chart set",
+  "title": "New chart set",
+  "description": "This is a new chart set.",
   "charts": ["57a93f748fff77fc4789c063", "5791774271bc66244f964908"],
   "type": "chartset",
   "createdAt": "2016-06-06T08:00:00.000Z",
@@ -774,21 +772,31 @@ POST /api/v1/chart-sets/:_id
 | description    | string | Chart set description content.                           |
 | charts         | array  | Chart ids.                                               |
 
-#### Response
+#### Example
 
-> POST /api/v1/chart-sets/57e0f76b31fad8dc35aaee35
+```json
+{
+  "title": "New chart set",
+  "description": "This is a new chart set.",
+  "charts": ["57a93f748fff77fc4789c063"]
+}
+```
+
+#### Response
 
 ```text
 HTTP/1.1 200 OK
+```
 
+```json
 {
   "_id": "57e0f76b31fad8dc35aaee35",
-  "title": "New title",
-  "description": "New description",
-  "charts": ["57df8fd00b53c66839fdfb6b", "57dbabc60b53c66839fdfb66", "57db539c05db66cc1435218f", "57df3fab0b53c66839fdfb69"],
+  "title": "New chart set",
+  "description": "This is a new chart set.",
+  "charts": ["57a93f748fff77fc4789c063"],
   "type": "chartset",
   "createdAt": "2016-06-06T08:00:00.000Z",
-  "updatedAt": "2016-06-06T08:00:00.000Z"
+  "updatedAt": "2016-06-06T09:11:00.000Z"
 }
 ```
 
@@ -799,8 +807,6 @@ DELETE /api/v1/chart-sets/:_id
 ```
 
 #### Response
-
-> DELETE /api/v1/chart-sets/57ccd2fa4db6dc9c45d3164c
 
 ```text
 HTTP/1.1 204 No Content
@@ -840,11 +846,11 @@ GET /api/v1/search
 
 #### Response
 
-> GET /api/v1/search?q=set
-
 ```text
 HTTP/1.1 200 OK
+```
 
+```json
 {
   "total_count": 2,
   "items": [{
@@ -885,11 +891,11 @@ GET /api/v1/search/charts
 
 #### Response
 
-> GET /api/v1/search/charts?q=image
-
 ```text
 HTTP/1.1 200 OK
+```
 
+```json
 {
   "total_count": 2,
   "items": [{
@@ -952,11 +958,11 @@ GET /api/v1/search/chart-sets
 
 #### Response
 
-> GET /api/v1/search/chart-sets?q=remove
-
 ```text
 HTTP/1.1 200 OK
+```
 
+```json
 {
   "total_count": 1,
   "items": [{
@@ -1033,7 +1039,9 @@ GET /api/v1/jobs
 
 ```text
 HTTP/1.1 200 OK
+```
 
+```json
 [{
   "_id": "57fca45d69ea5f081a6b4076",
   "name": "Code Review By Month",
@@ -1058,7 +1066,9 @@ GET /api/v1/jobs/:_id
 
 ```text
 HTTP/1.1 200 OK
+```
 
+```json
 {
   "_id": "57fca45d69ea5f081a6b4076",
   "name": "Code Review By Month",
@@ -1103,7 +1113,9 @@ POST /api/v1/jobs
 
 ```text
 HTTP/1.1 200 OK
+```
 
+```json
 {
   "_id": "57fca45d69ea5f081a6b4076",
   "name": "Code Review By Month",
@@ -1146,7 +1158,9 @@ PUT /api/v1/jobs/:_id
 
 ```text
 HTTP/1.1 200 OK
+```
 
+```json
 {
   "_id": "57fca45d69ea5f081a6b4076",
   "name": "Code Review By Month",
@@ -1211,7 +1225,9 @@ GET /api/v1/tasks
 
 ```text
 HTTP/1.1 200 OK
+```
 
+```json
 [{
   "_id": "25dca45d69ea5f991a6b4076",
   "job": {
@@ -1243,7 +1259,9 @@ GET /api/v1/tasks/:_id
 
 ```text
 HTTP/1.1 200 OK
+```
 
+```json
 {
   "_id": "25dca45d69ea5f991a6b4076",
   "job": {
@@ -1281,7 +1299,9 @@ POST /api/v1/tasks
 
 ```text
 HTTP/1.1 200 OK
+```
 
+```json
 {
   "_id": "25dca45d69ea5f991a6b4076",
   "job": {
@@ -1315,11 +1335,21 @@ PUT /api/v1/tasks/:_id
 | -------- | ------ | ---------------------------------------------------------------------------- |
 | state    | string | The state  of this task, available values are: running, success, failure.    |
 
+#### Example
+
+```json
+{
+  "state": "success"
+}
+```
+
 #### Response
 
 ```text
 HTTP/1.1 200 OK
+```
 
+```json
 {
   "_id": "25dca45d69ea5f991a6b4076",
   "job": {
