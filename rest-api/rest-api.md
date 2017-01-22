@@ -179,18 +179,8 @@ HTTP/1.1 200 OK
 ```json
 [{
   "_id": "57837029c66dc1a4570962b6",
-  "description": "Sample chart.",
   "chartType": "ColumnChart",
-  "domainDataType": "string",
-  "options": {
-    "title": "Population of Largest U.S. Cities",
-    "hAxis": {
-      "title": "Total Population"
-    },
-    "vAxis": {
-      "title": "City"
-    }
-  },
+  "description": "Sample chart.",
   "datatable": {
     "cols": [{
       "label": "City",
@@ -220,13 +210,21 @@ HTTP/1.1 200 OK
       }]
     }]
   },
-  "type": "chart",
-  "createdAt": "2016-06-06T08:00:00.000Z",
-  "updatedAt": "2016-06-06T08:00:00.000Z",
+  "options": {
+    "title": "Population of Largest U.S. Cities",
+    "hAxis": {
+      "title": "Total Population"
+    },
+    "vAxis": {
+      "title": "City"
+    }
+  },
   "browserDownloadUrl": {
     "excel": "http://<hostname>:<port>/api/v1/download/excels/57837029c66dc1a4570962b6",
     "image": null
-  }
+  },
+  "createdAt": "2016-06-06T08:00:00.000Z",
+  "updatedAt": "2016-06-06T08:00:00.000Z"
 }]
 ```
 
@@ -245,18 +243,8 @@ HTTP/1.1 200 OK
 ```json
 {
   "_id": "57837029c66dc1a4570962b6",
-  "description": "Sample chart.",
   "chartType": "ColumnChart",
-  "domainDataType": "string",
-  "options": {
-    "title": "Population of Largest U.S. Cities",
-    "hAxis": {
-      "title": "Total Population"
-    },
-    "vAxis": {
-      "title": "City"
-    }
-  },
+  "description": "Sample chart.",
   "datatable": {
     "cols": [{
       "label": "City",
@@ -286,13 +274,21 @@ HTTP/1.1 200 OK
       }]
     }]
   },
-  "type": "chart",
-  "createdAt": "2016-06-06T08:00:00.000Z",
-  "updatedAt": "2016-06-06T08:00:00.000Z",
+  "options": {
+    "title": "Population of Largest U.S. Cities",
+    "hAxis": {
+      "title": "Total Population"
+    },
+    "vAxis": {
+      "title": "City"
+    }
+  },
   "browserDownloadUrl": {
     "excel": "http://<hostname>:<port>/api/v1/download/excels/57837029c66dc1a4570962b6",
     "image": null
-  }
+  },
+  "createdAt": "2016-06-06T08:00:00.000Z",
+  "updatedAt": "2016-06-06T08:00:00.000Z"
 }
 ```
 
@@ -325,7 +321,6 @@ POST /api/v1/charts
 {
   "description": "Sample chart.",
   "chartType": "ColumnChart",
-  "domainDataType": "string",
   "options": {
     "title": "Population of Largest U.S. Cities",
     "hAxis": {
@@ -378,16 +373,6 @@ HTTP/1.1 200 OK
   "_id": "57837029c66dc1a4570962b6",
   "description": "Sample chart.",
   "chartType": "ColumnChart",
-  "domainDataType": "string",
-  "options": {
-    "title": "Population of Largest U.S. Cities",
-    "hAxis": {
-      "title": "Total Population"
-    },
-    "vAxis": {
-      "title": "City"
-    }
-  },
   "datatable": {
     "cols": [{
       "label": "City",
@@ -417,13 +402,21 @@ HTTP/1.1 200 OK
       }]
     }]
   },
-  "type": "chart",
-  "createdAt": "2016-06-06T08:00:00.000Z",
-  "updatedAt": "2016-06-06T08:00:00.000Z",
+  "options": {
+    "title": "Population of Largest U.S. Cities",
+    "hAxis": {
+      "title": "Total Population"
+    },
+    "vAxis": {
+      "title": "City"
+    }
+  },
   "browserDownloadUrl": {
     "excel": "http://<hostname>:<port>/api/v1/download/excels/57837029c66dc1a4570962b6",
     "image": null
   }
+  "createdAt": "2016-06-06T08:00:00.000Z",
+  "updatedAt": "2016-06-06T08:00:00.000Z"
 }
 ```
 
@@ -462,9 +455,9 @@ HTTP/1.1 200
 ```json
 {
   "_id": "57837029c66dc1a4570962b6",
-  "description": "Year 2016",
   "chartType": "ColumnChart",
-  "domainDataType": "string",
+  "description": "Year 2016",
+  "datatable": null,
   "options": {
     "title": "Population of Largest U.S. Cities in 2016",
     "hAxis": {
@@ -474,14 +467,12 @@ HTTP/1.1 200
       "title": "City"
     }
   },
-  "datatable": null,
-  "type": "chart",
-  "createdAt": "2016-06-06T08:00:00.000Z",
-  "updatedAt": "2016-06-06T09:11:00.000Z",
   "browserDownloadUrl": {
     "excel": "http://<hostname>:<port>/api/v1/download/excels/57837029c66dc1a4570962b6",
     "image": null
-  }
+  },
+  "createdAt": "2016-06-06T08:00:00.000Z",
+  "updatedAt": "2016-06-06T08:00:00.000Z"
 }
 ```
 
@@ -526,18 +517,8 @@ HTTP/1.1 200
 ```json
 {
   "_id": "57837029c66dc1a4570962b6",
-  "description": "New description",
   "chartType": "ColumnChart",
-  "domainDataType": "string",
-  "options": {
-    "title": "New title",
-    "hAxis": {
-      "title": "New hAxis title"
-    },
-    "vAxis": {
-      "title": "New vAxis title"
-    }
-  },
+  "description": "Sample chart.",
   "datatable": {
     "cols": [{
       "label": "City",
@@ -559,13 +540,21 @@ HTTP/1.1 200
       }]
     }]
   },
-  "type": "chart",
-  "createdAt": "2016-06-06T08:00:00.000Z",
-  "updatedAt": "2016-06-06T08:00:00.000Z",
+  "options": {
+    "title": "Population of Largest U.S. Cities",
+    "hAxis": {
+      "title": "Total Population"
+    },
+    "vAxis": {
+      "title": "City"
+    }
+  },
   "browserDownloadUrl": {
     "excel": "http://<hostname>:<port>/api/v1/download/excels/57837029c66dc1a4570962b6",
     "image": null
-  }
+  },
+  "createdAt": "2016-06-06T08:00:00.000Z",
+  "updatedAt": "2016-06-06T08:00:00.000Z"
 }
 ```
 
