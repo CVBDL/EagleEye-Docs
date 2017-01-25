@@ -414,7 +414,7 @@ HTTP/1.1 200 OK
   "browserDownloadUrl": {
     "excel": "http://<hostname>:<port>/api/v1/download/excels/57837029c66dc1a4570962b6",
     "image": null
-  }
+  },
   "createdAt": "2016-06-06T08:00:00.000Z",
   "updatedAt": "2016-06-06T08:00:00.000Z"
 }
