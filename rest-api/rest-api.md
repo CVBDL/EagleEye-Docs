@@ -310,7 +310,6 @@ POST /api/v1/charts
 | Name           | Type   | Description                                              |
 | -------------- | ------ | -------------------------------------------------------- |
 | chartType      | string | Can be one of `LineChart`, `ColumnChart` and `BarChart`. |
-| domainDataType | string | Can be one of `string`, `number`, `date` and `datetime`. |
 | description    | string | Chart description content.                               |
 | options        | object | Chart options.                                           |
 | datatable      | object | Optional. Chart datatable.                               |
@@ -638,7 +637,6 @@ HTTP/1.1 200 OK
     {
       "_id": "57eb2dc15d2722401b951c26",
       "description": "column chart",
-      "domainDataType": "string",
       "options": {
         "title": "Column",
         "hAxis": {
@@ -891,7 +889,6 @@ HTTP/1.1 200 OK
     "_id": "57997784e24561202bc7190e",
     "description": "",
     "chartType": "ImageChart",
-    "domainDataType": "string",
     "options": {
       "title": "Image Test 1",
       "hAxis": {},
@@ -910,7 +907,6 @@ HTTP/1.1 200 OK
     "_id": "5799641be24561202bc7190d",
     "description": "Upload an image as a chart",
     "chartType": "ImageChart",
-    "domainDataType": "string",
     "options": {
       "title": "Image Chart",
       "hAxis": {},
