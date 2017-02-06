@@ -16,6 +16,7 @@
   * [Create a chart](#create-a-chart)
   * [Edit a chart](#edit-a-chart)
   * [Edit data table](#edit-data-table)
+  * [Upload a chart asset](#upload-a-chart-asset)
   * [Delete a chart](#delete-a-chart)
   * [Delete all charts](#delete-all-charts)
 * [Chart Sets](#chart-sets)
@@ -506,6 +507,79 @@ PUT /api/v1/charts/:_id/datatable
   }]
 }
 ```
+
+#### Response
+
+```text
+HTTP/1.1 200
+```
+
+```json
+{
+  "_id": "57837029c66dc1a4570962b6",
+  "chartType": "ColumnChart",
+  "description": "Sample chart.",
+  "datatable": {
+    "cols": [{
+      "label": "City",
+      "type": "string"
+    }, {
+      "label": "2010 Population",
+      "type": "number"
+    }, {
+      "label": "2000 Population",
+      "type": "number"
+    }],
+    "rows": [{
+      "c": [{
+        "v": "Houston, TX"
+      }, {
+        "v": 2099000
+      }, {
+        "v": 2019000
+      }]
+    }]
+  },
+  "options": {
+    "title": "Population of Largest U.S. Cities",
+    "hAxis": {
+      "title": "Total Population"
+    },
+    "vAxis": {
+      "title": "City"
+    }
+  },
+  "browserDownloadUrl": {
+    "excel": "http://<hostname>:<port>/api/v1/download/excels/57837029c66dc1a4570962b6",
+    "image": null
+  },
+  "createdAt": "2016-06-06T08:00:00.000Z",
+  "updatedAt": "2016-06-06T08:00:00.000Z"
+}
+```
+
+### Upload a chart asset
+
+We could upload an `.xlsx` file to update a chart's data table.
+
+We also could upload an image (png or jpeg) for a chart of `ImageChart` type.
+
+```text
+POST /api/v1/charts/:_id/assets
+```
+
+#### Input
+
+| Name           | Type   | Description                                              |
+| -------------- | ------ | -------------------------------------------------------- |
+| Content-Type   | string | *Required.* The content type of the asset. This should be set in the Header. Example: "image/png". |
+| file           | file   | Uploaded file.                                           |
+
+#### Available media types
+
+* `image/png`
+* `image/jpeg`
+* `application/vnd.openxmlformats-officedocument.spreadsheetml.sheet`
 
 #### Response
 
