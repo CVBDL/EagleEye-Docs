@@ -15,6 +15,7 @@
   * [Get a single chart](#get-a-single-chart)
   * [Create a chart](#create-a-chart)
   * [Edit a chart](#edit-a-chart)
+  * [Get data table](#get-data-table)
   * [Edit data table](#edit-data-table)
   * [Upload a chart asset](#upload-a-chart-asset)
   * [Delete a chart](#delete-a-chart)
@@ -473,6 +474,49 @@ HTTP/1.1 200
   },
   "createdAt": "2016-06-06T08:00:00.000Z",
   "updatedAt": "2016-06-06T08:00:00.000Z"
+}
+```
+
+### Get data table
+
+```text
+GET /api/v1/charts/:_id/datatable
+```
+
+#### Parameters
+
+| Name   | Type   | Description                                                                                        |
+| ------ | ------ | -------------------------------------------------------------------------------------------------- |
+| format | string | *Required.* Data table format field. One of `json` and `xlsx`. If specify `xlsx`,
+response will be an attachment. When in a browser, it will start to download the .xlsx file.                           |
+
+#### Response
+
+```text
+HTTP/1.1 200
+```
+
+```json
+{
+  "cols": [{
+    "label": "City",
+    "type": "string"
+  }, {
+    "label": "2010 Population",
+    "type": "number"
+  }, {
+    "label": "2000 Population",
+    "type": "number"
+  }],
+  "rows": [{
+    "c": [{
+      "v": "Houston, TX"
+    }, {
+      "v": 2099000
+    }, {
+      "v": 2019000
+    }]
+  }]
 }
 ```
 
