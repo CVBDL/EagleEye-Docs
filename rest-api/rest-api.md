@@ -222,7 +222,6 @@ HTTP/1.1 200 OK
     }
   },
   "browserDownloadUrl": {
-    "excel": "http://<hostname>:<port>/api/v1/download/excels/57837029c66dc1a4570962b6",
     "image": null
   },
   "createdAt": "2016-06-06T08:00:00.000Z",
@@ -286,7 +285,6 @@ HTTP/1.1 200 OK
     }
   },
   "browserDownloadUrl": {
-    "excel": "http://<hostname>:<port>/api/v1/download/excels/57837029c66dc1a4570962b6",
     "image": null
   },
   "createdAt": "2016-06-06T08:00:00.000Z",
@@ -413,7 +411,6 @@ HTTP/1.1 200 OK
     }
   },
   "browserDownloadUrl": {
-    "excel": "http://<hostname>:<port>/api/v1/download/excels/57837029c66dc1a4570962b6",
     "image": null
   },
   "createdAt": "2016-06-06T08:00:00.000Z",
@@ -469,7 +466,6 @@ HTTP/1.1 200
     }
   },
   "browserDownloadUrl": {
-    "excel": "http://<hostname>:<port>/api/v1/download/excels/57837029c66dc1a4570962b6",
     "image": null
   },
   "createdAt": "2016-06-06T08:00:00.000Z",
@@ -593,7 +589,6 @@ HTTP/1.1 200
     }
   },
   "browserDownloadUrl": {
-    "excel": "http://<hostname>:<port>/api/v1/download/excels/57837029c66dc1a4570962b6",
     "image": null
   },
   "createdAt": "2016-06-06T08:00:00.000Z",
@@ -666,7 +661,6 @@ HTTP/1.1 200
     }
   },
   "browserDownloadUrl": {
-    "excel": "http://<hostname>:<port>/api/v1/download/excels/57837029c66dc1a4570962b6",
     "image": null
   },
   "createdAt": "2016-06-06T08:00:00.000Z",
@@ -800,7 +794,6 @@ HTTP/1.1 200 OK
       },
       "type": "chart",
       "browserDownloadUrl": {
-        "excel": "http://<hostname>:<port>/api/v1/download/excels/57eb2dc15d2722401b951c26",
         "image": null
       },
       "createdAt": "2016-09-28T02:41:05.949Z",
@@ -1017,8 +1010,7 @@ HTTP/1.1 200 OK
     "createdAt": "2016-06-06T08:00:00.000Z",
     "updatedAt": "2016-06-06T08:00:00.000Z",
     "browserDownloadUrl": {
-      "excel": null,
-      "image": "http://<hostname>:<port>/uploadChartImages/IC_604587LwFSXflR2yqjdVPL3VPXi2Ad.png"
+      "image": "http://<hostname>:<port>/upload/IC_604587LwFSXflR2yqjdVPL3VPXi2Ad.png"
     }
   }, {
     "_id": "5799641be24561202bc7190d",
@@ -1036,7 +1028,7 @@ HTTP/1.1 200 OK
     "updatedAt": "2016-06-06T08:00:00.000Z",
     "browserDownloadUrl": {
       "excel": null,
-      "image": "http://<hostname>:<port>/uploadChartImages/IC_6691380Xl7Rn-XOMqYaD9-6fCk2PlH.png"
+      "image": "http://<hostname>:<port>/upload/IC_6691380Xl7Rn-XOMqYaD9-6fCk2PlH.png"
     }
   }]
 }
