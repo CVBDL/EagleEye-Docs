@@ -487,8 +487,7 @@ GET /api/v1/charts/:_id/datatable
 
 | Name   | Type   | Description                                                                                        |
 | ------ | ------ | -------------------------------------------------------------------------------------------------- |
-| format | string | *Required.* Data table format field. One of `json` and `xlsx`. If specify `xlsx`,
-response will be an attachment. When in a browser, it will start to download the .xlsx file.                           |
+| format | string | *Required.* Data table format field. One of `json` and `xlsx`. If specify `xlsx`, response will be an attachment. When in a browser, it will start to download the .xlsx file. |
 
 #### Response
 
