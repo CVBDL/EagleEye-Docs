@@ -988,9 +988,7 @@ HTTP/1.1 200 OK
   "enabled": true,
   "createdAt": "2016-10-06T11:00:00.000Z",
   "updatedAt": "2016-10-06T11:00:00.000Z",
-  "lastState": "success",
-  "lastStartedAt": "2016-10-08T11:00:00.000Z",
-  "lastFinishedAt": "2016-10-08T11:01:15.000Z"
+  "lastState": "success"
 }]
 ```
 
@@ -1015,9 +1013,7 @@ HTTP/1.1 200 OK
   "enabled": true,
   "createdAt": "2016-10-06T11:00:00.000Z",
   "updatedAt": "2016-10-06T11:00:00.000Z",
-  "lastState": "success",
-  "lastStartedAt": "2016-10-08T11:00:00.000Z",
-  "lastFinishedAt": "2016-10-08T11:01:15.000Z"
+  "lastState": "success"
 }
 ```
 
@@ -1062,9 +1058,7 @@ HTTP/1.1 200 OK
   "enabled": true,
   "createdAt": "2016-10-06T11:00:00.000Z",
   "updatedAt": "2016-10-06T11:00:00.000Z",
-  "lastState": null,
-  "lastStartedAt": null,
-  "lastFinishedAt": null
+  "lastState": null
 }
 ```
 
@@ -1107,9 +1101,7 @@ HTTP/1.1 200 OK
   "enabled": false,
   "createdAt": "2016-10-06T11:00:00.000Z",
   "updatedAt": "2016-10-15T11:00:00.000Z",
-  "lastState": null,
-  "lastStartedAt": null,
-  "lastFinishedAt": null
+  "lastState": null
 }
 ```
 
@@ -1162,9 +1154,7 @@ HTTP/1.1 200 OK
     "enabled": true,
     "createdAt": "2016-10-06T11:00:00.000Z",
     "updatedAt": "2016-10-06T11:00:00.000Z",
-    "lastState": "success",
-    "lastStartedAt": "2016-10-08T11:00:00.000Z",
-    "lastFinishedAt": "2016-10-07T11:00:00.000Z"
+    "lastState": "success"
   },
   "startedAt": "2016-10-08T00:01:00.000Z",
   "finishedAt": "2016-10-08T00:01:11.111Z",
