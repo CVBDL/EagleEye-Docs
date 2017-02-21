@@ -27,10 +27,6 @@
   * [Edit a chart set](#edit-a-chart-set)
   * [Delete a chart set](#delete-a-chart-set)
   * [Delete all chart sets](#delete-all-chart-sets)
-* [Search](#search)
-  * [Search both charts and chart sets](#search-both-charts-and-chart-sets)
-  * [Search charts](#search-charts)
-  * [Search chart sets](#search-chart-sets)
 * [Jobs](#jobs)
   * [List jobs](#list-jobs)
   * [Get a single job](#get-a-single-job)
@@ -38,10 +34,8 @@
   * [Edit a job](#edit-a-job)
   * [Delete a job](#delete-a-job)
   * [Restart a job](#restart-a-job)
+  * [List job tasks](#list-job-tasks)
 * [Tasks](#tasks)
-  * [List tasks](#list-tasks)
-  * [Get a single task](#get-a-single-task)
-  * [Create a task](#create-a-task)
   * [Edit task state](#edit-task-state)
 
 ## Overview
@@ -921,156 +915,6 @@ DELETE /api/v1/chart-sets
 HTTP/1.1 204 No Content
 ```
 
-## Search
-
-The search API provides up to **100** results for each search.
-
-### Search both charts and chart sets
-
-```text
-GET /api/v1/search
-```
-
-#### Parameters
-
-| Name  | Type   | Description                                                                                        |
-| ----- | ------ | -------------------------------------------------------------------------------------------------- |
-| q     | string | The search keywords.                                                                               |
-| sort  | string | The sort field. One of `createdAt`, `updatedAt` or `chartType`. Default: `createdAt`     |
-| order | string | The sort order if sort parameter is provided. One of `asc` or `desc`. Default: `desc`              |
-| limit | number | The results count field. Mainly for pagination purpose. Zero value means no limitation. Default: 0 |
-| start | number | The start index of results. Mainly for pagination purpose. Default: 1                              |
-
-#### Response
-
-```text
-HTTP/1.1 200 OK
-```
-
-```json
-{
-  "total_count": 2,
-  "items": [{
-    "_id": "57ccd2fa4db6dc9c45d3164c",
-    "title": "This is a chart set",
-    "description": "This is a chart set",
-    "charts": ["57a93f748fff77fc4789c063", "5791774271bc66244f964908"],
-    "type": "chartset",
-    "createdAt": "2016-06-06T08:00:00.000Z",
-    "updatedAt": "2016-06-06T08:00:00.000Z"
-  }, {
-    "_id": "577f3582dbb89f2c47fc93c0",
-    "title": "The first chart set",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "charts": ["577f7cdc25df25803c723068", "577f7d8825df25803c723069", "577f7a8d25df25803c723066", "577f7c1425df25803c723067", "5779fe9dec794f5c416f9480", "57837029c66dc1a4570962b6"],
-    "type": "chartset",
-    "createdAt": "2016-06-06T08:00:00.000Z",
-    "updatedAt": "2016-06-06T08:00:00.000Z"
-  }]
-}
-```
-
-### Search charts
-
-```text
-GET /api/v1/search/charts
-```
-
-#### Parameters
-
-| Name  | Type   | Description                                                                                        |
-| ----- | ------ | -------------------------------------------------------------------------------------------------- |
-| q     | string | The search keywords.                                                                               |
-| sort  | string | The sort field. One of `createdAt`, `updatedAt` or `chartType`. Default: `createdAt`     |
-| order | string | The sort order if sort parameter is provided. One of `asc` or `desc`. Default: `desc`              |
-| limit | number | The results count field. Mainly for pagination purpose. Zero value means no limitation. Default: 0 |
-| start | number | The start index of results. Mainly for pagination purpose. Default: 1                              |
-
-#### Response
-
-```text
-HTTP/1.1 200 OK
-```
-
-```json
-{
-  "total_count": 2,
-  "items": [{
-    "_id": "57997784e24561202bc7190e",
-    "description": "",
-    "chartType": "ImageChart",
-    "options": {
-      "title": "Image Test 1",
-      "hAxis": {},
-      "vAxis": {},
-      "isStacked": false
-    },
-    "datatable": {},
-    "type": "ImageChart",
-    "createdAt": "2016-06-06T08:00:00.000Z",
-    "updatedAt": "2016-06-06T08:00:00.000Z",
-    "browserDownloadUrl": {
-      "image": "http://<hostname>:<port>/upload/IC_604587LwFSXflR2yqjdVPL3VPXi2Ad.png"
-    }
-  }, {
-    "_id": "5799641be24561202bc7190d",
-    "description": "Upload an image as a chart",
-    "chartType": "ImageChart",
-    "options": {
-      "title": "Image Chart",
-      "hAxis": {},
-      "vAxis": {},
-      "isStacked": false
-    },
-    "datatable": {},
-    "type": "ImageChart",
-    "createdAt": "2016-06-06T08:00:00.000Z",
-    "updatedAt": "2016-06-06T08:00:00.000Z",
-    "browserDownloadUrl": {
-      "excel": null,
-      "image": "http://<hostname>:<port>/upload/IC_6691380Xl7Rn-XOMqYaD9-6fCk2PlH.png"
-    }
-  }]
-}
-```
-
-### Search chart sets
-
-```text
-GET /api/v1/search/chart-sets
-```
-
-#### Parameters
-
-| Name  | Type   | Description                                                                                        |
-| ----- | ------ | -------------------------------------------------------------------------------------------------- |
-| q     | string | The search keywords.                                                                               |
-| sort  | string | The sort field. One of `createdAt`, `updatedAt` or `chartType`. Default: `createdAt`     |
-| order | string | The sort order if sort parameter is provided. One of `asc` or `desc`. Default: `desc`              |
-| limit | number | The results count field. Mainly for pagination purpose. Zero value means no limitation. Default: 0 |
-| start | number | The start index of results. Mainly for pagination purpose. Default: 1                              |
-
-#### Response
-
-```text
-HTTP/1.1 200 OK
-```
-
-```json
-{
-  "total_count": 1,
-  "items": [{
-    "_id": "57859a3061c767d81713a163",
-    "title": "Test chart remove",
-    "description": "Test chart remove",
-    "charts": ["5799641be24561202bc7190d"],
-    "type": "chartset",
-    "createdAt": "2016-06-06T08:00:00.000Z",
-    "updatedAt": "2016-06-06T08:00:00.000Z"
-  }]
-}
-```
-
 ## Jobs
 
 A job in EagleEye Platform means a cron job.
@@ -1295,25 +1139,11 @@ PUT /api/v1/jobs/:_id/restart
 HTTP/1.1 204 No Content
 ```
 
-## Tasks
-
-Whenever a job need to run, it will spawn a task to run the command and
-recore the process and status.
-
-### List tasks
-
-It will only response the latest 100 logs. The results is sorted by `createAt` 
-field in descending order (the latest created the first).
+### List job tasks
 
 ```text
-GET /api/v1/tasks
+GET /api/v1/jobs/:_id/tasks
 ```
-
-#### Parameters
-
-| Name  | Type   | Description                                                 |
-| ----- | ------ | ----------------------------------------------------------- |
-| jobId | string | The job's id that spawn this task.                          |
 
 #### Response
 
@@ -1343,79 +1173,10 @@ HTTP/1.1 200 OK
 }]
 ```
 
-### Get a single task
+## Tasks
 
-```text
-GET /api/v1/tasks/:_id
-```
-
-#### Response
-
-```text
-HTTP/1.1 200 OK
-```
-
-```json
-{
-  "_id": "25dca45d69ea5f991a6b4076",
-  "job": {
-    "_id": "57fca45d69ea5f081a6b4076",
-    "name": "Code Review By Month",
-    "expression": "0 0 * * *",
-    "command": "/path/to/command/codecollaborator2eagleeye.exe",
-    "enabled": true,
-    "createdAt": "2016-10-06T11:00:00.000Z",
-    "updatedAt": "2016-10-06T11:00:00.000Z",
-    "lastState": "success",
-    "lastStartedAt": "2016-10-08T11:00:00.000Z",
-    "lastFinishedAt": "2016-10-07T11:00:00.000Z"
-  },
-  "createdAt": "2016-10-08T00:01:00.000Z",
-  "startedAt": "2016-10-08T00:01:00.000Z",
-  "finishedAt": "2016-10-08T00:01:11.111Z",
-  "state": "success"
-}
-```
-
-### Create a task
-
-```text
-POST /api/v1/tasks
-```
-
-#### Input
-
-| Name     | Type   | Description                                              |
-| -------- | ------ | -------------------------------------------------------- |
-| jobId    | string | The id of the job spawn this task.                       |
-
-#### Response
-
-```text
-HTTP/1.1 200 OK
-```
-
-```json
-{
-  "_id": "25dca45d69ea5f991a6b4076",
-  "job": {
-    "_id": "57fca45d69ea5f081a6b4076",
-    "name": "Code Review By Month",
-    "expression": "0 0 * * *",
-    "command": "/path/to/command/codecollaborator2eagleeye.exe",
-    "enabled": true,
-    "createdAt": "2016-10-06T11:00:00.000Z",
-    "updatedAt": "2016-10-06T11:00:00.000Z",
-    "lastState": "success",
-    "lastStartedAt": "2016-10-08T11:00:00.000Z",
-    "lastFinishedAt": "2016-10-08T11:00:30.000Z"
-  },
-  "createdAt": "2016-10-08T00:01:00.000Z",
-  "startedAt": "2016-10-08T00:01:00.000Z",
-  "finishedAt": null,
-  "state": null
-}
-```
+Whenever a job need to run, it will spawn a task to run the command and
+recore the process and status.
 
 ### Edit task state
 
