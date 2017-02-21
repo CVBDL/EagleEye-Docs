@@ -1166,7 +1166,6 @@ HTTP/1.1 200 OK
     "lastStartedAt": "2016-10-08T11:00:00.000Z",
     "lastFinishedAt": "2016-10-07T11:00:00.000Z"
   },
-  "createdAt": "2016-10-08T00:01:00.000Z",
   "startedAt": "2016-10-08T00:01:00.000Z",
   "finishedAt": "2016-10-08T00:01:11.111Z",
   "state": "success"
@@ -1219,7 +1218,6 @@ HTTP/1.1 200 OK
     "lastStartedAt": "2016-10-08T11:00:00.000Z",
     "lastFinishedAt": "2016-10-08T11:00:30.000Z"
   },
-  "createdAt": "2016-10-08T00:01:00.000Z",
   "startedAt": "2016-10-08T00:01:00.000Z",
   "finishedAt": "2016-10-08T00:01:12.666Z",
   "state": "success"
