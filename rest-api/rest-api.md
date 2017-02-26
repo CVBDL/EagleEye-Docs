@@ -19,14 +19,12 @@
   * [Edit data table](#edit-data-table)
   * [Upload a chart asset](#upload-a-chart-asset)
   * [Delete a chart](#delete-a-chart)
-  * [Delete all charts](#delete-all-charts)
 * [Chart Sets](#chart-sets)
   * [List chart sets](#list-chart-sets)
   * [Get a single chart set](#get-a-single-chart-set)
   * [Create a chart set](#create-a-chart-set)
   * [Edit a chart set](#edit-a-chart-set)
   * [Delete a chart set](#delete-a-chart-set)
-  * [Delete all chart sets](#delete-all-chart-sets)
 * [Jobs](#jobs)
   * [List jobs](#list-jobs)
   * [Get a single job](#get-a-single-job)
@@ -674,18 +672,6 @@ DELETE /api/v1/charts/:_id
 HTTP/1.1 204 No Content
 ```
 
-### Delete all charts
-
-```text
-DELETE /api/v1/charts
-```
-
-#### Response
-
-```text
-HTTP/1.1 204 No Content
-```
-
 ## Chart Sets
 
 ### List chart sets
@@ -895,18 +881,6 @@ HTTP/1.1 200 OK
 
 ```text
 DELETE /api/v1/chart-sets/:_id
-```
-
-#### Response
-
-```text
-HTTP/1.1 204 No Content
-```
-
-### Delete all chart sets
-
-```text
-DELETE /api/v1/chart-sets
 ```
 
 #### Response
