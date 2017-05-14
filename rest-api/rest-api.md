@@ -16,7 +16,6 @@
   * [Create a chart](#create-a-chart)
   * [Edit a chart](#edit-a-chart)
   * [Get data table](#get-data-table)
-  * [Edit data table](#edit-data-table)
   * [Upload a chart asset](#upload-a-chart-asset)
   * [Delete a chart](#delete-a-chart)
 * [Chart Sets](#chart-sets)
@@ -504,87 +503,6 @@ HTTP/1.1 200
       "v": 2019000
     }]
   }]
-}
-```
-
-### Edit data table
-
-```text
-PUT /api/v1/charts/:_id/datatable
-```
-
-#### Example
-
-```json
-{
-  "cols": [{
-    "label": "City",
-    "type": "string"
-  }, {
-    "label": "2010 Population",
-    "type": "number"
-  }, {
-    "label": "2000 Population",
-    "type": "number"
-  }],
-  "rows": [{
-    "c": [{
-      "v": "Houston, TX"
-    }, {
-      "v": 2099000
-    }, {
-      "v": 2019000
-    }]
-  }]
-}
-```
-
-#### Response
-
-```text
-HTTP/1.1 200
-```
-
-```json
-{
-  "_id": "57837029c66dc1a4570962b6",
-  "chartType": "ColumnChart",
-  "description": "Sample chart.",
-  "datatable": {
-    "cols": [{
-      "label": "City",
-      "type": "string"
-    }, {
-      "label": "2010 Population",
-      "type": "number"
-    }, {
-      "label": "2000 Population",
-      "type": "number"
-    }],
-    "rows": [{
-      "c": [{
-        "v": "Houston, TX"
-      }, {
-        "v": 2099000
-      }, {
-        "v": 2019000
-      }]
-    }]
-  },
-  "options": {
-    "title": "Population of Largest U.S. Cities",
-    "hAxis": {
-      "title": "Total Population"
-    },
-    "vAxis": {
-      "title": "City"
-    }
-  },
-  "browserDownloadUrl": {
-    "image": null
-  },
-  "createdAt": "2016-06-06T08:00:00.000Z",
-  "updatedAt": "2016-06-06T08:00:00.000Z"
 }
 ```
 
