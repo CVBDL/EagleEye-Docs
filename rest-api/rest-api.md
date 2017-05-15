@@ -212,9 +212,7 @@ HTTP/1.1 200 OK
       "title": "City"
     }
   },
-  "browserDownloadUrl": {
-    "image": null
-  },
+  "imageUrl": null,
   "createdAt": "2016-06-06T08:00:00.000Z",
   "updatedAt": "2016-06-06T08:00:00.000Z"
 }]
@@ -275,9 +273,7 @@ HTTP/1.1 200 OK
       "title": "City"
     }
   },
-  "browserDownloadUrl": {
-    "image": null
-  },
+  "imageUrl": null,
   "createdAt": "2016-06-06T08:00:00.000Z",
   "updatedAt": "2016-06-06T08:00:00.000Z"
 }
@@ -401,9 +397,7 @@ HTTP/1.1 200 OK
       "title": "City"
     }
   },
-  "browserDownloadUrl": {
-    "image": null
-  },
+  "imageUrl": null,
   "createdAt": "2016-06-06T08:00:00.000Z",
   "updatedAt": "2016-06-06T08:00:00.000Z"
 }
@@ -456,9 +450,7 @@ HTTP/1.1 200
       "title": "City"
     }
   },
-  "browserDownloadUrl": {
-    "image": null
-  },
+  "imageUrl": null,
   "createdAt": "2016-06-06T08:00:00.000Z",
   "updatedAt": "2016-06-06T08:00:00.000Z"
 }
@@ -570,9 +562,7 @@ HTTP/1.1 200
       "title": "City"
     }
   },
-  "browserDownloadUrl": {
-    "image": null
-  },
+  "imageUrl": null,
   "createdAt": "2016-06-06T08:00:00.000Z",
   "updatedAt": "2016-06-06T08:00:00.000Z"
 }
@@ -691,9 +681,7 @@ HTTP/1.1 200 OK
         }]
       },
       "type": "chart",
-      "browserDownloadUrl": {
-        "image": null
-      },
+      "imageUrl": null,
       "createdAt": "2016-09-28T02:41:05.949Z",
       "updatedAt": "2016-09-28T02:49:54.768Z"
     }
