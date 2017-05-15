@@ -16,7 +16,7 @@
   * [Create a chart](#create-a-chart)
   * [Edit a chart](#edit-a-chart)
   * [Get data table](#get-data-table)
-  * [Upload a chart asset](#upload-a-chart-asset)
+  * [Upload a chart file](#upload-a-chart-file)
   * [Delete a chart](#delete-a-chart)
 * [Chart Sets](#chart-sets)
   * [List chart sets](#list-chart-sets)
@@ -498,14 +498,14 @@ HTTP/1.1 200
 }
 ```
 
-### Upload a chart asset
+### Upload a chart file
 
 We could upload an `.xlsx` file to update a chart's data table.
 
 We also could upload an image (png or jpeg) for a chart of `ImageChart` type.
 
 ```text
-POST /api/v1/charts/:_id/assets
+POST /api/v1/charts/:_id/files
 ```
 
 #### Input
